@@ -1,6 +1,6 @@
 extends Label
 
-@onready var score_manager = get_node("/root/TestScene/ScoreManager")
+@onready var score_manager = get_node("../ScoreManager")
 
 func _ready() -> void:
 	# Connect to ScoreManager's hit_result signal

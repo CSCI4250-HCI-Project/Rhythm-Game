@@ -18,7 +18,7 @@ The game provides instant feedback and scoring based on timing accuracy (Perfect
 
 ## Requirements
 - Godot Engine 4.5 or later
-- Webcam (↑ ↓ ← → arrow for testing)
+- Webcam (↑ ↓ ← → arrows for testing)
 - A `.wav` file as the background music (add your own under `res://audio/`)
 - A computer with a **Vulkan-compatible GPU**
 

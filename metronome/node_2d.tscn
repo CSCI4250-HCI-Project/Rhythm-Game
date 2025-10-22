@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://beinq3lg2butu"]
+
+[ext_resource type="Script" uid="uid://ch2stajnxomxw" path="res://MainNode.gd" id="1_0hol4"]
+[ext_resource type="AudioStream" uid="uid://cl5igowtfl3l5" path="res://metronome-85688.mp3" id="3_0hol4"]
+
+[node name="Metronome" type="Node2D"]
+script = ExtResource("1_0hol4")
+
+[node name="Button60BPM" type="Button" parent="."]
+offset_left = 159.0
+offset_top = 200.0
+offset_right = 459.0
+offset_bottom = 350.0
+toggle_mode = true
+button_pressed = true
+text = "60 BPM"
+
+[node name="Button120BPM" type="Button" parent="."]
+offset_left = 830.0
+offset_top = 200.0
+offset_right = 1130.0
+offset_bottom = 350.0
+toggle_mode = true
+text = "120 BPM"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0hol4")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="HUD"]
+offset_left = 533.0
+offset_top = 100.0
+offset_right = 640.0
+offset_bottom = 123.0
+scale = Vector2(2, 2)
+text = "A Metronome"

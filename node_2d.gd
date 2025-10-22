@@ -3,4 +3,4 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("Hello, Rhythm Game!")
+    print("Hello, Rhythm Game!")

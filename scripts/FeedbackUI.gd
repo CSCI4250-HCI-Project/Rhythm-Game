@@ -3,28 +3,35 @@ extends Label
 @onready var score_manager = get_node("../ScoreManager")
 
 func _ready() -> void:
-	# Connect to ScoreManager's hit_result signal
-	if score_manager:
-		score_manager.connect("hit_result", Callable(self, "_on_hit_result"))
-		text = "Score: %d" % score_manager.score
-	else:
-		print("⚠️ ScoreManager not found!")
+    # Connect to ScoreManager's hit_result signal
+    if score_manager:
+        score_manager.connect("hit_result", Callable(self, "_on_hit_result"))
+        text = "Score: %d" % score_manager.score
+    else:
+        push_warning("⚠️ ScoreManager not found!")
 
-# Show hit/miss messages temporarily
+# Called when a hit result is emitted from ScoreManager
 func _on_hit_result(result: String, new_score: int, combo: int) -> void:
-	var msg = "%s! Combo: %d" % [result, combo]
-	text = msg
+    # Set color based on result
+    match result:
+        "Perfect":
+            add_theme_color_override("font_color", Color(0, 1, 0))  # Green
+        "Good":
+            add_theme_color_override("font_color", Color(1, 1, 0))  # Yellow
+        "Miss":
+            add_theme_color_override("font_color", Color(1, 0, 0))  # Red
+    
+    # Update the text
+    text = "%s! Combo: %d" % [result, combo]
+    modulate.a = 1.0  # Reset transparency if it was fading out
 
-	# Timer to revert text after a short delay
-	var t = Timer.new()
-	t.wait_time = 0.8
-	t.one_shot = true
-	add_child(t)
-	t.start()
-	t.timeout.connect(_on_timer_timeout.bind(new_score, t))
+    # Create a tween to fade out text, then restore score display
+    var tween = create_tween()
+    tween.tween_property(self, "modulate:a", 0.0, 0.6).set_delay(0.5)
+    tween.tween_callback(Callable(self, "_restore_score_text").bind(new_score))
 
-# Called when the feedback timer finishes
-func _on_timer_timeout(new_score: int, t: Timer) -> void:
-	text = "Score: %d" % new_score
-	remove_child(t)
-	t.queue_free()
+func _restore_score_text(new_score: int) -> void:
+    # Restore normal text and color
+    add_theme_color_override("font_color", Color(1, 1, 1))
+    text = "Score: %d" % new_score
+    modulate.a = 1.0

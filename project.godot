@@ -11,10 +11,19 @@ config_version=5
 [application]
 
 config/name="Rhythm Game"
-run/main_scene="res://scenes/TestScene.tscn"
+run/main_scene="uid://dt7iykid55iid"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 ScoreManager="*res://scripts/ScoreManager.gd"
+GameSettings="*res://scripts/GameSettings.gd"
+
+[display]
+
+window/stretch/aspect="ignore"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.3019608, 0.3019608, 0.3019608, 1)

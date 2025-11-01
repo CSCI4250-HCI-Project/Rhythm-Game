@@ -1,0 +1,157 @@
+{
+  "song_file": "Billie Jean by Michael Jackson.mp3",
+  "title": "Billie Jean",
+  "artist": "Michael Jackson",
+  "bpm": 117,
+  "time_signature": "4/4",
+  "difficulty": "Normal",
+  "notes": [
+    {"time": 1.026, "lane": 0},
+    {"time": 1.539, "lane": 2},
+    {"time": 2.052, "lane": 1},
+    {"time": 2.565, "lane": 3},
+    
+    {"time": 3.078, "lane": 0},
+    {"time": 3.591, "lane": 2},
+    {"time": 4.104, "lane": 1},
+    {"time": 4.617, "lane": 3},
+    
+    {"time": 5.130, "lane": 2},
+    {"time": 5.643, "lane": 0},
+    {"time": 6.156, "lane": 3},
+    {"time": 6.669, "lane": 1},
+    
+    {"time": 7.182, "lane": 2},
+    {"time": 7.695, "lane": 0},
+    {"time": 8.208, "lane": 3},
+    {"time": 8.721, "lane": 1},
+    
+    {"time": 9.234, "lane": 0},
+    {"time": 9.747, "lane": 2},
+    {"time": 10.260, "lane": 1},
+    {"time": 10.773, "lane": 3},
+    
+    {"time": 11.286, "lane": 0},
+    {"time": 11.799, "lane": 2},
+    {"time": 12.312, "lane": 1},
+    {"time": 12.825, "lane": 3},
+    
+    {"time": 13.338, "lane": 2},
+    {"time": 13.851, "lane": 0},
+    {"time": 14.364, "lane": 3},
+    {"time": 14.877, "lane": 1},
+    
+    {"time": 15.390, "lane": 0},
+    {"time": 15.903, "lane": 2},
+    {"time": 16.416, "lane": 1},
+    {"time": 16.929, "lane": 3},
+    
+    {"time": 17.442, "lane": 2},
+    {"time": 17.955, "lane": 0},
+    {"time": 18.468, "lane": 3},
+    {"time": 18.981, "lane": 1},
+    
+    {"time": 19.494, "lane": 0},
+    {"time": 20.007, "lane": 2},
+    {"time": 20.520, "lane": 1},
+    {"time": 21.033, "lane": 3},
+    
+    {"time": 21.546, "lane": 0},
+    {"time": 21.803, "lane": 2},
+    {"time": 22.059, "lane": 1},
+    {"time": 22.315, "lane": 3},
+    {"time": 22.572, "lane": 0},
+    
+    {"time": 23.085, "lane": 2},
+    {"time": 23.598, "lane": 1},
+    {"time": 24.111, "lane": 3},
+    {"time": 24.624, "lane": 0},
+    
+    {"time": 25.137, "lane": 2},
+    {"time": 25.650, "lane": 1},
+    {"time": 26.163, "lane": 3},
+    {"time": 26.676, "lane": 0},
+    
+    {"time": 27.189, "lane": 1},
+    {"time": 27.702, "lane": 2},
+    {"time": 28.215, "lane": 3},
+    {"time": 28.728, "lane": 0},
+    
+    {"time": 29.241, "lane": 2},
+    {"time": 29.754, "lane": 1},
+    {"time": 30.267, "lane": 3},
+    {"time": 30.780, "lane": 0},
+    
+    {"time": 31.293, "lane": 2},
+    {"time": 31.806, "lane": 1},
+    {"time": 32.319, "lane": 3},
+    {"time": 32.832, "lane": 0},
+    
+    {"time": 33.345, "lane": 1},
+    {"time": 33.858, "lane": 2},
+    {"time": 34.371, "lane": 3},
+    {"time": 34.884, "lane": 0},
+    
+    {"time": 35.397, "lane": 2},
+    {"time": 35.910, "lane": 1},
+    {"time": 36.423, "lane": 3},
+    {"time": 36.936, "lane": 0},
+    
+    {"time": 37.449, "lane": 2},
+    {"time": 37.962, "lane": 1},
+    {"time": 38.475, "lane": 3},
+    {"time": 38.988, "lane": 2},
+    
+    {"time": 39.501, "lane": 0},
+    {"time": 40.014, "lane": 1},
+    {"time": 40.527, "lane": 3},
+    {"time": 41.040, "lane": 2},
+    
+    {"time": 41.553, "lane": 0},
+    {"time": 42.066, "lane": 1},
+    {"time": 42.579, "lane": 3},
+    {"time": 43.092, "lane": 2},
+    
+    {"time": 43.605, "lane": 0},
+    {"time": 44.118, "lane": 1},
+    {"time": 44.631, "lane": 3},
+    {"time": 45.144, "lane": 2},
+    
+    {"time": 45.657, "lane": 0},
+    {"time": 46.170, "lane": 1},
+    {"time": 46.683, "lane": 3},
+    {"time": 47.196, "lane": 2},
+    
+    {"time": 47.709, "lane": 0},
+    {"time": 48.222, "lane": 1},
+    {"time": 48.735, "lane": 3},
+    {"time": 49.248, "lane": 2},
+    
+    {"time": 49.761, "lane": 0},
+    {"time": 50.274, "lane": 1},
+    {"time": 50.787, "lane": 3},
+    {"time": 51.300, "lane": 2},
+    
+    {"time": 51.813, "lane": 0},
+    {"time": 52.326, "lane": 1},
+    {"time": 52.839, "lane": 3},
+    {"time": 53.352, "lane": 2},
+    
+    {"time": 53.865, "lane": 0},
+    {"time": 54.378, "lane": 1},
+    {"time": 54.891, "lane": 3},
+    {"time": 55.404, "lane": 2},
+    
+    {"time": 55.917, "lane": 0},
+    {"time": 56.430, "lane": 1},
+    {"time": 56.943, "lane": 3},
+    {"time": 57.456, "lane": 2},
+    
+    {"time": 57.969, "lane": 0},
+    {"time": 58.482, "lane": 1},
+    {"time": 58.995, "lane": 3},
+    {"time": 59.508, "lane": 2},
+    
+    {"time": 60.021, "lane": 0}
+  ]
+}

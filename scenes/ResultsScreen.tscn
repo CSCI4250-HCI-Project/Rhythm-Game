@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbwmf0fj82wml"]
+
+[ext_resource type="Script" uid="uid://ydn1rhbc8ad8" path="res://scenes/ResultsScreen.gd" id="1_hcrmq"]
+
+[node name="ResultsScreen" type="Control" node_paths=PackedStringArray("song_title_label", "score_label", "accuracy_label", "max_combo_label", "perfect_label", "good_label", "miss_label", "high_score_label", "new_high_score_label", "retry_button", "menu_button")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_hcrmq")
+song_title_label = NodePath("SongTitle")
+score_label = NodePath("Score")
+accuracy_label = NodePath("Accuracy")
+max_combo_label = NodePath("MaxCombo")
+perfect_label = NodePath("Perfect")
+good_label = NodePath("Good")
+miss_label = NodePath("Miss")
+high_score_label = NodePath("HighScore")
+new_high_score_label = NodePath("NewHighScore")
+retry_button = NodePath("Retry")
+menu_button = NodePath("ReturnToMenu")
+
+[node name="SongTitle" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Accuracy" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="MaxCombo" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Perfect" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Good" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Miss" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="HighScore" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="NewHighScore" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Retry" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="ReturnToMenu" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

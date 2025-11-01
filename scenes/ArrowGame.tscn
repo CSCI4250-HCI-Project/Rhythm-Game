@@ -1,8 +1,5 @@
-[gd_scene load_steps=15 format=4 uid="uid://ch0qek2050aft"]
+[gd_scene load_steps=26 format=4 uid="uid://ch0qek2050aft"]
 
-[ext_resource type="Script" uid="uid://btqidgvlldkal" path="res://scripts/ArrowGame.gd" id="1_sf72m"]
-[ext_resource type="PackedScene" uid="uid://bnjqqahrpxss4" path="res://scenes/Note.tscn" id="2_35htu"]
-[ext_resource type="Texture2D" uid="uid://cw1d0i7g8penh" path="res://assets/visuals/circle_middle.png" id="3_35htu"]
 [ext_resource type="Texture2D" uid="uid://c7wpyp1nlpdex" path="res://assets/visuals/up_arrow.png" id="3_snj71"]
 [ext_resource type="Script" uid="uid://dxhi777xljeit" path="res://scripts/Center.gd" id="4_snj71"]
 [ext_resource type="Texture2D" uid="uid://cdl42sid1fjfk" path="res://assets/visuals/down_arrow.png" id="4_u5e66"]
@@ -11,6 +8,95 @@
 [ext_resource type="Script" uid="uid://bbq6cbk5wiqup" path="res://scripts/FeedbackLabel.gd" id="9_u5e66"]
 [ext_resource type="Script" uid="uid://dp7arf3lo38df" path="res://scripts/Conductor.gd" id="10_8071p"]
 [ext_resource type="Script" uid="uid://dosrp103jmi2y" path="res://scripts/ScoreManager.gd" id="11_gdn2m"]
+
+[sub_resource type="Gradient" id="Gradient_8071p"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gdn2m"]
+gradient = SubResource("Gradient_8071p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8071p"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(600, 600, 1)
+direction = Vector3(0, 0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 400.0
+angular_velocity_min = -360.0
+angular_velocity_max = 359.99997
+gravity = Vector3(0, 500, 0)
+scale_min = 3.0
+scale_max = 6.0
+color = Color(1, 0.39215687, 0.10980392, 1)
+color_ramp = SubResource("GradientTexture1D_gdn2m")
+
+[sub_resource type="Gradient" id="Gradient_gdn2m"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qpb1n"]
+gradient = SubResource("Gradient_gdn2m")
+fill = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gdn2m"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(600, 600, 1)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 200.0
+initial_velocity_max = 400.0
+angular_velocity_min = -360.0
+angular_velocity_max = 359.99997
+gravity = Vector3(0, 500, 0)
+scale_min = 3.0
+scale_max = 6.0
+color = Color(1, 0.21960784, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_e8e77"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7nq8h"]
+gradient = SubResource("Gradient_e8e77")
+fill = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qpb1n"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(600, 600, 1)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 200.0
+initial_velocity_max = 400.0
+angular_velocity_min = -360.0
+angular_velocity_max = 359.99997
+gravity = Vector3(0, 500, 0)
+scale_min = 3.0
+scale_max = 6.0
+color = Color(0.07058824, 0.22745098, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_2gh5c"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_10a8m"]
+gradient = SubResource("Gradient_2gh5c")
+fill = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e8e77"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(600, 600, 1)
+direction = Vector3(1, -1, 0)
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+angular_velocity_min = -360.0
+angular_velocity_max = 359.99997
+gravity = Vector3(0, 500, 0)
+scale_min = 3.0
+scale_max = 6.0
+color = Color(0.02745098, 0.50980395, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_3vjf6"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s1pl0"]
+gradient = SubResource("Gradient_3vjf6")
+fill = 1
 
 [sub_resource type="Image" id="Image_gdn2m"]
 data = {
@@ -1778,16 +1864,118 @@ cache/0/51/0/glyphs/3/uv_rect = Rect2(0, 0, 0, 0)
 cache/0/51/0/glyphs/3/texture_idx = -1
 
 [node name="ArrowGame" type="Node2D"]
-script = ExtResource("1_sf72m")
-note_scene = ExtResource("2_35htu")
 
-[node name="Center" type="TextureRect" parent="." node_paths=PackedStringArray("arrow_up", "arrow_down", "arrow_left", "arrow_right", "feedback_label", "score_label")]
-offset_left = 1015.0
+[node name="ArrowUp" type="TextureRect" parent="."]
+offset_left = 1020.0
+offset_top = 146.0
+offset_right = 1620.0
+offset_bottom = 746.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_snj71")
+expand_mode = 1
+
+[node name="UpParticles" type="GPUParticles2D" parent="ArrowUp"]
+emitting = false
+amount = 150
+lifetime = 0.8
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_8071p")
+
+[node name="UpPointLight" type="PointLight2D" parent="ArrowUp"]
+z_index = 10
+enabled = false
+color = Color(0, 0.8509804, 1, 1)
+energy = 10.0
+texture = SubResource("GradientTexture2D_qpb1n")
+texture_scale = 10.0
+
+[node name="ArrowDown" type="TextureRect" parent="."]
+offset_left = 1020.0
+offset_top = 1630.0
+offset_right = 1620.0
+offset_bottom = 2230.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_u5e66")
+expand_mode = 1
+
+[node name="DownParticles" type="GPUParticles2D" parent="ArrowDown"]
+emitting = false
+amount = 150
+lifetime = 0.8
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_gdn2m")
+
+[node name="DownPointLight" type="PointLight2D" parent="ArrowDown"]
+z_index = 10
+enabled = false
+color = Color(0, 0.8509804, 1, 1)
+energy = 10.0
+texture = SubResource("GradientTexture2D_7nq8h")
+texture_scale = 10.0
+
+[node name="ArrowLeft" type="TextureRect" parent="."]
+offset_left = 278.0
 offset_top = 888.0
-offset_right = 1291.0
-offset_bottom = 1194.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_35htu")
+offset_right = 878.0
+offset_bottom = 1488.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_8071p")
+expand_mode = 1
+
+[node name="LeftParticles" type="GPUParticles2D" parent="ArrowLeft"]
+emitting = false
+amount = 150
+lifetime = 0.8
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_qpb1n")
+
+[node name="LeftPointLight" type="PointLight2D" parent="ArrowLeft"]
+z_index = 10
+enabled = false
+color = Color(0, 0.8509804, 1, 1)
+energy = 10.0
+texture = SubResource("GradientTexture2D_10a8m")
+texture_scale = 10.0
+
+[node name="ArrowRight" type="TextureRect" parent="."]
+offset_left = 1762.0
+offset_top = 888.0
+offset_right = 2362.0
+offset_bottom = 1488.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_gdn2m")
+expand_mode = 1
+
+[node name="RightParticles" type="GPUParticles2D" parent="ArrowRight"]
+emitting = false
+amount = 150
+lifetime = 0.8
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_e8e77")
+
+[node name="RightPointLight" type="PointLight2D" parent="ArrowRight"]
+z_index = 10
+enabled = false
+color = Color(0, 0.8509804, 1, 1)
+energy = 10.0
+texture = SubResource("GradientTexture2D_s1pl0")
+texture_scale = 10.0
+
+[node name="Center" type="TextureRect" parent="." node_paths=PackedStringArray("arrow_up", "arrow_down", "arrow_left", "arrow_right", "feedback_label", "score_label", "music_player", "conductor", "up_particles", "down_particles", "left_particles", "right_particles", "up_light", "down_light", "left_light", "right_light")]
+offset_left = 1020.00006
+offset_top = 888.0
+offset_right = 1620.0
+offset_bottom = 1488.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_snj71")
 script = ExtResource("4_snj71")
 arrow_up = NodePath("../ArrowUp")
 arrow_down = NodePath("../ArrowDown")
@@ -1795,46 +1983,16 @@ arrow_left = NodePath("../ArrowLeft")
 arrow_right = NodePath("../ArrowRight")
 feedback_label = NodePath("../FeedbackLabel")
 score_label = NodePath("../ScoreLabel")
-
-[node name="ArrowUp" type="TextureRect" parent="."]
-offset_left = 1040.0
-offset_top = 146.0
-offset_right = 1361.0
-offset_bottom = 707.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_snj71")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="ArrowUp"]
-
-[node name="ArrowDown" type="TextureRect" parent="."]
-offset_left = 1032.0
-offset_top = 1621.0
-offset_right = 1398.0
-offset_bottom = 2194.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("4_u5e66")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="ArrowDown"]
-
-[node name="ArrowLeft" type="TextureRect" parent="."]
-offset_left = 210.0
-offset_top = 912.0
-offset_right = 786.0
-offset_bottom = 1284.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("5_8071p")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="ArrowLeft"]
-
-[node name="ArrowRight" type="TextureRect" parent="."]
-offset_left = 1780.0
-offset_top = 912.0
-offset_right = 2329.0
-offset_bottom = 1236.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_gdn2m")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="ArrowRight"]
+music_player = NodePath("../AudioStreamPlayer")
+conductor = NodePath("../Conductor")
+up_particles = NodePath("../ArrowUp/UpParticles")
+down_particles = NodePath("../ArrowDown/DownParticles")
+left_particles = NodePath("../ArrowLeft/LeftParticles")
+right_particles = NodePath("../ArrowRight/RightParticles")
+up_light = NodePath("../ArrowUp/UpPointLight")
+down_light = NodePath("../ArrowDown/DownPointLight")
+left_light = NodePath("../ArrowLeft/LeftPointLight")
+right_light = NodePath("../ArrowRight/RightPointLight")
 
 [node name="NoteSpawner" type="Node" parent="."]
 
@@ -1846,8 +2004,6 @@ offset_bottom = 441.0
 theme_override_fonts/font = SubResource("FontFile_gdn2m")
 theme_override_font_sizes/font_size = 50
 script = ExtResource("9_u5e66")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Conductor" type="Node" parent="."]
 script = ExtResource("10_8071p")
@@ -1864,3 +2020,17 @@ offset_right = 393.0
 offset_bottom = 263.0
 theme_override_fonts/font = SubResource("FontFile_qpb1n")
 theme_override_font_sizes/font_size = 50
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="TimerLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="CountdownLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ComboMilestoneLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://brwr7ocn4b36v"
+path="res://.godot/imported/Rolling In The Deep by Adele.mp3-e183add578a9774d046a9a8759e28e9f.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Rolling In The Deep by Adele.mp3"
+dest_files=["res://.godot/imported/Rolling In The Deep by Adele.mp3-e183add578a9774d046a9a8759e28e9f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

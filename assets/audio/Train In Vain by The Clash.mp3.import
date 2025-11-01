@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bo6n3xcletrjq"
+path="res://.godot/imported/Train In Vain by The Clash.mp3-bbc6fe32de79ee576bb5d420c251f653.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Train In Vain by The Clash.mp3"
+dest_files=["res://.godot/imported/Train In Vain by The Clash.mp3-bbc6fe32de79ee576bb5d420c251f653.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

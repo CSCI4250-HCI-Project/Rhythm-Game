@@ -83,6 +83,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Set Fire To The Rain by Adele"
 
+[node name="I\'ll Follow The Sun by The Beatles" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "I'll Follow The Sun by The Beatles"
+
 [node name="BackButton" type="Button" parent="."]
 custom_minimum_size = Vector2(150, 60)
 layout_mode = 1

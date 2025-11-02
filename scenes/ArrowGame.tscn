@@ -1969,7 +1969,7 @@ energy = 10.0
 texture = SubResource("GradientTexture2D_s1pl0")
 texture_scale = 10.0
 
-[node name="Center" type="TextureRect" parent="." node_paths=PackedStringArray("arrow_up", "arrow_down", "arrow_left", "arrow_right", "feedback_label", "score_label", "music_player", "conductor", "up_particles", "down_particles", "left_particles", "right_particles", "up_light", "down_light", "left_light", "right_light")]
+[node name="Center" type="TextureRect" parent="." node_paths=PackedStringArray("arrow_up", "arrow_down", "arrow_left", "arrow_right", "feedback_label", "score_label", "timer_label", "countdown_label", "combo_milestone_label", "music_player", "conductor", "up_particles", "down_particles", "left_particles", "right_particles", "up_light", "down_light", "left_light", "right_light")]
 offset_left = 1020.00006
 offset_top = 888.0
 offset_right = 1620.0
@@ -1983,6 +1983,9 @@ arrow_left = NodePath("../ArrowLeft")
 arrow_right = NodePath("../ArrowRight")
 feedback_label = NodePath("../FeedbackLabel")
 score_label = NodePath("../ScoreLabel")
+timer_label = NodePath("../TimerLabel")
+countdown_label = NodePath("../CountdownLabel")
+combo_milestone_label = NodePath("../ComboMilestoneLabel")
 music_player = NodePath("../AudioStreamPlayer")
 conductor = NodePath("../Conductor")
 up_particles = NodePath("../ArrowUp/UpParticles")
@@ -1997,10 +2000,10 @@ right_light = NodePath("../ArrowRight/RightPointLight")
 [node name="NoteSpawner" type="Node" parent="."]
 
 [node name="FeedbackLabel" type="Label" parent="."]
-offset_left = 137.0
-offset_top = 291.0
-offset_right = 387.0
-offset_bottom = 441.0
+offset_left = 362.0
+offset_top = 419.0
+offset_right = 612.0
+offset_bottom = 569.0
 theme_override_fonts/font = SubResource("FontFile_gdn2m")
 theme_override_font_sizes/font_size = 50
 script = ExtResource("9_u5e66")
@@ -2014,22 +2017,34 @@ script = ExtResource("10_8071p")
 script = ExtResource("11_gdn2m")
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_left = 127.0
-offset_top = 99.0
-offset_right = 393.0
-offset_bottom = 263.0
+offset_left = 303.0
+offset_top = 175.0
+offset_right = 569.0
+offset_bottom = 339.0
 theme_override_fonts/font = SubResource("FontFile_qpb1n")
 theme_override_font_sizes/font_size = 50
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="TimerLabel" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1496.0
+offset_top = 252.0
+offset_right = 1888.0
+offset_bottom = 479.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 100
 
 [node name="CountdownLabel" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 953.0
+offset_top = 705.0
+offset_right = 1301.0
+offset_bottom = 1251.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 400
 
 [node name="ComboMilestoneLabel" type="Label" parent="."]
 offset_right = 40.0

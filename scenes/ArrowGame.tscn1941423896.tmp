@@ -1975,7 +1975,6 @@ texture = SubResource("GradientTexture2D_s1pl0")
 texture_scale = 10.0
 
 [node name="Center" type="TextureRect" parent="." node_paths=PackedStringArray("arrow_up", "arrow_down", "arrow_left", "arrow_right", "feedback_label", "score_label", "timer_label", "countdown_label", "combo_milestone_label", "music_player", "conductor", "up_particles", "down_particles", "left_particles", "right_particles", "up_light", "down_light", "left_light", "right_light")]
-visible = false
 offset_left = 1020.00006
 offset_top = 888.0
 offset_right = 1620.0
@@ -2037,9 +2036,9 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = 1496.0
-offset_top = 200.0
+offset_top = 252.0
 offset_right = 1888.0
-offset_bottom = 427.0
+offset_bottom = 479.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 100
 
@@ -2053,22 +2052,18 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 400
 
 [node name="ComboMilestoneLabel" type="Label" parent="."]
-offset_left = 1500.0
-offset_top = 500.0
-offset_right = 2073.0
-offset_bottom = 712.0
-theme_override_colors/font_color = Color(1, 0, 1, 1)
-theme_override_font_sizes/font_size = 100
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="GestureReceiver" type="Node" parent="."]
 script = ExtResource("9_8071p")
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
-process_mode = 3
+process_mode = 2
 script = ExtResource("10_gdn2m")
 
 [node name="PausePanel" type="Panel" parent="PauseMenu"]
-process_mode = 3
+process_mode = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2077,7 +2072,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8071p")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/PausePanel"]
-process_mode = 3
+process_mode = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2090,22 +2085,18 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 50
 
 [node name="ResumeButton" type="Button" parent="PauseMenu/PausePanel/VBoxContainer"]
-process_mode = 3
+process_mode = 2
 layout_mode = 2
-theme_override_font_sizes/font_size = 80
 text = "Resume"
 
 [node name="RestartButton" type="Button" parent="PauseMenu/PausePanel/VBoxContainer"]
-process_mode = 3
+process_mode = 2
 layout_mode = 2
-theme_override_font_sizes/font_size = 80
 text = "Restart Song"
 
 [node name="QuitButton" type="Button" parent="PauseMenu/PausePanel/VBoxContainer"]
-process_mode = 3
+process_mode = 2
 layout_mode = 2
-theme_override_font_sizes/font_size = 80
 text = "Quit to Menu"

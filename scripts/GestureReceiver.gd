@@ -30,9 +30,14 @@ var gesture_to_action = {
 # Signal for gesture detection (optional - for visual feedback)
 signal gesture_detected(gesture_name)
 
+# Debug tracking
+var gestures_received = 0
+var gestures_processed = 0
+
 func _ready():
     _start_listening()
     print("GestureReceiver: Ready to receive gestures on port ", PORT)
+    print("GestureReceiver: Input mode = ", InputMode.keys()[current_input_mode])
 
 func _start_listening():
     var result = udp_server.bind(PORT)
@@ -49,9 +54,10 @@ func _process(_delta):
         return
     
     # Check for incoming packets
-    if udp_server.get_available_packet_count() > 0:
+    while udp_server.get_available_packet_count() > 0:
         var packet = udp_server.get_packet()
         var gesture_command = packet.get_string_from_utf8()
+        gestures_received += 1
         _handle_gesture(gesture_command)
 
 func _handle_gesture(gesture_command: String):
@@ -61,7 +67,7 @@ func _handle_gesture(gesture_command: String):
     if gesture_command.is_empty():
         return
     
-    print("GestureReceiver: Received gesture - ", gesture_command)
+    print("GestureReceiver: [#%d] Received gesture - %s" % [gestures_received, gesture_command])
     
     # Emit signal for visual feedback (optional)
     emit_signal("gesture_detected", gesture_command)
@@ -69,17 +75,24 @@ func _handle_gesture(gesture_command: String):
     # Handle double arrow gestures
     if gesture_command in ["DOUBLE_UP", "DOUBLE_DOWN", "DOUBLE_LEFT", "DOUBLE_RIGHT"]:
         _handle_double_arrow(gesture_command)
+        gestures_processed += 1
     # Handle combination gestures (two different directions)
     elif gesture_command == "LEFT_RIGHT":
         _trigger_action("ui_left")
         _trigger_action("ui_right")
+        gestures_processed += 1
     elif gesture_command == "UP_DOWN":
         _trigger_action("ui_up")
         _trigger_action("ui_down")
+        gestures_processed += 1
     # Handle single direction gestures
     elif gesture_command in gesture_to_action:
         var action = gesture_to_action[gesture_command]
         _trigger_action(action)
+        gestures_processed += 1
+        print("  → Triggered action: %s" % action)
+    else:
+        print("  → Unknown gesture command: %s" % gesture_command)
 
 func _handle_double_arrow(gesture_command: String):
     """Handle double arrow of the same direction."""
@@ -96,28 +109,25 @@ func _handle_double_arrow(gesture_command: String):
             base_action = "ui_right"
     
     if base_action:
-        # Trigger the action twice (for two arrows)
+        # Trigger the action (for chord notes)
         _trigger_action(base_action)
+        print("  → Triggered double arrow: %s" % base_action)
 
 func _trigger_action(action: String):
-    """Simulate an input action being pressed."""
-    # Create an InputEventAction
-    var event = InputEventAction.new()
-    event.action = action
-    event.pressed = true
+    """Simulate an input action being pressed and released."""
+    # Press event
+    var press_event = InputEventAction.new()
+    press_event.action = action
+    press_event.pressed = true
+    Input.parse_input_event(press_event)
     
-    # Parse the event through the input system
-    Input.parse_input_event(event)
+    # Immediate release event (rhythm games need quick tap)
+    var release_event = InputEventAction.new()
+    release_event.action = action
+    release_event.pressed = false
+    Input.parse_input_event(release_event)
     
-    # Schedule the release after a short delay
-    get_tree().create_timer(0.1).timeout.connect(func(): _release_action(action))
-
-func _release_action(action: String):
-    """Simulate an input action being released."""
-    var event = InputEventAction.new()
-    event.action = action
-    event.pressed = false
-    Input.parse_input_event(event)
+    print("  → Input action fired: %s (press + release)" % action)
 
 func set_input_mode(mode: InputMode):
     """Change input mode (keyboard, gesture, or both)."""
@@ -130,7 +140,16 @@ func set_input_mode(mode: InputMode):
         InputMode.BOTH:
             print("GestureReceiver: Input mode set to BOTH (keyboard and gesture)")
 
+func get_stats() -> Dictionary:
+    """Get statistics about gesture processing."""
+    return {
+        "received": gestures_received,
+        "processed": gestures_processed,
+        "is_listening": is_listening
+    }
+
 func _exit_tree():
     if is_listening:
         udp_server.close()
         print("GestureReceiver: UDP server closed")
+        print("GestureReceiver: Total gestures - Received: %d, Processed: %d" % [gestures_received, gestures_processed])

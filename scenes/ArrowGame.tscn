@@ -1,15 +1,17 @@
-[gd_scene load_steps=29 format=4 uid="uid://ch0qek2050aft"]
+[gd_scene load_steps=31 format=4 uid="uid://ch0qek2050aft"]
 
 [ext_resource type="Texture2D" uid="uid://c7wpyp1nlpdex" path="res://assets/visuals/up_arrow.png" id="3_snj71"]
 [ext_resource type="Script" uid="uid://dxhi777xljeit" path="res://scripts/Center.gd" id="4_snj71"]
 [ext_resource type="Texture2D" uid="uid://cdl42sid1fjfk" path="res://assets/visuals/down_arrow.png" id="4_u5e66"]
 [ext_resource type="Texture2D" uid="uid://dsf3tln07ls5c" path="res://assets/visuals/left_arrow.png" id="5_8071p"]
 [ext_resource type="Texture2D" uid="uid://hq676apgucpj" path="res://assets/visuals/right_arrow.png" id="6_gdn2m"]
+[ext_resource type="Script" uid="uid://dlaj1nuxtfifj" path="res://scripts/TouchInput.gd" id="6_qpb1n"]
 [ext_resource type="Script" uid="uid://br5kqeak2ldot" path="res://scripts/GestureReceiver.gd" id="9_8071p"]
 [ext_resource type="Script" uid="uid://bbq6cbk5wiqup" path="res://scripts/FeedbackLabel.gd" id="9_u5e66"]
 [ext_resource type="Script" uid="uid://dp7arf3lo38df" path="res://scripts/Conductor.gd" id="10_8071p"]
 [ext_resource type="Script" uid="uid://cljmsgxu84sd2" path="res://scripts/PauseMenu.gd" id="10_gdn2m"]
 [ext_resource type="Script" uid="uid://dosrp103jmi2y" path="res://scripts/ScoreManager.gd" id="11_gdn2m"]
+[ext_resource type="Script" uid="uid://bsbtkvv5s5fxw" path="res://scripts/UDPReceiver.gd" id="12_qpb1n"]
 
 [sub_resource type="Gradient" id="Gradient_8071p"]
 
@@ -1870,6 +1872,9 @@ bg_color = Color(0, 0, 0, 0.8)
 
 [node name="ArrowGame" type="Node2D"]
 
+[node name="UDPReceiver" type="Node" parent="."]
+script = ExtResource("12_qpb1n")
+
 [node name="ArrowUp" type="TextureRect" parent="."]
 offset_left = 1020.0
 offset_top = 146.0
@@ -2002,6 +2007,9 @@ up_light = NodePath("../ArrowUp/UpPointLight")
 down_light = NodePath("../ArrowDown/DownPointLight")
 left_light = NodePath("../ArrowLeft/LeftPointLight")
 right_light = NodePath("../ArrowRight/RightPointLight")
+
+[node name="TouchInput" type="Node" parent="Center"]
+script = ExtResource("6_qpb1n")
 
 [node name="NoteSpawner" type="Node" parent="."]
 

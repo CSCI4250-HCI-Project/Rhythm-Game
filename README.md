@@ -316,7 +316,7 @@ Rhythm-Game/
 
 ## 👥 Team Members
 
-- Greg Treisman - [GitHub Profile]
+- Gregory Treinen - [GitHub Profile]
 - [Add other team members]
 
 ## 📝 License

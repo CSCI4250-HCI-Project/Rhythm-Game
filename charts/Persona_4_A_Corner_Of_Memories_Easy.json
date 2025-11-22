@@ -1,0 +1,301 @@
+{
+  "title": "Persona 4 A Corner Of Memories",
+  "artist": "Game OST",
+  "difficulty": "Easy",
+  "song_file": "Persona_4_A_Corner_Of_Memories.mp3",
+  "bpm": 90.7,
+  "timeSignature": "4/4",
+  "notes": [
+    {
+      "time": 2688,
+      "direction": "down",
+      "type": "tap",
+      "speed": 344
+    },
+    {
+      "time": 3648,
+      "direction": "right",
+      "type": "tap",
+      "speed": 327
+    },
+    {
+      "time": 8875,
+      "direction": "up",
+      "type": "tap",
+      "speed": 319
+    },
+    {
+      "time": 15403,
+      "direction": "left",
+      "type": "tap",
+      "speed": 320
+    },
+    {
+      "time": 16704,
+      "direction": "right",
+      "type": "tap",
+      "speed": 303
+    },
+    {
+      "time": 20288,
+      "direction": "down",
+      "type": "tap",
+      "speed": 390
+    },
+    {
+      "time": 20949,
+      "direction": "right",
+      "type": "tap",
+      "speed": 333
+    },
+    {
+      "time": 25515,
+      "direction": "up",
+      "type": "tap",
+      "speed": 386
+    },
+    {
+      "time": 26816,
+      "direction": "right",
+      "type": "tap",
+      "speed": 317
+    },
+    {
+      "time": 27136,
+      "direction": [
+        "up",
+        "left"
+      ],
+      "type": "chord",
+      "speed": 345
+    },
+    {
+      "time": 27456,
+      "direction": "left",
+      "type": "tap",
+      "speed": 309
+    },
+    {
+      "time": 31381,
+      "direction": [
+        "right",
+        "down"
+      ],
+      "type": "chord",
+      "speed": 311
+    },
+    {
+      "time": 34645,
+      "direction": "right",
+      "type": "tap",
+      "speed": 336
+    },
+    {
+      "time": 35947,
+      "direction": "left",
+      "type": "tap",
+      "speed": 354
+    },
+    {
+      "time": 36267,
+      "direction": "down",
+      "type": "tap",
+      "speed": 397
+    },
+    {
+      "time": 36928,
+      "direction": "right",
+      "type": "tap",
+      "speed": 392
+    },
+    {
+      "time": 50923,
+      "direction": "up",
+      "type": "tap",
+      "speed": 319
+    },
+    {
+      "time": 55467,
+      "direction": "down",
+      "type": "tap",
+      "speed": 363
+    },
+    {
+      "time": 57429,
+      "direction": "up",
+      "type": "tap",
+      "speed": 369
+    },
+    {
+      "time": 61099,
+      "direction": "right",
+      "type": "tap",
+      "speed": 334
+    },
+    {
+      "time": 70635,
+      "direction": "left",
+      "type": "tap",
+      "speed": 385
+    },
+    {
+      "time": 71296,
+      "direction": "down",
+      "type": "tap",
+      "speed": 331
+    },
+    {
+      "time": 72939,
+      "direction": "up",
+      "type": "tap",
+      "speed": 360
+    },
+    {
+      "time": 73579,
+      "direction": "right",
+      "type": "tap",
+      "speed": 395
+    },
+    {
+      "time": 76523,
+      "direction": "down",
+      "type": "tap",
+      "speed": 353
+    },
+    {
+      "time": 78144,
+      "direction": "right",
+      "type": "tap",
+      "speed": 319
+    },
+    {
+      "time": 78805,
+      "direction": "down",
+      "type": "tap",
+      "speed": 366
+    },
+    {
+      "time": 80427,
+      "direction": "up",
+      "type": "tap",
+      "speed": 313
+    },
+    {
+      "time": 85312,
+      "direction": "left",
+      "type": "tap",
+      "speed": 311
+    },
+    {
+      "time": 86955,
+      "direction": "right",
+      "type": "tap",
+      "speed": 326
+    },
+    {
+      "time": 90197,
+      "direction": "down",
+      "type": "tap",
+      "speed": 393
+    },
+    {
+      "time": 91520,
+      "direction": "up",
+      "type": "tap",
+      "speed": 380
+    },
+    {
+      "time": 92160,
+      "direction": "left",
+      "type": "tap",
+      "speed": 306
+    },
+    {
+      "time": 98368,
+      "direction": "up",
+      "type": "tap",
+      "speed": 378
+    },
+    {
+      "time": 104875,
+      "direction": "right",
+      "type": "tap",
+      "speed": 395
+    },
+    {
+      "time": 105536,
+      "direction": "up",
+      "type": "tap",
+      "speed": 304
+    },
+    {
+      "time": 106197,
+      "direction": "down",
+      "type": "tap",
+      "speed": 385
+    },
+    {
+      "time": 115584,
+      "direction": "right",
+      "type": "tap",
+      "speed": 310
+    },
+    {
+      "time": 120213,
+      "direction": "up",
+      "type": "tap",
+      "speed": 360
+    },
+    {
+      "time": 120853,
+      "direction": "left",
+      "type": "tap",
+      "speed": 396
+    },
+    {
+      "time": 121493,
+      "direction": "up",
+      "type": "tap",
+      "speed": 363
+    },
+    {
+      "time": 126037,
+      "direction": "down",
+      "type": "tap",
+      "speed": 327
+    },
+    {
+      "time": 131008,
+      "direction": [
+        "up",
+        "right"
+      ],
+      "type": "chord",
+      "speed": 355
+    },
+    {
+      "time": 140565,
+      "direction": "left",
+      "type": "tap",
+      "speed": 384
+    },
+    {
+      "time": 142528,
+      "direction": "right",
+      "type": "tap",
+      "speed": 302
+    },
+    {
+      "time": 145472,
+      "direction": "up",
+      "type": "tap",
+      "speed": 364
+    },
+    {
+      "time": 145792,
+      "direction": "right",
+      "type": "tap",
+      "speed": 346
+    }
+  ]
+}

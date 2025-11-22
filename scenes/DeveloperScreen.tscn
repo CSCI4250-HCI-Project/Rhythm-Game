@@ -34,5 +34,5 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 81
+theme_override_font_sizes/font_size = 120
 text = "UNO Student Studios"

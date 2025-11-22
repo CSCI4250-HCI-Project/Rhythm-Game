@@ -1,0 +1,265 @@
+{
+  "title": "Hollow Knight",
+  "artist": "Game OST",
+  "difficulty": "Hard",
+  "song_file": "Hollow_Knight.mp3",
+  "bpm": 112.3,
+  "timeSignature": "4/4",
+  "notes": [
+    {
+      "time": 4145,
+      "direction": [
+        "right",
+        "down"
+      ],
+      "type": "chord",
+      "speed": 524
+    },
+    {
+      "time": 4679,
+      "direction": "up",
+      "type": "tap",
+      "speed": 525
+    },
+    {
+      "time": 5236,
+      "direction": "down",
+      "type": "tap",
+      "speed": 486
+    },
+    {
+      "time": 5782,
+      "direction": [
+        "up",
+        "left"
+      ],
+      "type": "chord",
+      "speed": 431
+    },
+    {
+      "time": 9613,
+      "direction": "right",
+      "type": "tap",
+      "speed": 475
+    },
+    {
+      "time": 10693,
+      "direction": "left",
+      "type": "tap",
+      "speed": 535
+    },
+    {
+      "time": 11238,
+      "direction": "right",
+      "type": "tap",
+      "speed": 541
+    },
+    {
+      "time": 11784,
+      "direction": "down",
+      "type": "tap",
+      "speed": 488
+    },
+    {
+      "time": 13967,
+      "direction": "left",
+      "type": "tap",
+      "speed": 430
+    },
+    {
+      "time": 15035,
+      "direction": "down",
+      "type": "tap",
+      "speed": 512
+    },
+    {
+      "time": 16126,
+      "direction": [
+        "left",
+        "right"
+      ],
+      "type": "chord",
+      "speed": 456
+    },
+    {
+      "time": 17218,
+      "direction": "up",
+      "type": "tap",
+      "speed": 545
+    },
+    {
+      "time": 17752,
+      "direction": "down",
+      "type": "tap",
+      "speed": 450
+    },
+    {
+      "time": 18286,
+      "direction": "right",
+      "type": "tap",
+      "speed": 471
+    },
+    {
+      "time": 19423,
+      "direction": "up",
+      "type": "tap",
+      "speed": 472
+    },
+    {
+      "time": 22175,
+      "direction": [
+        "down",
+        "left"
+      ],
+      "type": "chord",
+      "speed": 517
+    },
+    {
+      "time": 22674,
+      "direction": "left",
+      "type": "tap",
+      "speed": 404
+    },
+    {
+      "time": 23766,
+      "direction": "up",
+      "type": "tap",
+      "speed": 481
+    },
+    {
+      "time": 24880,
+      "direction": "down",
+      "type": "tap",
+      "speed": 430
+    },
+    {
+      "time": 26506,
+      "direction": "right",
+      "type": "tap",
+      "speed": 412
+    },
+    {
+      "time": 28050,
+      "direction": [
+        "left",
+        "up"
+      ],
+      "type": "chord",
+      "speed": 400
+    },
+    {
+      "time": 30360,
+      "direction": [
+        "right",
+        "down"
+      ],
+      "type": "chord",
+      "speed": 491
+    },
+    {
+      "time": 31405,
+      "direction": [
+        "left",
+        "up"
+      ],
+      "type": "chord",
+      "speed": 514
+    },
+    {
+      "time": 33588,
+      "direction": [
+        "down",
+        "up"
+      ],
+      "type": "chord",
+      "speed": 466
+    },
+    {
+      "time": 34667,
+      "direction": "down",
+      "type": "tap",
+      "speed": 538
+    },
+    {
+      "time": 37988,
+      "direction": [
+        "up",
+        "right"
+      ],
+      "type": "chord",
+      "speed": 522
+    },
+    {
+      "time": 44478,
+      "direction": [
+        "left",
+        "up"
+      ],
+      "type": "chord",
+      "speed": 534
+    },
+    {
+      "time": 46626,
+      "direction": "up",
+      "type": "tap",
+      "speed": 545
+    },
+    {
+      "time": 54311,
+      "direction": "left",
+      "type": "tap",
+      "speed": 433
+    },
+    {
+      "time": 57620,
+      "direction": "down",
+      "type": "tap",
+      "speed": 406
+    },
+    {
+      "time": 70159,
+      "direction": [
+        "left",
+        "down"
+      ],
+      "type": "chord",
+      "speed": 432
+    },
+    {
+      "time": 70716,
+      "direction": [
+        "up",
+        "left"
+      ],
+      "type": "chord",
+      "speed": 449
+    },
+    {
+      "time": 73886,
+      "direction": "up",
+      "type": "tap",
+      "speed": 472
+    },
+    {
+      "time": 77264,
+      "direction": "down",
+      "type": "tap",
+      "speed": 417
+    },
+    {
+      "time": 82233,
+      "direction": [
+        "up",
+        "right"
+      ],
+      "type": "chord",
+      "speed": 452
+    },
+    {
+      "time": 84741,
+      "direction": "right",
+      "type": "tap",
+      "speed": 519
+    }
+  ]
+}

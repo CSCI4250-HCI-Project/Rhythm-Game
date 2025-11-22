@@ -1,0 +1,286 @@
+{
+  "title": "Chrono Cross The Brink Of Death",
+  "artist": "Game OST",
+  "difficulty": "Easy",
+  "song_file": "Chrono_Cross_The_Brink_Of_Death.mp3",
+  "bpm": 120.2,
+  "timeSignature": "4/4",
+  "notes": [
+    {
+      "time": 2647,
+      "direction": "up",
+      "type": "tap",
+      "speed": 356
+    },
+    {
+      "time": 3309,
+      "direction": "right",
+      "type": "tap",
+      "speed": 395
+    },
+    {
+      "time": 4133,
+      "direction": "up",
+      "type": "tap",
+      "speed": 336
+    },
+    {
+      "time": 4621,
+      "direction": "down",
+      "type": "tap",
+      "speed": 310
+    },
+    {
+      "time": 4957,
+      "direction": "left",
+      "type": "tap",
+      "speed": 306
+    },
+    {
+      "time": 5782,
+      "direction": "down",
+      "type": "tap",
+      "speed": 337
+    },
+    {
+      "time": 6769,
+      "direction": "up",
+      "type": "tap",
+      "speed": 340
+    },
+    {
+      "time": 7767,
+      "direction": "down",
+      "type": "tap",
+      "speed": 367
+    },
+    {
+      "time": 8580,
+      "direction": [
+        "left",
+        "right"
+      ],
+      "type": "chord",
+      "speed": 306
+    },
+    {
+      "time": 9079,
+      "direction": "right",
+      "type": "tap",
+      "speed": 392
+    },
+    {
+      "time": 9741,
+      "direction": "down",
+      "type": "tap",
+      "speed": 303
+    },
+    {
+      "time": 10228,
+      "direction": "up",
+      "type": "tap",
+      "speed": 397
+    },
+    {
+      "time": 10890,
+      "direction": "right",
+      "type": "tap",
+      "speed": 380
+    },
+    {
+      "time": 11540,
+      "direction": "down",
+      "type": "tap",
+      "speed": 328
+    },
+    {
+      "time": 11877,
+      "direction": "left",
+      "type": "tap",
+      "speed": 381
+    },
+    {
+      "time": 12539,
+      "direction": "down",
+      "type": "tap",
+      "speed": 389
+    },
+    {
+      "time": 13038,
+      "direction": "right",
+      "type": "tap",
+      "speed": 338
+    },
+    {
+      "time": 13526,
+      "direction": "left",
+      "type": "tap",
+      "speed": 356
+    },
+    {
+      "time": 14013,
+      "direction": "right",
+      "type": "tap",
+      "speed": 397
+    },
+    {
+      "time": 14512,
+      "direction": "up",
+      "type": "tap",
+      "speed": 314
+    },
+    {
+      "time": 15499,
+      "direction": "left",
+      "type": "tap",
+      "speed": 327
+    },
+    {
+      "time": 16660,
+      "direction": "down",
+      "type": "tap",
+      "speed": 360
+    },
+    {
+      "time": 17322,
+      "direction": "left",
+      "type": "tap",
+      "speed": 324
+    },
+    {
+      "time": 17647,
+      "direction": "right",
+      "type": "tap",
+      "speed": 306
+    },
+    {
+      "time": 18309,
+      "direction": "up",
+      "type": "tap",
+      "speed": 303
+    },
+    {
+      "time": 18634,
+      "direction": "left",
+      "type": "tap",
+      "speed": 321
+    },
+    {
+      "time": 19783,
+      "direction": "down",
+      "type": "tap",
+      "speed": 376
+    },
+    {
+      "time": 20120,
+      "direction": "up",
+      "type": "tap",
+      "speed": 379
+    },
+    {
+      "time": 21606,
+      "direction": "left",
+      "type": "tap",
+      "speed": 399
+    },
+    {
+      "time": 22268,
+      "direction": "up",
+      "type": "tap",
+      "speed": 379
+    },
+    {
+      "time": 23255,
+      "direction": "down",
+      "type": "tap",
+      "speed": 389
+    },
+    {
+      "time": 24242,
+      "direction": "left",
+      "type": "tap",
+      "speed": 385
+    },
+    {
+      "time": 24567,
+      "direction": "right",
+      "type": "tap",
+      "speed": 346
+    },
+    {
+      "time": 25391,
+      "direction": "up",
+      "type": "tap",
+      "speed": 321
+    },
+    {
+      "time": 26053,
+      "direction": "left",
+      "type": "tap",
+      "speed": 392
+    },
+    {
+      "time": 27365,
+      "direction": [
+        "down",
+        "right"
+      ],
+      "type": "chord",
+      "speed": 346
+    },
+    {
+      "time": 28526,
+      "direction": "down",
+      "type": "tap",
+      "speed": 397
+    },
+    {
+      "time": 29025,
+      "direction": "right",
+      "type": "tap",
+      "speed": 353
+    },
+    {
+      "time": 29350,
+      "direction": "up",
+      "type": "tap",
+      "speed": 333
+    },
+    {
+      "time": 29849,
+      "direction": "down",
+      "type": "tap",
+      "speed": 324
+    },
+    {
+      "time": 30499,
+      "direction": "up",
+      "type": "tap",
+      "speed": 393
+    },
+    {
+      "time": 30836,
+      "direction": "left",
+      "type": "tap",
+      "speed": 335
+    },
+    {
+      "time": 31324,
+      "direction": "down",
+      "type": "tap",
+      "speed": 353
+    },
+    {
+      "time": 32485,
+      "direction": "right",
+      "type": "tap",
+      "speed": 306
+    },
+    {
+      "time": 33959,
+      "direction": "down",
+      "type": "tap",
+      "speed": 307
+    }
+  ]
+}

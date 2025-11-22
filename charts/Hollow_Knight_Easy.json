@@ -1,0 +1,94 @@
+{
+  "title": "Hollow Knight",
+  "artist": "Game OST",
+  "difficulty": "Easy",
+  "song_file": "Hollow_Knight.mp3",
+  "bpm": 112.3,
+  "timeSignature": "4/4",
+  "notes": [
+    {
+      "time": 3065,
+      "direction": "down",
+      "type": "tap",
+      "speed": 331
+    },
+    {
+      "time": 5236,
+      "direction": "right",
+      "type": "tap",
+      "speed": 317
+    },
+    {
+      "time": 11238,
+      "direction": "left",
+      "type": "tap",
+      "speed": 334
+    },
+    {
+      "time": 16126,
+      "direction": "up",
+      "type": "tap",
+      "speed": 391
+    },
+    {
+      "time": 17218,
+      "direction": "left",
+      "type": "tap",
+      "speed": 386
+    },
+    {
+      "time": 22674,
+      "direction": "right",
+      "type": "tap",
+      "speed": 384
+    },
+    {
+      "time": 24880,
+      "direction": "left",
+      "type": "tap",
+      "speed": 361
+    },
+    {
+      "time": 28050,
+      "direction": "up",
+      "type": "tap",
+      "speed": 315
+    },
+    {
+      "time": 30360,
+      "direction": "right",
+      "type": "tap",
+      "speed": 354
+    },
+    {
+      "time": 33588,
+      "direction": "left",
+      "type": "tap",
+      "speed": 302
+    },
+    {
+      "time": 53766,
+      "direction": "right",
+      "type": "tap",
+      "speed": 397
+    },
+    {
+      "time": 70159,
+      "direction": "down",
+      "type": "tap",
+      "speed": 379
+    },
+    {
+      "time": 76510,
+      "direction": "up",
+      "type": "tap",
+      "speed": 377
+    },
+    {
+      "time": 84741,
+      "direction": "down",
+      "type": "tap",
+      "speed": 397
+    }
+  ]
+}

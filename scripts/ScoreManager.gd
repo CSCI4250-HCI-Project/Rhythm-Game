@@ -16,30 +16,30 @@ var combo := 0
 signal hit_result(result: String, score: int, combo: int)
 
 func _ready():
-    print("ScoreManager initialized")
+	print("ScoreManager initialized")
 
 # Called when the player performs an input (keyboard or webcam)
 # expected_time = beat time from Conductor
 # hit_time = player's input time
 func register_hit(expected_time: float, hit_time: float):
-    var offset = abs(expected_time - hit_time)
+	var offset = abs(expected_time - hit_time)
 
-    if offset <= PERFECT_WINDOW:
-        _apply_score("Perfect", 300)
-    elif offset <= GOOD_WINDOW:
-        _apply_score("Good", 100)
-    elif offset <= MISS_WINDOW:
-        _apply_score("Miss", 0)
-    else:
-        _apply_score("Miss", 0)
+	if offset <= PERFECT_WINDOW:
+		_apply_score("Perfect", 300)
+	elif offset <= GOOD_WINDOW:
+		_apply_score("Good", 100)
+	elif offset <= MISS_WINDOW:
+		_apply_score("Miss", 0)
+	else:
+		_apply_score("Miss", 0)
 
 func _apply_score(result: String, points: int):
-    if result == "Miss":
-        combo = 0
-    else:
-        combo += 1
+	if result == "Miss":
+		combo = 0
+	else:
+		combo += 1
 
-    score += points
-    emit_signal("hit_result", result, score, combo)
+	score += points
+	emit_signal("hit_result", result, score, combo)
 
-    print("Result:", result, "| Score:", score, "| Combo:", combo)
+	print("Result:", result, "| Score:", score, "| Combo:", combo)

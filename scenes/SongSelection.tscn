@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cb4g61np2f1m"]
 
-[ext_resource type="Script" uid="uid://bsdx37h64ko4m" path="res://scenes/SongSelection.gd" id="1_cvgp8"]
+[ext_resource type="Script" uid="uid://bsdx37h64ko4m" path="res://scripts/SongSelection.gd" id="1_cvgp8"]
 
 [node name="SongSelection" type="Control"]
 layout_mode = 3
@@ -42,52 +42,101 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 780.0
-offset_bottom = 380.0
+offset_left = -750.0
+offset_top = -375.0
+offset_right = 750.0
+offset_bottom = 375.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SongList" type="VBoxContainer" parent="SongScrollContainer"]
+custom_minimum_size = Vector2(1500, 750)
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Billie Jean by Michael Jackson" type="Button" parent="SongScrollContainer/SongList"]
-custom_minimum_size = Vector2(750, 80)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Billie Jean by Michael Jackson"
-
-[node name="Seven Nation Army by The White Stripes" type="Button" parent="SongScrollContainer/SongList"]
-custom_minimum_size = Vector2(750, 80)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Seven Nation Army by The White Stripes"
-
-[node name="Rolling In The Deep by Adele" type="Button" parent="SongScrollContainer/SongList"]
-custom_minimum_size = Vector2(750, 80)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Rolling In The Deep by Adele"
-
-[node name="Take on Me by A-Ha" type="Button" parent="SongScrollContainer/SongList"]
-custom_minimum_size = Vector2(750, 80)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Take on Me by A-Ha"
-
-[node name="Set Fire To The Rain by Adele" type="Button" parent="SongScrollContainer/SongList"]
-custom_minimum_size = Vector2(750, 80)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Set Fire To The Rain by Adele"
-
 [node name="I\'ll Follow The Sun by The Beatles" type="Button" parent="SongScrollContainer/SongList"]
-custom_minimum_size = Vector2(750, 80)
+custom_minimum_size = Vector2(750, 120)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 70
 text = "I'll Follow The Sun by The Beatles"
+
+[node name="Celeste First Steps" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "First Steps from Celeste"
+
+[node name="Chrono Cross The Brink Of Death" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "The Brink of Death from Chrono Cross"
+
+[node name="Chrono Trigger Peaceful Days SNES" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Peaceful Days from Chrono Trigger SNES"
+
+[node name="Chrono Trigger Title Screen SNES" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Title Screen from Chrono Trigger SNES"
+
+[node name="Gauntlet NES" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Gauntlet NES"
+
+[node name="Hollow Knight" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Hollow Knight"
+
+[node name="Hollow Knight Radiance" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Radiance from Hollow Knight"
+
+[node name="Mega Man Title Screen NES" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Title Screen from Mega Man 3 NES"
+
+[node name="Persona 4 A Corner Of Memories" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "A Corner of Memories from Persona 4"
+
+[node name="Persona 5" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Persona 5"
+
+[node name="Synthwave Burnout 1" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Synthwave Burnout 1"
+
+[node name="Synthwave Burnout 2" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Synthwave Burnout 2"
+
+[node name="The Legend Of Zelda Title Screen NES" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Title Screen from The Legend of Zelda NES"
 
 [node name="BackButton" type="Button" parent="."]
 custom_minimum_size = Vector2(150, 60)
@@ -95,10 +144,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 100.0
-offset_top = -588.0
-offset_right = 145.0
-offset_bottom = -557.0
+offset_left = 200.0
+offset_top = -410.0
+offset_right = 450.0
+offset_bottom = -285.0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 70
 text = "Back"

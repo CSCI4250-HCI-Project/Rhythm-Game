@@ -1,0 +1,640 @@
+{
+  "title": "Synthwave Burnout 2",
+  "artist": "Game OST",
+  "difficulty": "Normal",
+  "song_file": "Synthwave_Burnout_2.mp3",
+  "bpm": 110.0,
+  "timeSignature": "4/4",
+  "notes": [
+    {
+      "time": 2740,
+      "direction": "down",
+      "type": "tap",
+      "speed": 364
+    },
+    {
+      "time": 3286,
+      "direction": "right",
+      "type": "tap",
+      "speed": 413
+    },
+    {
+      "time": 4656,
+      "direction": "left",
+      "type": "tap",
+      "speed": 375
+    },
+    {
+      "time": 5201,
+      "direction": "down",
+      "type": "tap",
+      "speed": 403
+    },
+    {
+      "time": 5747,
+      "direction": "left",
+      "type": "tap",
+      "speed": 406
+    },
+    {
+      "time": 6978,
+      "direction": "right",
+      "type": "tap",
+      "speed": 419
+    },
+    {
+      "time": 7384,
+      "direction": "left",
+      "type": "tap",
+      "speed": 379
+    },
+    {
+      "time": 7930,
+      "direction": "down",
+      "type": "tap",
+      "speed": 411
+    },
+    {
+      "time": 8197,
+      "direction": "left",
+      "type": "tap",
+      "speed": 350
+    },
+    {
+      "time": 8475,
+      "direction": "right",
+      "type": "tap",
+      "speed": 441
+    },
+    {
+      "time": 8742,
+      "direction": [
+        "left",
+        "up"
+      ],
+      "type": "chord",
+      "speed": 414
+    },
+    {
+      "time": 9567,
+      "direction": "down",
+      "type": "tap",
+      "speed": 356
+    },
+    {
+      "time": 9834,
+      "direction": "up",
+      "type": "tap",
+      "speed": 380
+    },
+    {
+      "time": 10112,
+      "direction": "down",
+      "type": "tap",
+      "speed": 427
+    },
+    {
+      "time": 10925,
+      "direction": "up",
+      "type": "tap",
+      "speed": 368
+    },
+    {
+      "time": 11738,
+      "direction": "left",
+      "type": "tap",
+      "speed": 446
+    },
+    {
+      "time": 12283,
+      "direction": [
+        "right",
+        "left"
+      ],
+      "type": "chord",
+      "speed": 360
+    },
+    {
+      "time": 13653,
+      "direction": [
+        "up",
+        "left"
+      ],
+      "type": "chord",
+      "speed": 412
+    },
+    {
+      "time": 13920,
+      "direction": "down",
+      "type": "tap",
+      "speed": 377
+    },
+    {
+      "time": 14199,
+      "direction": "left",
+      "type": "tap",
+      "speed": 425
+    },
+    {
+      "time": 15012,
+      "direction": "right",
+      "type": "tap",
+      "speed": 356
+    },
+    {
+      "time": 15279,
+      "direction": "left",
+      "type": "tap",
+      "speed": 411
+    },
+    {
+      "time": 15557,
+      "direction": "up",
+      "type": "tap",
+      "speed": 380
+    },
+    {
+      "time": 15836,
+      "direction": "down",
+      "type": "tap",
+      "speed": 389
+    },
+    {
+      "time": 16103,
+      "direction": "right",
+      "type": "tap",
+      "speed": 370
+    },
+    {
+      "time": 16370,
+      "direction": "up",
+      "type": "tap",
+      "speed": 359
+    },
+    {
+      "time": 16649,
+      "direction": "left",
+      "type": "tap",
+      "speed": 375
+    },
+    {
+      "time": 16916,
+      "direction": "down",
+      "type": "tap",
+      "speed": 398
+    },
+    {
+      "time": 18553,
+      "direction": [
+        "up",
+        "left"
+      ],
+      "type": "chord",
+      "speed": 383
+    },
+    {
+      "time": 19098,
+      "direction": "left",
+      "type": "tap",
+      "speed": 371
+    },
+    {
+      "time": 20468,
+      "direction": "right",
+      "type": "tap",
+      "speed": 383
+    },
+    {
+      "time": 20735,
+      "direction": "down",
+      "type": "tap",
+      "speed": 410
+    },
+    {
+      "time": 21014,
+      "direction": [
+        "left",
+        "down"
+      ],
+      "type": "chord",
+      "speed": 395
+    },
+    {
+      "time": 22105,
+      "direction": "left",
+      "type": "tap",
+      "speed": 351
+    },
+    {
+      "time": 23197,
+      "direction": "right",
+      "type": "tap",
+      "speed": 404
+    },
+    {
+      "time": 23464,
+      "direction": "up",
+      "type": "tap",
+      "speed": 363
+    },
+    {
+      "time": 23742,
+      "direction": "down",
+      "type": "tap",
+      "speed": 422
+    },
+    {
+      "time": 24009,
+      "direction": [
+        "up",
+        "left"
+      ],
+      "type": "chord",
+      "speed": 398
+    },
+    {
+      "time": 24288,
+      "direction": "left",
+      "type": "tap",
+      "speed": 351
+    },
+    {
+      "time": 24555,
+      "direction": "down",
+      "type": "tap",
+      "speed": 368
+    },
+    {
+      "time": 24834,
+      "direction": "right",
+      "type": "tap",
+      "speed": 418
+    },
+    {
+      "time": 25101,
+      "direction": "down",
+      "type": "tap",
+      "speed": 430
+    },
+    {
+      "time": 26471,
+      "direction": "right",
+      "type": "tap",
+      "speed": 388
+    },
+    {
+      "time": 27829,
+      "direction": [
+        "down",
+        "left"
+      ],
+      "type": "chord",
+      "speed": 357
+    },
+    {
+      "time": 28653,
+      "direction": "left",
+      "type": "tap",
+      "speed": 444
+    },
+    {
+      "time": 28920,
+      "direction": "up",
+      "type": "tap",
+      "speed": 364
+    },
+    {
+      "time": 29199,
+      "direction": [
+        "right",
+        "up"
+      ],
+      "type": "chord",
+      "speed": 406
+    },
+    {
+      "time": 29466,
+      "direction": "down",
+      "type": "tap",
+      "speed": 420
+    },
+    {
+      "time": 30012,
+      "direction": "right",
+      "type": "tap",
+      "speed": 369
+    },
+    {
+      "time": 31927,
+      "direction": "left",
+      "type": "tap",
+      "speed": 423
+    },
+    {
+      "time": 32194,
+      "direction": "up",
+      "type": "tap",
+      "speed": 386
+    },
+    {
+      "time": 32473,
+      "direction": "down",
+      "type": "tap",
+      "speed": 424
+    },
+    {
+      "time": 32740,
+      "direction": "left",
+      "type": "tap",
+      "speed": 382
+    },
+    {
+      "time": 33019,
+      "direction": "down",
+      "type": "tap",
+      "speed": 381
+    },
+    {
+      "time": 34110,
+      "direction": "right",
+      "type": "tap",
+      "speed": 406
+    },
+    {
+      "time": 34377,
+      "direction": "up",
+      "type": "tap",
+      "speed": 386
+    },
+    {
+      "time": 34656,
+      "direction": [
+        "up",
+        "left"
+      ],
+      "type": "chord",
+      "speed": 409
+    },
+    {
+      "time": 34923,
+      "direction": "down",
+      "type": "tap",
+      "speed": 426
+    },
+    {
+      "time": 35201,
+      "direction": "up",
+      "type": "tap",
+      "speed": 434
+    },
+    {
+      "time": 35468,
+      "direction": "right",
+      "type": "tap",
+      "speed": 373
+    },
+    {
+      "time": 35747,
+      "direction": "down",
+      "type": "tap",
+      "speed": 354
+    },
+    {
+      "time": 36293,
+      "direction": "right",
+      "type": "tap",
+      "speed": 368
+    },
+    {
+      "time": 36560,
+      "direction": "left",
+      "type": "tap",
+      "speed": 364
+    },
+    {
+      "time": 36838,
+      "direction": "right",
+      "type": "tap",
+      "speed": 360
+    },
+    {
+      "time": 37105,
+      "direction": "left",
+      "type": "tap",
+      "speed": 366
+    },
+    {
+      "time": 37384,
+      "direction": "down",
+      "type": "tap",
+      "speed": 437
+    },
+    {
+      "time": 38197,
+      "direction": "left",
+      "type": "tap",
+      "speed": 359
+    },
+    {
+      "time": 38742,
+      "direction": "down",
+      "type": "tap",
+      "speed": 417
+    },
+    {
+      "time": 39021,
+      "direction": "up",
+      "type": "tap",
+      "speed": 397
+    },
+    {
+      "time": 39567,
+      "direction": "left",
+      "type": "tap",
+      "speed": 386
+    },
+    {
+      "time": 39834,
+      "direction": "down",
+      "type": "tap",
+      "speed": 437
+    },
+    {
+      "time": 40112,
+      "direction": "up",
+      "type": "tap",
+      "speed": 398
+    },
+    {
+      "time": 40658,
+      "direction": "left",
+      "type": "tap",
+      "speed": 409
+    },
+    {
+      "time": 40925,
+      "direction": [
+        "left",
+        "right"
+      ],
+      "type": "chord",
+      "speed": 403
+    },
+    {
+      "time": 41204,
+      "direction": "up",
+      "type": "tap",
+      "speed": 429
+    },
+    {
+      "time": 42017,
+      "direction": "right",
+      "type": "tap",
+      "speed": 441
+    },
+    {
+      "time": 42841,
+      "direction": "down",
+      "type": "tap",
+      "speed": 432
+    },
+    {
+      "time": 43108,
+      "direction": [
+        "left",
+        "down"
+      ],
+      "type": "chord",
+      "speed": 421
+    },
+    {
+      "time": 43386,
+      "direction": "up",
+      "type": "tap",
+      "speed": 439
+    },
+    {
+      "time": 43654,
+      "direction": "left",
+      "type": "tap",
+      "speed": 405
+    },
+    {
+      "time": 43932,
+      "direction": "right",
+      "type": "tap",
+      "speed": 365
+    },
+    {
+      "time": 44199,
+      "direction": [
+        "down",
+        "up"
+      ],
+      "type": "chord",
+      "speed": 422
+    },
+    {
+      "time": 44478,
+      "direction": "left",
+      "type": "tap",
+      "speed": 403
+    },
+    {
+      "time": 45023,
+      "direction": "right",
+      "type": "tap",
+      "speed": 374
+    },
+    {
+      "time": 45291,
+      "direction": "down",
+      "type": "tap",
+      "speed": 385
+    },
+    {
+      "time": 46928,
+      "direction": "left",
+      "type": "tap",
+      "speed": 409
+    },
+    {
+      "time": 48019,
+      "direction": "up",
+      "type": "tap",
+      "speed": 384
+    },
+    {
+      "time": 48565,
+      "direction": "down",
+      "type": "tap",
+      "speed": 360
+    },
+    {
+      "time": 49110,
+      "direction": "up",
+      "type": "tap",
+      "speed": 394
+    },
+    {
+      "time": 49656,
+      "direction": [
+        "up",
+        "right"
+      ],
+      "type": "chord",
+      "speed": 374
+    },
+    {
+      "time": 50202,
+      "direction": "left",
+      "type": "tap",
+      "speed": 438
+    },
+    {
+      "time": 50469,
+      "direction": "up",
+      "type": "tap",
+      "speed": 414
+    },
+    {
+      "time": 50747,
+      "direction": "down",
+      "type": "tap",
+      "speed": 364
+    },
+    {
+      "time": 51839,
+      "direction": "up",
+      "type": "tap",
+      "speed": 383
+    },
+    {
+      "time": 52791,
+      "direction": [
+        "down",
+        "right"
+      ],
+      "type": "chord",
+      "speed": 431
+    },
+    {
+      "time": 53615,
+      "direction": "down",
+      "type": "tap",
+      "speed": 432
+    },
+    {
+      "time": 54010,
+      "direction": "up",
+      "type": "tap",
+      "speed": 369
+    },
+    {
+      "time": 54288,
+      "direction": "right",
+      "type": "tap",
+      "speed": 357
+    }
+  ]
+}

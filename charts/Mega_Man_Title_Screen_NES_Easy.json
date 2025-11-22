@@ -1,0 +1,271 @@
+{
+  "title": "Mega Man Title Screen NES",
+  "artist": "Game OST",
+  "difficulty": "Easy",
+  "song_file": "Mega_Man_Title_Screen_NES.mp3",
+  "bpm": 161.5,
+  "timeSignature": "4/4",
+  "notes": [
+    {
+      "time": 2276,
+      "direction": "up",
+      "type": "tap",
+      "speed": 351
+    },
+    {
+      "time": 3019,
+      "direction": "left",
+      "type": "tap",
+      "speed": 381
+    },
+    {
+      "time": 3773,
+      "direction": "down",
+      "type": "tap",
+      "speed": 308
+    },
+    {
+      "time": 5271,
+      "direction": "left",
+      "type": "tap",
+      "speed": 376
+    },
+    {
+      "time": 5631,
+      "direction": "right",
+      "type": "tap",
+      "speed": 366
+    },
+    {
+      "time": 6200,
+      "direction": [
+        "down",
+        "right"
+      ],
+      "type": "chord",
+      "speed": 398
+    },
+    {
+      "time": 6954,
+      "direction": "left",
+      "type": "tap",
+      "speed": 366
+    },
+    {
+      "time": 8452,
+      "direction": "down",
+      "type": "tap",
+      "speed": 364
+    },
+    {
+      "time": 8870,
+      "direction": "up",
+      "type": "tap",
+      "speed": 394
+    },
+    {
+      "time": 9567,
+      "direction": "down",
+      "type": "tap",
+      "speed": 396
+    },
+    {
+      "time": 11262,
+      "direction": "up",
+      "type": "tap",
+      "speed": 301
+    },
+    {
+      "time": 12051,
+      "direction": "left",
+      "type": "tap",
+      "speed": 332
+    },
+    {
+      "time": 12945,
+      "direction": "right",
+      "type": "tap",
+      "speed": 351
+    },
+    {
+      "time": 15372,
+      "direction": "up",
+      "type": "tap",
+      "speed": 387
+    },
+    {
+      "time": 15755,
+      "direction": "right",
+      "type": "tap",
+      "speed": 390
+    },
+    {
+      "time": 17821,
+      "direction": "left",
+      "type": "tap",
+      "speed": 310
+    },
+    {
+      "time": 18564,
+      "direction": "right",
+      "type": "tap",
+      "speed": 386
+    },
+    {
+      "time": 21246,
+      "direction": "left",
+      "type": "tap",
+      "speed": 372
+    },
+    {
+      "time": 23975,
+      "direction": "right",
+      "type": "tap",
+      "speed": 365
+    },
+    {
+      "time": 25159,
+      "direction": [
+        "right",
+        "down"
+      ],
+      "type": "chord",
+      "speed": 381
+    },
+    {
+      "time": 26587,
+      "direction": "left",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 27841,
+      "direction": "right",
+      "type": "tap",
+      "speed": 378
+    },
+    {
+      "time": 28607,
+      "direction": "up",
+      "type": "tap",
+      "speed": 338
+    },
+    {
+      "time": 28990,
+      "direction": "right",
+      "type": "tap",
+      "speed": 317
+    },
+    {
+      "time": 29466,
+      "direction": "up",
+      "type": "tap",
+      "speed": 353
+    },
+    {
+      "time": 30325,
+      "direction": "right",
+      "type": "tap",
+      "speed": 341
+    },
+    {
+      "time": 31242,
+      "direction": "down",
+      "type": "tap",
+      "speed": 365
+    },
+    {
+      "time": 31614,
+      "direction": "right",
+      "type": "tap",
+      "speed": 365
+    },
+    {
+      "time": 32159,
+      "direction": "left",
+      "type": "tap",
+      "speed": 365
+    },
+    {
+      "time": 33263,
+      "direction": [
+        "right",
+        "down"
+      ],
+      "type": "chord",
+      "speed": 379
+    },
+    {
+      "time": 33994,
+      "direction": "down",
+      "type": "tap",
+      "speed": 317
+    },
+    {
+      "time": 39869,
+      "direction": "left",
+      "type": "tap",
+      "speed": 375
+    },
+    {
+      "time": 41784,
+      "direction": "up",
+      "type": "tap",
+      "speed": 364
+    },
+    {
+      "time": 42794,
+      "direction": "left",
+      "type": "tap",
+      "speed": 307
+    },
+    {
+      "time": 45174,
+      "direction": "right",
+      "type": "tap",
+      "speed": 389
+    },
+    {
+      "time": 45720,
+      "direction": "down",
+      "type": "tap",
+      "speed": 357
+    },
+    {
+      "time": 46080,
+      "direction": "right",
+      "type": "tap",
+      "speed": 333
+    },
+    {
+      "time": 46452,
+      "direction": "down",
+      "type": "tap",
+      "speed": 306
+    },
+    {
+      "time": 46928,
+      "direction": "left",
+      "type": "tap",
+      "speed": 327
+    },
+    {
+      "time": 49203,
+      "direction": "up",
+      "type": "tap",
+      "speed": 362
+    },
+    {
+      "time": 49935,
+      "direction": "left",
+      "type": "tap",
+      "speed": 386
+    },
+    {
+      "time": 53743,
+      "direction": "down",
+      "type": "tap",
+      "speed": 384
+    }
+  ]
+}

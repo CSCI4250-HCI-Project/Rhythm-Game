@@ -1,0 +1,148 @@
+{
+  "title": "Hollow Knight",
+  "artist": "Game OST",
+  "difficulty": "Normal",
+  "song_file": "Hollow_Knight.mp3",
+  "bpm": 112.3,
+  "timeSignature": "4/4",
+  "notes": [
+    {
+      "time": 4145,
+      "direction": "down",
+      "type": "tap",
+      "speed": 429
+    },
+    {
+      "time": 4679,
+      "direction": "left",
+      "type": "tap",
+      "speed": 359
+    },
+    {
+      "time": 5782,
+      "direction": "right",
+      "type": "tap",
+      "speed": 426
+    },
+    {
+      "time": 9613,
+      "direction": [
+        "right",
+        "left"
+      ],
+      "type": "chord",
+      "speed": 412
+    },
+    {
+      "time": 10693,
+      "direction": "left",
+      "type": "tap",
+      "speed": 393
+    },
+    {
+      "time": 11784,
+      "direction": [
+        "left",
+        "right"
+      ],
+      "type": "chord",
+      "speed": 448
+    },
+    {
+      "time": 15035,
+      "direction": "right",
+      "type": "tap",
+      "speed": 406
+    },
+    {
+      "time": 17752,
+      "direction": "left",
+      "type": "tap",
+      "speed": 418
+    },
+    {
+      "time": 22674,
+      "direction": "down",
+      "type": "tap",
+      "speed": 408
+    },
+    {
+      "time": 23766,
+      "direction": "up",
+      "type": "tap",
+      "speed": 443
+    },
+    {
+      "time": 30360,
+      "direction": "down",
+      "type": "tap",
+      "speed": 391
+    },
+    {
+      "time": 31405,
+      "direction": [
+        "down",
+        "left"
+      ],
+      "type": "chord",
+      "speed": 441
+    },
+    {
+      "time": 33588,
+      "direction": "up",
+      "type": "tap",
+      "speed": 362
+    },
+    {
+      "time": 37988,
+      "direction": "left",
+      "type": "tap",
+      "speed": 366
+    },
+    {
+      "time": 50527,
+      "direction": "up",
+      "type": "tap",
+      "speed": 383
+    },
+    {
+      "time": 53766,
+      "direction": "right",
+      "type": "tap",
+      "speed": 355
+    },
+    {
+      "time": 57620,
+      "direction": "left",
+      "type": "tap",
+      "speed": 426
+    },
+    {
+      "time": 70159,
+      "direction": "up",
+      "type": "tap",
+      "speed": 370
+    },
+    {
+      "time": 76510,
+      "direction": "left",
+      "type": "tap",
+      "speed": 393
+    },
+    {
+      "time": 80527,
+      "direction": "down",
+      "type": "tap",
+      "speed": 379
+    },
+    {
+      "time": 84741,
+      "direction": [
+        "left",
+        "up"
+      ],
+      "type": "chord",
+      "speed": 381
+    }
+  ]
+}

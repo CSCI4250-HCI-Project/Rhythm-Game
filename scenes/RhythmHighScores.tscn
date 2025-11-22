@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=3 uid="uid://deupixejnvs3l"]
+
+[ext_resource type="Script" uid="uid://dxl25lbexu2ht" path="res://scripts/RhythmHighScores.gd" id="1_ly8hn"]
+
+[sub_resource type="Theme" id="Theme_ly8hn"]
+default_font_size = 75
+
+[sub_resource type="Theme" id="Theme_ovbj1"]
+default_font_size = 75
+
+[node name="RhythmHighScores" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 3840.0
+offset_bottom = 2160.0
+script = ExtResource("1_ly8hn")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 125.0
+offset_top = -210.0
+offset_right = 829.0
+offset_bottom = -99.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 75
+text = "Back to Main Menu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(1500, 950)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1020.0
+offset_top = -692.0
+offset_right = 1582.0
+offset_bottom = 258.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="HighScores" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 85
+text = "Rhythm Smartphone Game HIGH SCORES"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(420, 150)
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="SongLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Song: "
+
+[node name="SongOptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1000, 140)
+layout_mode = 2
+theme = SubResource("Theme_ly8hn")
+theme_override_font_sizes/font_size = 75
+
+[node name="DifficultyLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Difficulty: "
+
+[node name="DifficultyOptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 140)
+layout_mode = 2
+theme = SubResource("Theme_ovbj1")
+theme_override_font_sizes/font_size = 75
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1500, 1000)
+layout_mode = 2
+
+[node name="ScoresVBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(2000, 550)
+layout_mode = 2

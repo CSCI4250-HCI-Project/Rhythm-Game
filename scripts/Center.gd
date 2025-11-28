@@ -454,14 +454,13 @@ func show_combo_milestone(milestone: int):
 	
 	combo_milestone_label.text = "%d COMBO! %dx MULTIPLIER!" % [milestone, combo_multiplier]
 	combo_milestone_label.modulate = Color(1, 0.843, 0, 1)  # Gold color
-	combo_milestone_label.scale = Vector2(1.5, 1.5)
+	combo_milestone_label.scale = Vector2(1, 1)  # Normal size, no scaling
 	combo_milestone_label.show()
 	
+	# Just fade out, no movement or scaling
 	var tween = create_tween()
-	tween.tween_property(combo_milestone_label, "scale", Vector2(1, 1), 0.3)
-	tween.parallel().tween_property(combo_milestone_label, "modulate:a", 0, 1.5)
+	tween.tween_property(combo_milestone_label, "modulate:a", 0, 1.5)
 	tween.tween_callback(func(): combo_milestone_label.hide())
-
 
 func _process(delta):
 	# Handle pause state changes

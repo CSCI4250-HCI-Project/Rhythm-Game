@@ -1,7 +1,6 @@
 # Arrow.gd
 # Individual arrow that moves from center to target
 # Used for both single notes and chord notes
-
 extends TextureRect
 
 # Arrow properties
@@ -17,6 +16,11 @@ var overshoot_distance: float = 30.0
 var arrow_start_time: float = 0.0
 var travel_time: float = 0.0
 var target_reach_time: float = 0.0
+
+# NEW: Pause handling
+var pause_start_time: float = 0.0
+var total_pause_time: float = 0.0
+var was_paused: bool = false
 
 # Preload arrow textures
 var arrow_textures = {
@@ -52,6 +56,25 @@ func setup(dir: String, target_pos: Vector2, center_pos: Vector2, arrow_speed: f
 	overshooting = false
 
 func _process(delta):
+	# Handle pause state changes
+	if get_tree().paused:
+		if not was_paused:
+			# Just paused
+			pause_start_time = Time.get_ticks_msec() / 1000.0
+			was_paused = true
+		return
+	else:
+		if was_paused:
+			# Just unpaused - add to total pause time
+			var pause_duration = Time.get_ticks_msec() / 1000.0 - pause_start_time
+			total_pause_time += pause_duration
+			
+			# Adjust timing to account for pause
+			arrow_start_time += pause_duration
+			target_reach_time += pause_duration
+			
+			was_paused = false
+	
 	if not active:
 		return
 	

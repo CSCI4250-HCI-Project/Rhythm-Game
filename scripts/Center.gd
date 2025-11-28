@@ -86,6 +86,11 @@ var stats = {
 # Preload the Arrow scene
 var arrow_scene = preload("res://scenes/Arrow.tscn")
 
+# NEW: Pause handling
+var pause_start_time: float = 0.0
+var total_pause_time: float = 0.0
+var was_paused: bool = false
+
 # Track active arrows (can be 1 or 2 for chords)
 var active_arrows = []
 var chord_keys_required = []  # Which keys need to be pressed for current note
@@ -114,6 +119,10 @@ func get_texture_for_direction(dir: String):
 
 func _ready():
 	print("Center._ready() START")
+	
+	# Make this node process during pause
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	center_position = global_position
 
 	arrows = {
@@ -455,6 +464,26 @@ func show_combo_milestone(milestone: int):
 
 
 func _process(delta):
+	# Handle pause state changes
+	if get_tree().paused:
+		if not was_paused:
+			# Just paused
+			pause_start_time = Time.get_ticks_msec() / 1000.0
+			was_paused = true
+		return
+	else:
+		if was_paused:
+			# Just unpaused - adjust all timing
+			var pause_duration = Time.get_ticks_msec() / 1000.0 - pause_start_time
+			total_pause_time += pause_duration
+			
+			# Adjust song start time to account for pause
+			song_start_time += pause_duration
+			arrow_start_time += pause_duration
+			target_reach_time += pause_duration
+			
+			was_paused = false
+	
 	# Update combo multiplier
 	update_combo_multiplier()
 	
@@ -492,8 +521,6 @@ func _process(delta):
 		if current_song_time >= spawn_time:
 			spawn_next_arrow()
 
-
-
 	var current_time = Time.get_ticks_msec() / 1000.0
 	if not hit_registered and active and current_time > target_reach_time + ScoreManager.MISS_WINDOW:
 		apply_score_with_multiplier("Miss", 0)
@@ -502,7 +529,6 @@ func _process(delta):
 		active = false
 		chord_keys_required.clear()
 		chord_keys_pressed.clear()
-
 
 # NEW: Apply score with multiplier
 func apply_score_with_multiplier(result: String, base_points: int):
@@ -521,6 +547,9 @@ func apply_score_with_multiplier(result: String, base_points: int):
 
 
 func _input(event):
+	# Don't process input if paused
+	if get_tree().paused:
+		return
 	# Debug logging
 	if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
 		print("KEY PRESSED! Active: ", active, " | Keys required: ", chord_keys_required, " | Current note: ", current_note_index)

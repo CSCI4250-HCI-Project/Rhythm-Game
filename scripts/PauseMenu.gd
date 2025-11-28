@@ -18,6 +18,9 @@ signal restart_game
 signal quit_to_menu
 
 func _ready():
+	# Make pause menu process during pause
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	# Hide pause menu at start
 	hide_pause_menu()
 	

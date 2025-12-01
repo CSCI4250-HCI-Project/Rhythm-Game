@@ -1,6 +1,6 @@
 # Rhythm Game - CSCI 4250 HCI Project
 
-A full-featured rhythm game built in Godot Engine 4.5 for CSCI 4250 - Human Computer Interaction. Players hit directional arrows in sync with music using either keyboard controls on desktop or smartphone swipe controls via network connection.
+A full-featured rhythm game built in Godot Engine 4.5 for CSCI 4250 - Human Computer Interaction. Players hit directional arrows in sync with music using either keyboard controls on desktop or smartphone swipe controls via network connection. Also includes a Karate Reflexes mini-game mode with blocking and counter-attack mechanics.
 
 ## 🎮 Game Features
 
@@ -13,11 +13,16 @@ A full-featured rhythm game built in Godot Engine 4.5 for CSCI 4250 - Human Comp
 - **Song selection** - Multiple songs with custom charts
 - **High score tracking** - Persistent high scores across sessions
 - **Visual feedback** - Particle effects on Perfect hits, arrow flashing
+- **Karate Reflexes Game** - Block attacks and counter-punch in this reflex-based mini-game
 
-### Songs Included
-- "Billie Jean" by Michael Jackson
-- "Rolling in the Deep" by Adele  
-- "I'll Follow The Sun" by The Beatles
+### Songs Included in Rhythm Game
+- "First Steps" from Celeste
+- "The Brink of Death" from Chrono Cross
+- "Radiance" from Hollow Knight
+- "Title Screen" from Mega Man 3 NES
+- "Persona 5"
+- "Synthwave Burnout 1"
+- "Synthwave Burnout 2"
 
 ### Control Options
 
@@ -31,6 +36,36 @@ A full-featured rhythm game built in Godot Engine 4.5 for CSCI 4250 - Human Comp
 - Multi-touch support for chord notes
 - Low latency over local Wi-Fi (~10-30ms)
 - Real-time visual feedback on phone
+
+## 🥋 Karate Reflexes Game
+
+A reflex-based mini-game where players must block incoming attacks and counter-punch their opponent!
+
+### Karate Reflexes Controls
+
+#### Keyboard Controls
+**Blocking:**
+- **Upper Left Block** - Press Q or W
+- **Upper Right Block** - Press E or R
+- **Lower Left Block** - Press A or S
+- **Lower Right Block** - Press D or F
+
+#### Phone Controller
+**Blocking:**
+- **Upper Left Block** - Swipe toward upper left
+- **Upper Right Block** - Swipe toward upper right
+- **Lower Left Block** - Swipe toward lower left
+- **Lower Right Block** - Swipe toward lower right
+
+**Counter-Attacks:**
+- **Punch Left** - Tap with 2 fingers on the left side of the screen
+- **Punch Right** - Tap with 2 fingers on the right side of the screen
+
+### Gameplay
+- Block incoming attacks by pressing the correct keys or swiping in the correct direction
+- Successfully blocking opens up counter-attack opportunities
+- Timing is critical - blocks must be executed at the right moment
+- Difficulty-based timing systems adjust the challenge level
 
 ## 📋 Requirements
 
@@ -67,8 +102,8 @@ cd Rhythm-Game
 - Navigate through the menu:
   - Click **Start** on title screen
   - Select difficulty (Easy/Normal/Hard)
-  - Choose a song
-  - Play using arrow keys!
+  - Choose a song or game mode
+  - Play using arrow keys or phone controller!
 
 ## 📱 Phone Controller Setup
 
@@ -215,7 +250,7 @@ Your PC needs to allow UDP traffic on port 5005:
 Arrow speeds are controlled in the chart JSON files located in `res://charts/`.
 
 **To change speed for a specific song:**
-1. Open the chart file (e.g., `I'll_Follow_The_Sun_Normal.json`)
+1. Open the chart file (e.g., `First_Steps_Normal.json`)
 2. Each note has a `speed` property:
    ```json
    { "time": 2000.0, "direction": "left", "type": "tap", "speed": 375.0 }
@@ -233,15 +268,31 @@ Arrow speeds are controlled in the chart JSON files located in `res://charts/`.
 ## 🎮 Game Controls
 
 ### Keyboard (Desktop)
+
+#### Rhythm Game Mode
 - **Arrow Keys** - Hit corresponding arrows
 - **Multiple Arrow Keys** - Hit chord notes
 - **ESC** - Pause game
 
+#### Karate Reflexes Mode
+- **Q or W** - Upper Left Block
+- **E or R** - Upper Right Block
+- **A or S** - Lower Left Block
+- **D or F** - Lower Right Block
+
 ### Phone Controller
+
+#### Rhythm Game Mode
 - **Swipe Up/Down/Left/Right** - Hit corresponding arrows
 - **Multi-finger swipes** - Hit chord notes
 - Swipe detection works anywhere on screen
 - Minimum swipe distance: ~1-2 inches
+
+#### Karate Reflexes Mode
+- **Swipe Upper Left/Right** - Block upper attacks
+- **Swipe Lower Left/Right** - Block lower attacks
+- **2-Finger Tap Left Side** - Punch Left
+- **2-Finger Tap Right Side** - Punch Right
 
 ## 🔧 Troubleshooting
 
@@ -289,35 +340,63 @@ Arrow speeds are controlled in the chart JSON files located in `res://charts/`.
 ```
 Rhythm-Game/
 ├── assets/
-│   ├── audio/           # Song files (.mp3)
-│   ├── images/          # Arrow sprites, backgrounds
-│   └── fonts/           # UI fonts
-├── charts/              # Song chart JSON files
-│   ├── Billie_Jean_Easy.json
-│   ├── Billie_Jean_Normal.json
-│   └── ...
-├── scenes/              # Godot scene files
-│   ├── ArrowGame.tscn   # Main game scene
-│   ├── TitleScreen.tscn
+│   ├── audio/              # Song files (.mp3, .ogg)
+│   ├── images/             # Arrow sprites, backgrounds, UI elements
+│   └── fonts/              # UI fonts
+├── charts/                 # Song chart JSON files
+│   ├── First_Steps_Easy.json
+│   ├── First_Steps_Normal.json
+│   ├── First_Steps_Hard.json
+│   ├── Brink_of_Death_Easy.json
+│   ├── Brink_of_Death_Normal.json
+│   ├── Brink_of_Death_Hard.json
+│   ├── Radiance_Easy.json
+│   ├── Radiance_Normal.json
+│   ├── Radiance_Hard.json
+│   ├── MegaMan3_Title_Easy.json
+│   ├── MegaMan3_Title_Normal.json
+│   ├── MegaMan3_Title_Hard.json
+│   ├── Persona5_Easy.json
+│   ├── Persona5_Normal.json
+│   ├── Persona5_Hard.json
+│   ├── Synthwave_Burnout1_Easy.json
+│   ├── Synthwave_Burnout1_Normal.json
+│   ├── Synthwave_Burnout1_Hard.json
+│   ├── Synthwave_Burnout2_Easy.json
+│   ├── Synthwave_Burnout2_Normal.json
+│   └── Synthwave_Burnout2_Hard.json
+├── scenes/                 # Godot scene files
+│   ├── ArrowGame.tscn      # Main rhythm game scene
+│   ├── KarateReflexes.tscn # Karate Reflexes mini-game scene
+│   ├── TitleScreen.tscn    # Title screen
 │   ├── DifficultySelection.tscn
-│   └── SongSelection.tscn
-├── scripts/             # GDScript files
-│   ├── Center.gd        # Core game logic
-│   ├── Conductor.gd     # Music timing
-│   ├── ScoreManager.gd  # Scoring system
-│   ├── UDPReceiver.gd   # Phone controller receiver
-│   └── ...
-├── PhoneController/     # Separate phone controller project
-│   ├── PhoneController.gd
-│   ├── Controller.tscn
-│   └── project.godot
-└── project.godot        # Main project file
+│   ├── SongSelection.tscn
+│   └── Results.tscn        # Score results screen
+├── scripts/                # GDScript files
+│   ├── Center.gd           # Core rhythm game logic
+│   ├── Conductor.gd        # Music timing and synchronization
+│   ├── ScoreManager.gd     # Scoring system and combos
+│   ├── UDPReceiver.gd      # Phone controller UDP receiver
+│   ├── KarateGame.gd       # Karate Reflexes game logic
+│   ├── TitleScreen.gd      # Title screen functionality
+│   ├── DifficultySelection.gd
+│   ├── SongSelection.gd
+│   └── Results.gd          # Results screen logic
+├── PhoneController/        # Separate phone controller project
+│   ├── PhoneController.gd  # Phone controller UDP sender script
+│   ├── Controller.tscn     # Phone controller scene
+│   └── project.godot       # Phone controller project file
+└── project.godot           # Main project file
 ```
 
 ## 👥 Team Members
 
-- Gregory Treinen - [GitHub Profile]
-- [Add other team members]
+- Aristide Camara
+- Autumn Fisher
+- Roxanne Girol
+- Matthew Graves
+- Koi McManis
+- Gregory Treinen
 
 ## 📝 License
 

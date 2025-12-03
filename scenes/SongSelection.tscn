@@ -1,0 +1,121 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb4g61np2f1m"]
+
+[ext_resource type="Script" uid="uid://bsdx37h64ko4m" path="res://scripts/SongSelection.gd" id="1_cvgp8"]
+
+[sub_resource type="FontVariation" id="FontVariation_cvgp8"]
+variation_embolden = 0.5
+
+[node name="SongSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cvgp8")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.23137255, 0.5176471, 0, 1)
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -500.0
+offset_top = 400.0
+offset_right = 500.0
+offset_bottom = 670.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.14509805, 0, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_cvgp8")
+theme_override_font_sizes/font_size = 130
+text = "Select a Song"
+horizontal_alignment = 1
+
+[node name="SongScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -750.0
+offset_top = -375.0
+offset_right = 750.0
+offset_bottom = 375.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SongList" type="VBoxContainer" parent="SongScrollContainer"]
+custom_minimum_size = Vector2(1500, 750)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Celeste First Steps" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "First Steps from Celeste"
+
+[node name="Chrono Cross The Brink Of Death" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "The Brink of Death from Chrono Cross"
+
+[node name="Chrono Trigger Title Screen SNES" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Title Screen from Chrono Trigger SNES"
+
+[node name="Hollow Knight Radiance" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Radiance from Hollow Knight"
+
+[node name="Mega Man Title Screen NES" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Title Screen from Mega Man 3 NES"
+
+[node name="Persona 5" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Persona 5"
+
+[node name="Synthwave Burnout 1" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Synthwave Burnout 1"
+
+[node name="Synthwave Burnout 2" type="Button" parent="SongScrollContainer/SongList"]
+custom_minimum_size = Vector2(750, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Synthwave Burnout 2"
+
+[node name="BackButton" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = -410.0
+offset_right = 450.0
+offset_bottom = -285.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 70
+text = "Back"

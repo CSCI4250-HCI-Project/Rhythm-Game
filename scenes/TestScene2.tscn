@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://duqfuj660mc8p"]
+
+[ext_resource type="Script" uid="uid://cdd0nat5ynq48" path="res://scripts/TestScene.gd" id="1_lqg2c"]
+[ext_resource type="Script" uid="uid://be612u338ddd0" path="res://scripts/FeedbackUI.gd" id="1_uvntb"]
+[ext_resource type="Script" uid="uid://dosrp103jmi2y" path="res://scripts/ScoreManager.gd" id="3_pibbx"]
+[ext_resource type="Script" uid="uid://dp7arf3lo38df" path="res://scripts/Conductor.gd" id="4_2scg0"]
+[ext_resource type="Script" uid="uid://bmknrtio7jwqh" path="res://scripts/WebcamInput.gd" id="5_fu3cl"]
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_2scg0"]
+
+[node name="TestScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1964.0
+offset_top = 558.0
+offset_right = 1964.0
+offset_bottom = 558.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lqg2c")
+
+[node name="FeedbackLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.799
+anchor_top = -0.041
+anchor_right = -0.799
+anchor_bottom = -0.041
+offset_left = -505.552
+offset_top = -336.432
+offset_right = -349.552
+offset_bottom = -256.432
+scale = Vector2(4, 4)
+text = "Waiting for button..."
+script = ExtResource("1_uvntb")
+
+[node name="TestButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -1955.0
+offset_top = -441.0
+offset_right = -1825.0
+offset_bottom = -361.0
+scale = Vector2(4, 4)
+text = "Press Me"
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="ScoreManager" type="Node" parent="."]
+script = ExtResource("3_pibbx")
+
+[node name="Conductor" type="Node" parent="."]
+script = ExtResource("4_2scg0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Conductor"]
+stream = SubResource("AudioStreamWAV_2scg0")
+
+[node name="WebcamInput" type="Node" parent="."]
+script = ExtResource("5_fu3cl")
+
+[connection signal="pressed" from="TestButton" to="." method="_on_test_button_pressed"]
+[connection signal="pressed" from="TestButton" to="." method="_on_TestButton_pressed"]

@@ -1,0 +1,340 @@
+{
+  "title": "Hollow Knight",
+  "artist": "Game OST",
+  "difficulty": "Easy",
+  "song_file": "Hollow_Knight.mp3",
+  "bpm": 112.3,
+  "timeSignature": "4/4",
+  "notes": [
+    {
+      "time": 3065,
+      "direction": "down",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 4500,
+      "corner": "upper_right",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 6000,
+      "direction": "right",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 7500,
+      "corner": "lower_left",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 9000,
+      "direction": "left",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 10500,
+      "corner": "upper_left",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 12000,
+      "direction": "up",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 13500,
+      "corner": "lower_right",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 15000,
+      "direction": "down",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 16500,
+      "direction": ["up", "left"],
+      "type": "chord",
+      "speed": 300
+    },
+    {
+      "time": 18000,
+      "corner": "upper_right",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 19500,
+      "direction": "right",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 21000,
+      "corner": "lower_left",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 22500,
+      "direction": "left",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 24000,
+      "direction": ["right", "down"],
+      "type": "chord",
+      "speed": 300
+    },
+    {
+      "time": 25500,
+      "corner": "upper_left",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 27000,
+      "direction": "up",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 28500,
+      "corner": "lower_right",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 30000,
+      "direction": "down",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 31500,
+      "corner": "upper_right",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 33000,
+      "direction": "right",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 34500,
+      "corner": "lower_left",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 36000,
+      "direction": "left",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 37500,
+      "direction": ["up", "down"],
+      "type": "chord",
+      "speed": 300
+    },
+    {
+      "time": 39000,
+      "corner": "upper_left",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 40500,
+      "direction": "up",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 42000,
+      "corner": "lower_right",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 43500,
+      "direction": "down",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 45000,
+      "corner": "upper_right",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 46500,
+      "direction": ["left", "right"],
+      "type": "chord",
+      "speed": 300
+    },
+    {
+      "time": 48000,
+      "corner": "lower_left",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 49500,
+      "direction": "left",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 51000,
+      "corner": "upper_left",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 52500,
+      "direction": "up",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 54000,
+      "corner": "lower_right",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 55500,
+      "direction": "right",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 57000,
+      "corner": "upper_right",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 58500,
+      "direction": "down",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 60000,
+      "corner": "lower_left",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 61500,
+      "direction": ["up", "left"],
+      "type": "chord",
+      "speed": 300
+    },
+    {
+      "time": 63000,
+      "corner": "upper_left",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 64500,
+      "direction": "up",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 66000,
+      "corner": "lower_right",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 67500,
+      "direction": "down",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 69000,
+      "corner": "upper_right",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 70500,
+      "direction": "right",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 72000,
+      "corner": "lower_left",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 73500,
+      "direction": "left",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 75000,
+      "direction": ["right", "down"],
+      "type": "chord",
+      "speed": 300
+    },
+    {
+      "time": 76500,
+      "corner": "upper_left",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 78000,
+      "direction": "up",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 79500,
+      "corner": "lower_right",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 81000,
+      "direction": "down",
+      "type": "tap",
+      "speed": 300
+    },
+    {
+      "time": 82500,
+      "corner": "upper_right",
+      "type": "convergence",
+      "speed": 300
+    },
+    {
+      "time": 84000,
+      "direction": ["up", "down"],
+      "type": "chord",
+      "speed": 300
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Rhythm Game - CSCI 4250 HCI Project
 
-A full-featured rhythm game built in Godot Engine 4.5 for CSCI 4250 - Human Computer Interaction. Players hit directional arrows in sync with music using either keyboard controls on desktop or smartphone swipe controls via network connection. Also includes a Karate Reflexes mini-game mode with blocking and counter-attack mechanics.
+A full-featured rhythm game and reflexes game built in Godot Engine 4.5 for CSCI 4250 - Human Computer Interaction. Players hit directional arrows in sync with music using either keyboard controls on desktop or smartphone swipe controls via network connection. Also includes a Karate Reflexes mini-game with pressing buttons to block and punch or using a smartphone as a controller.
 
 ## 🎮 Game Features
 
@@ -29,6 +29,13 @@ A full-featured rhythm game built in Godot Engine 4.5 for CSCI 4250 - Human Comp
 #### 1. Desktop Play (Keyboard)
 - Arrow keys to hit directional notes
 - Supports chord notes (multiple simultaneous arrows)
+
+#### 2. Mobile Play (Smartphone as Controller)
+- **Phone Controller App** - Swipe on your phone to control the PC game
+- Swipe detection anywhere on screen (Up/Down/Left/Right)
+- Multi-touch support for chord notes
+- Low latency over local Wi-Fi (~10-30ms)
+- Real-time visual feedback on phone
 - "U" key for upper left convergence, "I" key for upper right convergence, "J' key for lower left convergence, and "K" key for lower right convergence 
 
 ### Phone Controller
@@ -60,7 +67,6 @@ A reflex-based mini-game where players must block incoming attacks and counter-p
 - **2-Finger Tap (Left Side):** Left Counter Punch.
 - **2-Finger Tap (Right Side):** Right Counter Punch.
 - **Back Button:** Return to Mode Selection Menu.
-
 
 ### Gameplay
 - Block incoming attacks by pressing the correct keys or swiping in the correct direction
@@ -104,6 +110,8 @@ cd Rhythm-Game
 - Navigate through the menu:
   - Click **Start** on title screen
   - Select difficulty (Easy/Normal/Hard)
+  - Choose a song
+  - Play using arrow keys!
   - Choose a song or game mode
   - Play using arrow keys or phone controller!
 
@@ -263,6 +271,7 @@ Your PC needs to allow UDP traffic on port 5005:
 Arrow speeds are controlled in the chart JSON files located in `res://charts/`.
 
 **To change speed for a specific song:**
+
 1. Open the chart file (e.g., `First_Steps_Normal.json`)
 2. Each note has a `speed` property:
    ```json
@@ -287,6 +296,8 @@ Arrow speeds are controlled in the chart JSON files located in `res://charts/`.
 - **Multiple Arrow Keys** - Hit chord notes
 - **ESC** - Pause game
 
+### Phone Controller
+
 #### Karate Reflexes Mode
 - **Q or W** - Upper Left Block
 - **E or R** - Upper Right Block
@@ -296,6 +307,7 @@ Arrow speeds are controlled in the chart JSON files located in `res://charts/`.
 ### Phone Controller
 
 #### Rhythm Game Mode
+
 - **Swipe Up/Down/Left/Right** - Hit corresponding arrows
 - **Multi-finger swipes** - Hit chord notes
 - Swipe detection works anywhere on screen
@@ -306,8 +318,6 @@ Arrow speeds are controlled in the chart JSON files located in `res://charts/`.
 - **Swipe Lower Left/Right** - Block lower attacks
 - **2-Finger Tap Left Side** - Punch Left
 - **2-Finger Tap Right Side** - Punch Right
-
-## 🔧 Troubleshooting
 
 ### Phone Controller Issues
 
@@ -380,6 +390,29 @@ Arrow speeds are controlled in the chart JSON files located in `res://charts/`.
 ```
 Rhythm-Game/
 ├── assets/
+│   ├── audio/           # Song files (.mp3)
+│   ├── images/          # Arrow sprites, backgrounds
+│   └── fonts/           # UI fonts
+├── charts/              # Song chart JSON files
+│   ├── Billie_Jean_Easy.json
+│   ├── Billie_Jean_Normal.json
+│   └── ...
+├── scenes/              # Godot scene files
+│   ├── ArrowGame.tscn   # Main game scene
+│   ├── TitleScreen.tscn
+│   ├── DifficultySelection.tscn
+│   └── SongSelection.tscn
+├── scripts/             # GDScript files
+│   ├── Center.gd        # Core game logic
+│   ├── Conductor.gd     # Music timing
+│   ├── ScoreManager.gd  # Scoring system
+│   ├── UDPReceiver.gd   # Phone controller receiver
+│   └── ...
+├── PhoneController/     # Separate phone controller project
+│   ├── PhoneController.gd
+│   ├── Controller.tscn
+│   └── project.godot
+└── project.godot        # Main project file
 │   ├── audio/              # Song files (.mp3, .ogg)
 │   ├── images/             # Arrow sprites, backgrounds, UI elements
 │   └── fonts/              # UI fonts
@@ -429,7 +462,7 @@ Rhythm-Game/
 │   ├── Controller.tscn     # Phone controller scene
 │   └── project.godot       # Phone controller project file
 └── project.godot           # Main project file
-```
+
 
 ## 👥 Team Members
 

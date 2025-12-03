@@ -1,0 +1,277 @@
+{
+  "title": "Gauntlet NES",
+  "artist": "Game OST",
+  "difficulty": "Easy",
+  "song_file": "Gauntlet_NES.mp3",
+  "bpm": 110.0,
+  "timeSignature": "4/4",
+  "notes": [
+    {
+      "time": 3332,
+      "direction": "right",
+      "type": "tap",
+      "speed": 374
+    },
+    {
+      "time": 3750,
+      "direction": "up",
+      "type": "tap",
+      "speed": 373
+    },
+    {
+      "time": 4946,
+      "direction": "left",
+      "type": "tap",
+      "speed": 305
+    },
+    {
+      "time": 5944,
+      "direction": "down",
+      "type": "tap",
+      "speed": 351
+    },
+    {
+      "time": 7036,
+      "direction": [
+        "left",
+        "down"
+      ],
+      "type": "chord",
+      "speed": 395
+    },
+    {
+      "time": 7732,
+      "direction": "left",
+      "type": "tap",
+      "speed": 343
+    },
+    {
+      "time": 8417,
+      "direction": "up",
+      "type": "tap",
+      "speed": 377
+    },
+    {
+      "time": 8835,
+      "direction": "right",
+      "type": "tap",
+      "speed": 353
+    },
+    {
+      "time": 9253,
+      "direction": "left",
+      "type": "tap",
+      "speed": 386
+    },
+    {
+      "time": 9520,
+      "direction": "down",
+      "type": "tap",
+      "speed": 341
+    },
+    {
+      "time": 10449,
+      "direction": "up",
+      "type": "tap",
+      "speed": 343
+    },
+    {
+      "time": 10762,
+      "direction": "right",
+      "type": "tap",
+      "speed": 331
+    },
+    {
+      "time": 11041,
+      "direction": "left",
+      "type": "tap",
+      "speed": 393
+    },
+    {
+      "time": 11865,
+      "direction": "right",
+      "type": "tap",
+      "speed": 371
+    },
+    {
+      "time": 12283,
+      "direction": "down",
+      "type": "tap",
+      "speed": 329
+    },
+    {
+      "time": 12701,
+      "direction": "right",
+      "type": "tap",
+      "speed": 368
+    },
+    {
+      "time": 14350,
+      "direction": "down",
+      "type": "tap",
+      "speed": 388
+    },
+    {
+      "time": 14629,
+      "direction": "right",
+      "type": "tap",
+      "speed": 341
+    },
+    {
+      "time": 15732,
+      "direction": "up",
+      "type": "tap",
+      "speed": 359
+    },
+    {
+      "time": 19017,
+      "direction": "right",
+      "type": "tap",
+      "speed": 361
+    },
+    {
+      "time": 21235,
+      "direction": "left",
+      "type": "tap",
+      "speed": 316
+    },
+    {
+      "time": 21502,
+      "direction": "up",
+      "type": "tap",
+      "speed": 379
+    },
+    {
+      "time": 22071,
+      "direction": "left",
+      "type": "tap",
+      "speed": 344
+    },
+    {
+      "time": 22430,
+      "direction": "down",
+      "type": "tap",
+      "speed": 364
+    },
+    {
+      "time": 23011,
+      "direction": "up",
+      "type": "tap",
+      "speed": 303
+    },
+    {
+      "time": 23394,
+      "direction": "right",
+      "type": "tap",
+      "speed": 330
+    },
+    {
+      "time": 23708,
+      "direction": "left",
+      "type": "tap",
+      "speed": 391
+    },
+    {
+      "time": 24811,
+      "direction": "up",
+      "type": "tap",
+      "speed": 385
+    },
+    {
+      "time": 25194,
+      "direction": "left",
+      "type": "tap",
+      "speed": 391
+    },
+    {
+      "time": 26738,
+      "direction": [
+        "left",
+        "right"
+      ],
+      "type": "chord",
+      "speed": 376
+    },
+    {
+      "time": 27005,
+      "direction": "up",
+      "type": "tap",
+      "speed": 359
+    },
+    {
+      "time": 27423,
+      "direction": "right",
+      "type": "tap",
+      "speed": 349
+    },
+    {
+      "time": 28665,
+      "direction": "down",
+      "type": "tap",
+      "speed": 341
+    },
+    {
+      "time": 28944,
+      "direction": "left",
+      "type": "tap",
+      "speed": 340
+    },
+    {
+      "time": 29408,
+      "direction": "up",
+      "type": "tap",
+      "speed": 310
+    },
+    {
+      "time": 30604,
+      "direction": "down",
+      "type": "tap",
+      "speed": 312
+    },
+    {
+      "time": 30964,
+      "direction": "left",
+      "type": "tap",
+      "speed": 383
+    },
+    {
+      "time": 31335,
+      "direction": "up",
+      "type": "tap",
+      "speed": 392
+    },
+    {
+      "time": 31602,
+      "direction": "right",
+      "type": "tap",
+      "speed": 323
+    },
+    {
+      "time": 31962,
+      "direction": "left",
+      "type": "tap",
+      "speed": 346
+    },
+    {
+      "time": 32334,
+      "direction": [
+        "up",
+        "right"
+      ],
+      "type": "chord",
+      "speed": 397
+    },
+    {
+      "time": 32612,
+      "direction": "up",
+      "type": "tap",
+      "speed": 386
+    },
+    {
+      "time": 33170,
+      "direction": "left",
+      "type": "tap",
+      "speed": 375
+    }
+  ]
+}

@@ -1,0 +1,520 @@
+{
+  "title": "Hollow Knight",
+  "artist": "Game OST",
+  "difficulty": "Normal",
+  "song_file": "Hollow_Knight.mp3",
+  "bpm": 112.3,
+  "timeSignature": "4/4",
+  "notes": [
+    {
+      "time": 2500,
+      "direction": "down",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 3500,
+      "corner": "upper_right",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 4500,
+      "direction": "left",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 5500,
+      "corner": "lower_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 6500,
+      "direction": "right",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 7500,
+      "direction": ["up", "down"],
+      "type": "chord",
+      "speed": 400
+    },
+    {
+      "time": 8500,
+      "corner": "upper_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 9500,
+      "direction": "up",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 10500,
+      "corner": "lower_right",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 11500,
+      "direction": ["left", "right"],
+      "type": "chord",
+      "speed": 400
+    },
+    {
+      "time": 12500,
+      "corner": "upper_right",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 13500,
+      "direction": "down",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 14500,
+      "corner": "lower_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 15500,
+      "direction": "left",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 16500,
+      "corner": "upper_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 17500,
+      "direction": ["up", "right"],
+      "type": "chord",
+      "speed": 400
+    },
+    {
+      "time": 18500,
+      "corner": "lower_right",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 19500,
+      "direction": "down",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 20500,
+      "corner": "upper_right",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 21500,
+      "direction": "right",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 22500,
+      "corner": "lower_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 23500,
+      "direction": ["down", "left"],
+      "type": "chord",
+      "speed": 400
+    },
+    {
+      "time": 24500,
+      "corner": "upper_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 25500,
+      "direction": "up",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 26500,
+      "corner": "lower_right",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 27500,
+      "direction": "right",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 28500,
+      "corner": "upper_right",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 28500,
+      "corner": "lower_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 30000,
+      "direction": "down",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 31000,
+      "direction": ["up", "down"],
+      "type": "chord",
+      "speed": 400
+    },
+    {
+      "time": 32000,
+      "corner": "upper_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 33000,
+      "direction": "left",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 34000,
+      "corner": "lower_right",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 35000,
+      "direction": "right",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 36000,
+      "corner": "upper_right",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 37000,
+      "direction": ["left", "down"],
+      "type": "chord",
+      "speed": 400
+    },
+    {
+      "time": 38000,
+      "corner": "lower_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 39000,
+      "direction": "up",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 40000,
+      "corner": "upper_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 41000,
+      "direction": "left",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 42000,
+      "corner": "lower_right",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 42000,
+      "corner": "upper_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 43500,
+      "direction": ["up", "right"],
+      "type": "chord",
+      "speed": 400
+    },
+    {
+      "time": 44500,
+      "corner": "upper_right",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 45500,
+      "direction": "down",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 46500,
+      "corner": "lower_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 47500,
+      "direction": "left",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 48500,
+      "corner": "upper_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 49500,
+      "direction": ["right", "down"],
+      "type": "chord",
+      "speed": 400
+    },
+    {
+      "time": 50500,
+      "corner": "lower_right",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 51500,
+      "direction": "up",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 52500,
+      "corner": "upper_right",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 53500,
+      "direction": "right",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 54500,
+      "corner": "lower_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 55500,
+      "direction": ["left", "up"],
+      "type": "chord",
+      "speed": 400
+    },
+    {
+      "time": 56500,
+      "corner": "upper_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 56500,
+      "corner": "lower_right",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 58000,
+      "direction": "down",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 59000,
+      "corner": "upper_right",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 60000,
+      "direction": "right",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 61000,
+      "corner": "lower_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 62000,
+      "direction": ["up", "down"],
+      "type": "chord",
+      "speed": 400
+    },
+    {
+      "time": 63000,
+      "corner": "upper_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 64000,
+      "direction": "left",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 65000,
+      "corner": "lower_right",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 66000,
+      "direction": "up",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 67000,
+      "corner": "upper_right",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 68000,
+      "direction": ["right", "down"],
+      "type": "chord",
+      "speed": 400
+    },
+    {
+      "time": 69000,
+      "corner": "lower_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 70000,
+      "direction": "left",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 71000,
+      "corner": "upper_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 71000,
+      "corner": "lower_right",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 72500,
+      "direction": "down",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 73500,
+      "corner": "upper_right",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 74500,
+      "direction": ["left", "right"],
+      "type": "chord",
+      "speed": 400
+    },
+    {
+      "time": 75500,
+      "corner": "lower_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 76500,
+      "direction": "up",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 77500,
+      "corner": "upper_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 78500,
+      "direction": "right",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 79500,
+      "corner": "lower_right",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 80500,
+      "direction": ["up", "down"],
+      "type": "chord",
+      "speed": 400
+    },
+    {
+      "time": 81500,
+      "corner": "upper_right",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 82500,
+      "direction": "down",
+      "type": "tap",
+      "speed": 400
+    },
+    {
+      "time": 83500,
+      "corner": "lower_left",
+      "type": "convergence",
+      "speed": 400
+    },
+    {
+      "time": 84500,
+      "direction": ["left", "up"],
+      "type": "chord",
+      "speed": 400
+    }
+  ]
+}

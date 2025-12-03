@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpf2c4uup2ran"]
+
+[ext_resource type="Script" uid="uid://bcg7477bywelw" path="res://node_2d.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dosrp103jmi2y" path="res://scripts/ScoreManager.gd" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://be612u338ddd0" path="res://scripts/FeedbackUI.gd" id="3_1bvp3"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ig7tw")
+
+[node name="ScoreManager" type="Node" parent="."]
+script = ExtResource("2_h2yge")
+
+[node name="FeedbackUI" type="CanvasLayer" parent="."]
+script = ExtResource("3_1bvp3")
+
+[node name="Label" type="Label" parent="FeedbackUI"]
+offset_right = 40.0
+offset_bottom = 23.0
+horizontal_alignment = 1
+vertical_alignment = 1

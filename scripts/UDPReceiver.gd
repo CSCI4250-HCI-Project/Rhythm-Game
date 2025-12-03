@@ -1,79 +1,52 @@
 extends Node
-
-# UDP RECEIVER for PC Game
-# Receives swipe commands from phone controller and simulates keyboard input
-# Add this as a child node to your main game scene
+# UDPReceiver.gd (For Rhythm Game)
 
 const LISTEN_PORT = 5005
-
-var udp_socket: PacketPeerUDP
+var udp_socket = PacketPeerUDP.new()
 var is_listening = false
 
 func _ready():
-    print("=== UDP Receiver Starting ===")
-    setup_udp()
-
-func setup_udp():
-    udp_socket = PacketPeerUDP.new()
-    var result = udp_socket.bind(LISTEN_PORT)
-    
-    if result == OK:
-        is_listening = true
-        print("✓ UDP Receiver listening on port ", LISTEN_PORT)
-        print("Waiting for phone controller...")
-    else:
-        print("✗ ERROR: Could not bind to port ", LISTEN_PORT)
-        print("Error code: ", result)
+	if udp_socket.bind(LISTEN_PORT) == OK:
+		is_listening = true
+		print("Rhythm Receiver Listening on ", LISTEN_PORT)
 
 func _process(_delta):
-    if not is_listening:
-        return
-    
-    # Check for incoming packets
-    if udp_socket.get_available_packet_count() > 0:
-        var packet = udp_socket.get_packet()
-        var message = packet.get_string_from_utf8()
-        handle_message(message)
+	if not is_listening: return
+	while udp_socket.get_available_packet_count() > 0:
+		var pkt = udp_socket.get_packet()
+		var msg = pkt.get_string_from_utf8().strip_edges()
+		_handle_message(msg)
 
-func handle_message(message: String):
-    message = message.strip_edges()
-    
-    if message == "HELLO":
-        print("✓ Phone controller connected!")
-        return
-    
-    # Convert direction to input action
-    var action = ""
-    match message:
-        "UP":
-            action = "ui_up"
-        "DOWN":
-            action = "ui_down"
-        "LEFT":
-            action = "ui_left"
-        "RIGHT":
-            action = "ui_right"
-    
-    if action != "":
-        print("Phone input received: ", message, " → ", action)
-        simulate_key_press(action)
+func _handle_message(msg: String):
+	# The phone sends different codes depending on mode.
+	# We only listen to the RHYTHM codes here.
+	
+	match msg:
+		# Standard Arrows
+		"UP": _press("ui_up")
+		"DOWN": _press("ui_down")
+		"LEFT": _press("ui_left")
+		"RIGHT": _press("ui_right")
+		
+		# Convergence Corners (From Rhythm Mode on Phone)
+		"TAP_UL": _press("convergence_upper_left")
+		"TAP_UR": _press("convergence_upper_right")
+		"TAP_DL": _press("convergence_lower_left")
+		"TAP_DR": _press("convergence_lower_right")
 
-func simulate_key_press(action: String):
-    # Create and inject the input event
-    var key_event = InputEventAction.new()
-    key_event.action = action
-    key_event.pressed = true
-    Input.parse_input_event(key_event)
-    
-    # Optional: Also trigger release after a short delay to fully simulate a key press
-    # This might help with detection
-    await get_tree().create_timer(0.05).timeout
-    var release_event = InputEventAction.new()
-    release_event.action = action
-    release_event.pressed = false
-    Input.parse_input_event(release_event)
+func _press(action_name: String):
+	if InputMap.has_action(action_name):
+		var ev = InputEventAction.new()
+		ev.action = action_name
+		ev.pressed = true
+		Input.parse_input_event(ev)
+		
+		# Short delay then release
+		await get_tree().process_frame 
+		var rel = InputEventAction.new()
+		rel.action = action_name
+		rel.pressed = false
+		Input.parse_input_event(rel)
 
 func _exit_tree():
-    if udp_socket:
-        udp_socket.close()
-        print("UDP Receiver closed")
+	if is_listening: udp_socket.close()

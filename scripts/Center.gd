@@ -25,6 +25,30 @@ extends TextureRect
 @export var left_light: PointLight2D
 @export var right_light: PointLight2D
 
+# Corner nodes for convergence
+@export var corner_upper_left: TextureRect
+@export var corner_upper_right: TextureRect
+@export var corner_lower_left: TextureRect
+@export var corner_lower_right: TextureRect
+
+# Corner particle systems
+@export var upper_left_particles: GPUParticles2D
+@export var upper_right_particles: GPUParticles2D
+@export var lower_left_particles: GPUParticles2D
+@export var lower_right_particles: GPUParticles2D
+
+# Corner lights
+@export var upper_left_light: PointLight2D
+@export var upper_right_light: PointLight2D
+@export var lower_left_light: PointLight2D
+@export var lower_right_light: PointLight2D
+
+# Flash Settings
+@export_group("Flash Settings")
+@export var flash_color_tint: Color = Color(0.2, 2.0, 2.0, 1.0) # For the Corner Box
+@export var flash_intensity: float = 4.0      # How bright the Light gets
+@export var flash_duration: float = 0.6       # Total time in seconds
+
 # Chart file path
 var chart_file: String = ""
 
@@ -36,14 +60,16 @@ var chart_file: String = ""
 
 # Movement
 var arrows = {}
+var corners = {}
 var target_arrow = ""
 var target_position = Vector2()
 var center_position = Vector2()
 var speed := 400.0
 var base_speed := 400.0
 var active := false
-var overshoot_distance := 30.0
+var overshoot_distance := 80.0  # CHANGED from 30 to 80
 var overshooting := false
+var speed_multiplier = 1.0
 
 # Countdown
 var countdown_active := false
@@ -59,11 +85,6 @@ var hit_registered := false
 var combo_multiplier := 1
 var last_combo_milestone := 0
 
-# NEW: Chord note tracking
-var is_chord := false
-var chord_directions := []
-var chord_keys_hit := {}
-
 # Chart data
 var chart_data = {}
 var note_queue = []
@@ -71,11 +92,11 @@ var current_note_index = 0
 var song_start_time := 0.0
 var song_playing := false
 
-# NEW: Song duration and game over tracking
+# Song duration and game over tracking
 var song_duration := 0.0
 var game_over_triggered := false
 
-# NEW: Statistics tracking
+# Statistics tracking
 var stats = {
 	"perfect": 0,
 	"good": 0,
@@ -86,15 +107,18 @@ var stats = {
 # Preload the Arrow scene
 var arrow_scene = preload("res://scenes/Arrow.tscn")
 
-# NEW: Pause handling
+# Pause handling
 var pause_start_time: float = 0.0
 var total_pause_time: float = 0.0
 var was_paused: bool = false
 
-# Track active arrows (can be 1 or 2 for chords)
+# Track active arrows (can be multiple for convergence)
 var active_arrows = []
-var chord_keys_required = []  # Which keys need to be pressed for current note
-var chord_keys_pressed = []   # Which keys have been pressed
+var current_note_type = ""  # "tap", "chord", or "convergence"
+var convergence_corners_active = []  # Changed from single string to Array
+var convergence_corners_original = []
+var chord_keys_required = []
+var chord_keys_pressed = []
 
 func set_direction(direction): 
 	if direction is Array:
@@ -125,6 +149,7 @@ func _ready():
 	
 	center_position = global_position
 
+	# Setup arrow positions
 	arrows = {
 		"Up": arrow_up.global_position,
 		"Down": arrow_down.global_position,
@@ -136,7 +161,34 @@ func _ready():
 		"right": arrow_right.global_position
 	}
 	
-		# NEW: Make directional arrows transparent
+	# Setup corner positions (calculated from arrow positions)
+	corners = {
+		"upper_left": Vector2(arrow_left.global_position.x, arrow_up.global_position.y),
+		"upper_right": Vector2(arrow_right.global_position.x, arrow_up.global_position.y),
+		"lower_left": Vector2(arrow_left.global_position.x, arrow_down.global_position.y),
+		"lower_right": Vector2(arrow_right.global_position.x, arrow_down.global_position.y)
+	}
+	
+	# --- FIX STARTS HERE ---
+	# Apply these calculated positions to the actual Corner nodes!
+	if corner_upper_left:
+		corner_upper_left.global_position = corners["upper_left"]
+	if corner_upper_right:
+		corner_upper_right.global_position = corners["upper_right"]
+	if corner_lower_left:
+		corner_lower_left.global_position = corners["lower_left"]
+	if corner_lower_right:
+		corner_lower_right.global_position = corners["lower_right"]
+	# --- FIX ENDS HERE ---
+	
+	# --- FIX START: Move the Lights too! ---
+	if upper_left_light: upper_left_light.global_position = corners["upper_left"]
+	if upper_right_light: upper_right_light.global_position = corners["upper_right"]
+	if lower_left_light: lower_left_light.global_position = corners["lower_left"]
+	if lower_right_light: lower_right_light.global_position = corners["lower_right"]
+	# --- FIX END ---
+	
+	# Make directional arrows transparent
 	arrow_up.modulate = Color(1, 1, 1, 0.3)
 	arrow_down.modulate = Color(1, 1, 1, 0.3)
 	arrow_left.modulate = Color(1, 1, 1, 0.3)
@@ -154,17 +206,24 @@ func _ready():
 	if combo_milestone_label:
 		combo_milestone_label.hide()
 	
-	# Set base speed based on difficulty
+# Set speed multiplier based on difficulty
 	var difficulty = GameSettings.difficulty
 	match difficulty:
 		"Easy":
-			base_speed = 300.0
+			# slightly faster than before
+			base_speed = 350.0 
+			speed_multiplier = 1.2 
 		"Normal":
+			# 25% speed boost to all notes
 			base_speed = 400.0
+			speed_multiplier = 1.5 
 		"Hard":
+			# 40% speed boost (Fast!)
 			base_speed = 500.0
+			speed_multiplier = 2.0
 		_:
 			base_speed = 400.0
+			speed_multiplier = 1.0
 
 	chart_file = GameSettings.selected_chart
 	
@@ -177,6 +236,12 @@ func _ready():
 	print("Chart loaded, starting countdown...")
 	
 	start_countdown()
+	
+	# Hide the corner boxes by making them transparent
+	if corner_upper_left: corner_upper_left.modulate.a = 0
+	if corner_upper_right: corner_upper_right.modulate.a = 0
+	if corner_lower_left: corner_lower_left.modulate.a = 0
+	if corner_lower_right: corner_lower_right.modulate.a = 0
 
 
 func start_countdown():
@@ -190,7 +255,7 @@ func start_countdown():
 	
 	# Countdown 3, 2, 1, GO!
 	for i in range(3, 0, -1):
-		countdown_label.text = "   " + str(i) + "   "  # Added spaces around the number
+		countdown_label.text = "   " + str(i) + "   "
 		countdown_label.modulate = Color(1, 1, 1, 1)
 		
 		var tween = create_tween()
@@ -254,7 +319,6 @@ func start_song():
 		return
 	
 	if not chart_data.has("song_file"):
-
 		return
 	
 	var song_filename = chart_data["song_file"]
@@ -277,8 +341,6 @@ func start_song():
 		var audio_stream = load(song_path)
 		if audio_stream:
 			music_player.stream = audio_stream
-			
-			# NEW: Get song duration automatically!
 			song_duration = audio_stream.get_length()
 			print("Song duration detected: ", song_duration, " seconds")
 			
@@ -314,28 +376,6 @@ func direction_string_to_standard(dir: String) -> String:
 		_: return "Up"
 
 
-func get_random_speed_for_difficulty() -> float:
-	var difficulty = GameSettings.difficulty
-	var min_speed: float
-	var max_speed: float
-	
-	match difficulty:
-		"Easy":
-			min_speed = 250.0
-			max_speed = 400.0
-		"Normal":
-			min_speed = 350.0
-			max_speed = 500.0
-		"Hard":
-			min_speed = 450.0
-			max_speed = 650.0
-		_:
-			min_speed = 300.0
-			max_speed = 500.0
-	
-	return randf_range(min_speed, max_speed)
-
-
 func spawn_next_arrow():
 	if current_note_index >= note_queue.size():
 		return
@@ -346,64 +386,126 @@ func spawn_next_arrow():
 	print("Note data: ", note)
 	
 	var note_type = note.get("type", "tap")
-	var direction = note.get("direction", "up")
+	current_note_type = note_type
 	
 	# Get speed from note or use base speed
 	var note_speed = base_speed
 	if note.has("speed"):
 		note_speed = float(note.get("speed"))
-	
-	# Clear previous arrows and input tracking
+	note_speed = note_speed * speed_multiplier
+	# Clear previous state
 	clear_active_arrows()
 	chord_keys_required.clear()
 	chord_keys_pressed.clear()
+	convergence_corners_active.clear() # <--- This is the new Array variable
 	
-	# Determine which directions to spawn
-	var directions_to_spawn = []
-	if note_type == "chord":
-		# Chord note - spawn multiple arrows
+	# Handle different note types
+	if note_type == "convergence":
+		# NEW: Convergence note
+		spawn_convergence_note(note, note_speed)
+	elif note_type == "chord":
+		# Chord note - spawn from center
+		var direction = note.get("direction", "up")
+		var directions_to_spawn = []
+		
 		if direction is Array:
 			for dir in direction:
 				var normalized_dir = direction_string_to_standard(str(dir))
 				directions_to_spawn.append(normalized_dir)
 		else:
-			# Shouldn't happen, but handle it
 			directions_to_spawn.append(direction_string_to_standard(str(direction)))
+		
+		for dir in directions_to_spawn:
+			spawn_regular_arrow(dir, note_speed)
+			chord_keys_required.append(dir)
 	else:
-		# Single note
-		directions_to_spawn.append(direction_string_to_standard(str(direction)))
-	
-	# Spawn arrows for each direction
-	for dir in directions_to_spawn:
-		spawn_arrow(dir, note_speed)
-		chord_keys_required.append(dir)
+		# Single tap note - spawn from center
+		var direction = note.get("direction", "up")
+		var normalized_dir = direction_string_to_standard(str(direction))
+		spawn_regular_arrow(normalized_dir, note_speed)
+		chord_keys_required.append(normalized_dir)
 	
 	active = true
 	hit_registered = false
 	arrow_start_time = Time.get_ticks_msec() / 1000.0
 	
 	# Calculate when arrows should reach target
-	travel_time = (arrows[directions_to_spawn[0]] - center_position).length() / note_speed
+	if current_note_type == "convergence":
+		# --- FIX IS HERE ---
+		# We check the first corner in the active list
+		var first_active_corner = convergence_corners_active[0]
+		var corner_pos = corners[first_active_corner]
+		
+		var first_arrow = active_arrows[0]
+		var distance = (corner_pos - first_arrow.global_position).length()
+		travel_time = distance / note_speed
+	else:
+		# Use directional arrow position for timing
+		var first_dir = chord_keys_required[0]
+		travel_time = (arrows[first_dir] - center_position).length() / note_speed
+	
 	target_reach_time = arrow_start_time + travel_time
 	
 	current_note_index += 1
 
-
-func spawn_arrow(direction: String, arrow_speed: float):
-	"""Spawn a single arrow instance"""
+func spawn_regular_arrow(direction: String, arrow_speed: float):
+	"""Spawn a regular arrow from center to directional arrow"""
 	var arrow_instance = arrow_scene.instantiate()
-	
-	# Add to scene
 	get_parent().add_child(arrow_instance)
 	
-	# Setup the arrow
 	var target_pos = arrows[direction]
 	arrow_instance.setup(direction, target_pos, center_position, arrow_speed)
+	arrow_instance.modulate = Color(1, 1, 1, 1)  # Fully opaque
 	
-	# Track this arrow
 	active_arrows.append(arrow_instance)
+	print("Spawned regular arrow: ", direction, " at speed ", arrow_speed)
+
+
+func spawn_convergence_note(note: Dictionary, note_speed: float):
+	"""Spawn a convergence note - supports single OR double convergence"""
+	var corner_data = note.get("corner", "upper_right")
 	
-	print("Spawned arrow: ", direction, " at speed ", arrow_speed)
+	# Handle both Single String ("upper_right") and Array (["upper_right", "lower_left"])
+	var corners_to_spawn = []
+	if corner_data is Array:
+		corners_to_spawn = corner_data
+	else:
+		corners_to_spawn.append(corner_data)
+		
+	active = true
+	
+	# Clear previous
+	convergence_corners_active.clear()
+	convergence_corners_original.clear() # <--- Clear the memory list
+	
+	for corner in corners_to_spawn:
+		convergence_corners_active.append(corner)
+		convergence_corners_original.append(corner) # <--- Save to memory list
+		
+		# ... (Rest of the function stays exactly the same as before) ...
+		# ... (Spawning arrows logic) ...
+		# ...
+		
+		# (Just copy the rest of your spawning logic here from the previous step)
+		# Determine directions, spawn arrows, etc.
+		print("Spawning convergence note at corner: ", corner)
+		var dir1 = ""; var dir2 = ""; var start_pos1 = Vector2(); var start_pos2 = Vector2()
+		var corner_pos = corners[corner]
+		match corner:
+			"upper_right":
+				dir1 = "Right"; dir2 = "Up"; start_pos1 = arrows["Up"]; start_pos2 = arrows["Right"]
+			"lower_right":
+				dir1 = "Down"; dir2 = "Right"; start_pos1 = arrows["Right"]; start_pos2 = arrows["Down"]
+			"lower_left":
+				dir1 = "Left"; dir2 = "Down"; start_pos1 = arrows["Down"]; start_pos2 = arrows["Left"]
+			"upper_left":
+				dir1 = "Up"; dir2 = "Left"; start_pos1 = arrows["Left"]; start_pos2 = arrows["Up"]
+		
+		var arrow1 = arrow_scene.instantiate(); get_parent().add_child(arrow1)
+		arrow1.setup_convergence(dir1, corner_pos, start_pos1, note_speed); active_arrows.append(arrow1)
+		
+		var arrow2 = arrow_scene.instantiate(); get_parent().add_child(arrow2)
+		arrow2.setup_convergence(dir2, corner_pos, start_pos2, note_speed); active_arrows.append(arrow2)
 
 
 func clear_active_arrows():
@@ -414,11 +516,9 @@ func clear_active_arrows():
 	active_arrows.clear()
 
 
-# NEW: Update combo multiplier based on current combo
 func update_combo_multiplier():
 	var current_combo = ScoreManager.combo
 	
-	# Update multiplier based on combo thresholds
 	if current_combo >= 40:
 		combo_multiplier = 4
 	elif current_combo >= 30:
@@ -430,7 +530,6 @@ func update_combo_multiplier():
 	else:
 		combo_multiplier = 1
 	
-	# Check for milestone achievements
 	var milestone = 0
 	if current_combo >= 40:
 		milestone = 40
@@ -441,66 +540,58 @@ func update_combo_multiplier():
 	elif current_combo >= 10:
 		milestone = 10
 	
-	# Show milestone message
 	if milestone > 0 and milestone > last_combo_milestone:
 		last_combo_milestone = milestone
 		show_combo_milestone(milestone)
 
 
-# NEW: Show combo milestone achievement
 func show_combo_milestone(milestone: int):
 	if not combo_milestone_label:
 		return
 	
 	combo_milestone_label.text = "%d COMBO! %dx MULTIPLIER!" % [milestone, combo_multiplier]
-	combo_milestone_label.modulate = Color(1, 0.843, 0, 1)  # Gold color
-	combo_milestone_label.scale = Vector2(1, 1)  # Normal size, no scaling
+	combo_milestone_label.modulate = Color(1, 0.843, 0, 1)
+	combo_milestone_label.scale = Vector2(1.5, 1.5)
 	combo_milestone_label.show()
 	
-	# Just fade out, no movement or scaling
 	var tween = create_tween()
 	tween.tween_property(combo_milestone_label, "modulate:a", 0, 1.5)
 	tween.tween_callback(func(): combo_milestone_label.hide())
+
 
 func _process(delta):
 	# Handle pause state changes
 	if get_tree().paused:
 		if not was_paused:
-			# Just paused
 			pause_start_time = Time.get_ticks_msec() / 1000.0
 			was_paused = true
 		return
 	else:
 		if was_paused:
-			# Just unpaused - adjust all timing
 			var pause_duration = Time.get_ticks_msec() / 1000.0 - pause_start_time
 			total_pause_time += pause_duration
 			
-			# Adjust song start time to account for pause
 			song_start_time += pause_duration
 			arrow_start_time += pause_duration
 			target_reach_time += pause_duration
 			
 			was_paused = false
 	
-	# Update combo multiplier
 	update_combo_multiplier()
 	
-	# Update max combo stat
 	if ScoreManager.combo > stats.max_combo:
 		stats.max_combo = ScoreManager.combo
 	
 	if score_label:
 		score_label.text = "Score: %d   Combo: %d   %dx" % [ScoreManager.score, ScoreManager.combo, combo_multiplier]
 
-	# Update timer and check for song end
+	# Update timer
 	if song_playing and timer_label and music_player and music_player.playing:
 		var time_remaining = music_player.stream.get_length() - music_player.get_playback_position()
 		var minutes = int(time_remaining) / 60
 		var seconds = int(time_remaining) % 60
 		timer_label.text = "%d:%02d" % [minutes, seconds]
 		
-		# NEW: Check if song has ended
 		if time_remaining <= 0.1 and not game_over_triggered:
 			game_over_triggered = true
 			call_deferred("trigger_game_over")
@@ -520,21 +611,22 @@ func _process(delta):
 		if current_song_time >= spawn_time:
 			spawn_next_arrow()
 
+	# Check for miss (arrows passed Good window)
 	var current_time = Time.get_ticks_msec() / 1000.0
-	if not hit_registered and active and current_time > target_reach_time + ScoreManager.MISS_WINDOW:
+	if not hit_registered and active and current_time > target_reach_time + ScoreManager.GOOD_WINDOW:
 		apply_score_with_multiplier("Miss", 0)
 		hit_registered = true
 		clear_active_arrows()
 		active = false
 		chord_keys_required.clear()
 		chord_keys_pressed.clear()
+		convergence_corners_active.clear()
 
-# NEW: Apply score with multiplier
+
 func apply_score_with_multiplier(result: String, base_points: int):
 	var final_points = base_points * combo_multiplier
 	ScoreManager._apply_score(result, final_points)
 	
-	# Track statistics
 	match result:
 		"Perfect":
 			stats.perfect += 1
@@ -542,21 +634,25 @@ func apply_score_with_multiplier(result: String, base_points: int):
 			stats.good += 1
 		"Miss":
 			stats.miss += 1
-			last_combo_milestone = 0  # Reset milestone on miss
+			last_combo_milestone = 0
 
 
 func _input(event):
-	# Don't process input if paused
 	if get_tree().paused:
 		return
-	# Debug logging
-	if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
-		print("KEY PRESSED! Active: ", active, " | Keys required: ", chord_keys_required, " | Current note: ", current_note_index)
 	
 	if not active:
 		return
 	
-	# Check ALL arrow key presses (not elif!)
+	# Handle convergence notes separately
+	if current_note_type == "convergence":
+		handle_convergence_input()
+	else:
+		handle_regular_input()
+
+
+func handle_regular_input():
+	"""Handle input for regular tap and chord notes"""
 	var pressed_arrows = []
 	if Input.is_action_just_pressed("ui_up"):
 		pressed_arrows.append("Up")
@@ -572,9 +668,9 @@ func _input(event):
 	
 	# Process each pressed arrow
 	for pressed_arrow in pressed_arrows:
-		# Check if this key is required for the current note
+		# Check if this key is required
 		if pressed_arrow not in chord_keys_required:
-			# Wrong key pressed
+			# Wrong key
 			apply_score_with_multiplier("Miss", 0)
 			_show_feedback("Miss")
 			clear_active_arrows()
@@ -584,14 +680,12 @@ func _input(event):
 			chord_keys_pressed.clear()
 			return
 		
-		# Add to pressed keys if not already pressed
+		# Add to pressed keys
 		if pressed_arrow not in chord_keys_pressed:
 			chord_keys_pressed.append(pressed_arrow)
-			print("Key pressed: ", pressed_arrow, " | Total pressed: ", chord_keys_pressed.size(), "/", chord_keys_required.size())
 	
-	# Check if all required keys have been pressed
+	# Check if all required keys pressed
 	if chord_keys_pressed.size() == chord_keys_required.size():
-		# All keys pressed! Calculate score
 		var current_time = Time.get_ticks_msec() / 1000.0
 		var offset = abs(current_time - target_reach_time)
 		
@@ -620,7 +714,7 @@ func _input(event):
 			if offset <= ScoreManager.PERFECT_WINDOW:
 				result = "Perfect"
 				base_points = 300
-				_trigger_particles(chord_keys_required[0])  # Use the first (and only) required key
+				_trigger_particles(chord_keys_required[0])
 				_flash_arrow(chord_keys_required[0])
 			elif offset <= ScoreManager.GOOD_WINDOW:
 				result = "Good"
@@ -640,19 +734,148 @@ func _input(event):
 		chord_keys_pressed.clear()
 
 
-func keycode_to_direction(keycode: int) -> String:
-	match keycode:
-		Key.KEY_UP:
-			return "Up"
-		Key.KEY_DOWN:
-			return "Down"
-		Key.KEY_LEFT:
-			return "Left"
-		Key.KEY_RIGHT:
-			return "Right"
-		_:
-			return ""
+func handle_convergence_input():
+	"""Handle input for convergence notes (Single or Double)"""
+	var pressed_corners = []
+	
+	if Input.is_action_just_pressed("convergence_upper_left"): pressed_corners.append("upper_left")
+	if Input.is_action_just_pressed("convergence_upper_right"): pressed_corners.append("upper_right")
+	if Input.is_action_just_pressed("convergence_lower_left"): pressed_corners.append("lower_left")
+	if Input.is_action_just_pressed("convergence_lower_right"): pressed_corners.append("lower_right")
+	
+	if pressed_corners.is_empty():
+		return
 
+	for corner_key in pressed_corners:
+		# Check if this pressed key is one of the ones we need right now
+		if corner_key in convergence_corners_active:
+			# CORRECT HIT for this specific corner
+			_trigger_corner_effects(corner_key) # Trigger particles immediately
+			
+			# Remove this corner from the required list
+			convergence_corners_active.erase(corner_key)
+			
+			# If we have hit ALL required corners, calculate score
+			if convergence_corners_active.is_empty():
+				var current_time = Time.get_ticks_msec() / 1000.0
+				var offset = abs(current_time - target_reach_time)
+				
+				var result = ""
+				var base_points = 0
+				
+				if offset <= ScoreManager.PERFECT_WINDOW:
+					result = "Perfect"
+					base_points = 300
+					
+					# --- VISUAL FIX: Flash ALL corners involved in this note ---
+					for c in convergence_corners_original:
+						_flash_corner(c)
+					# -----------------------------------------------------------
+					
+				elif offset <= ScoreManager.GOOD_WINDOW:
+					result = "Good"
+					base_points = 100
+				else:
+					result = "Miss"
+					base_points = 0
+				
+				apply_score_with_multiplier(result, base_points)
+				_show_feedback(result + " Convergence!")
+				
+				clear_active_arrows()
+				active = false
+				hit_registered = true
+				
+		elif corner_key in convergence_corners_original:
+			# --- SAFETY FIX: ALREADY HIT ---
+			# The player pressed a key that was required, but they already hit it 
+			# (maybe a double press or bouncing keyboard).
+			# IGNORE this input. Do NOT trigger a Miss.
+			pass
+			
+		else:
+			# WRONG KEY -> MISS
+			# The player pressed a corner that was NEVER part of this note.
+			apply_score_with_multiplier("Miss", 0)
+			_show_feedback("Miss")
+			clear_active_arrows()
+			active = false
+			hit_registered = true
+			convergence_corners_active.clear()
+			return
+
+func _trigger_corner_effects(corner: String):
+	"""Trigger particles and lights at the corner"""
+	print("🎆 TRIGGERING CORNER EFFECTS FOR: ", corner)  # ADD THIS
+	
+	var particles = null
+	var light = null
+	
+	match corner:
+		"upper_left":
+			particles = upper_left_particles
+			light = upper_left_light
+		"upper_right":
+			particles = upper_right_particles
+			light = upper_right_light
+		"lower_left":
+			particles = lower_left_particles
+			light = lower_left_light
+		"lower_right":
+			particles = lower_right_particles
+			light = lower_right_light
+	
+	print("Particles found: ", particles)  # ADD THIS
+	print("Light found: ", light)  # ADD THIS
+	
+	if particles:
+		print("Restarting particles!")  # ADD THIS
+		particles.restart()
+		particles.emitting = true
+	
+	if light:
+			light.enabled = true
+			light.energy = flash_intensity * 0.5 # Start at half brightness
+			
+			# Calculate timing
+			var flash_in = flash_duration * 0.1
+			var fade_out = flash_duration * 0.9
+			
+			var light_tween = create_tween()
+			# USE THE INSPECTOR VARIABLE HERE
+			light_tween.tween_property(light, "energy", flash_intensity, flash_in)
+			light_tween.tween_property(light, "energy", 0.0, fade_out)
+			light_tween.tween_callback(func(): light.enabled = false)
+
+func _flash_corner(corner: String):
+	"""Flash the corner node on Perfect convergence"""
+	var corner_node = null
+	
+	match corner:
+		"upper_left":
+			corner_node = corner_upper_left
+		"upper_right":
+			corner_node = corner_upper_right
+		"lower_left":
+			corner_node = corner_lower_left
+		"lower_right":
+			corner_node = corner_lower_right
+	
+	if corner_node:
+			# USE THE INSPECTOR VARIABLE HERE
+			var flash_color = flash_color_tint 
+			var fade_color = Color(flash_color.r, flash_color.g, flash_color.b, 0.0)
+			
+			# Calculate split timing based on total duration
+			var flash_in = flash_duration * 0.1  # 10% of time to pop in
+			var fade_out = flash_duration * 0.9  # 90% of time to fade out
+			
+			corner_node.modulate.a = 1.0
+			var tween = create_tween()
+			tween.tween_property(corner_node, "modulate", flash_color, flash_in)\
+				.set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+			tween.tween_property(corner_node, "modulate", fade_color, fade_out)\
+				.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 func _show_feedback(result: String):
 	feedback_label.text = result
@@ -663,6 +886,7 @@ func _show_feedback(result: String):
 
 
 func _flash_arrow(arrow_name: String):
+	print("🚨 _flash_arrow() CALLED FOR: ", arrow_name)  # ADD THIS LINE
 	var arrow = null
 	match arrow_name:
 		"Up": arrow = arrow_up
@@ -677,7 +901,6 @@ func _flash_arrow(arrow_name: String):
 		tween.tween_property(arrow, "modulate", bright_flash, 0.05)
 		tween.tween_property(arrow, "modulate", flash_color, 0.15)
 		tween.tween_property(arrow, "modulate", Color(1, 1, 1, 0.3), 0.3)
-
 
 func _trigger_light(arrow_name: String):
 	var light = null
@@ -714,6 +937,8 @@ func _reset_center():
 	active = false
 	chord_keys_required.clear()
 	chord_keys_pressed.clear()
+	convergence_corners_active.clear()
+	convergence_corners_original.clear()
 
 
 func _on_hit_result(result: String, score: int, combo: int) -> void:
@@ -736,24 +961,19 @@ func _on_hit_result(result: String, score: int, combo: int) -> void:
 		feedback_label.hide()
 
 
-# NEW: Trigger game over screen
 func trigger_game_over():
 	song_playing = false
 	
-	# Calculate accuracy
 	var total_notes = stats.perfect + stats.good + stats.miss
 	var accuracy = 0.0
 	if total_notes > 0:
 		accuracy = float(stats.perfect + stats.good) / float(total_notes) * 100.0
 	
-	# Save high score
 	save_high_score(accuracy)
 	
-	# Load game over scene
 	get_tree().change_scene_to_file("res://scenes/ResultsScreen.tscn")
 
 
-# NEW: Save high score
 func save_high_score(accuracy: float):
 	var save_data = {
 		"song": chart_data.get("title", "Unknown"),
@@ -768,10 +988,8 @@ func save_high_score(accuracy: float):
 		"timestamp": Time.get_unix_time_from_system()
 	}
 	
-	# Store in GameSettings for GameOver screen to access
 	GameSettings.last_game_stats = save_data
 	
-	# Load existing high scores
 	var save_file = FileAccess.open("user://highscores.save", FileAccess.READ_WRITE)
 	var high_scores = {}
 	
@@ -783,21 +1001,17 @@ func save_high_score(accuracy: float):
 				high_scores = json.data
 		save_file.close()
 	
-	# Create key for this song/difficulty combo
 	var key = "%s_%s" % [save_data.song_id, save_data.difficulty]
 	
 	if not high_scores.has(key):
 		high_scores[key] = []
 	
-	# Add new score
 	high_scores[key].append(save_data)
 	
-	# Sort by score (highest first) and keep top 10
 	high_scores[key].sort_custom(func(a, b): return a.score > b.score)
 	if high_scores[key].size() > 10:
 		high_scores[key] = high_scores[key].slice(0, 10)
 	
-	# Save back to file
 	save_file = FileAccess.open("user://highscores.save", FileAccess.WRITE)
 	if save_file:
 		save_file.store_string(JSON.stringify(high_scores))

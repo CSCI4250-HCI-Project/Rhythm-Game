@@ -1,9 +1,11 @@
-[gd_scene load_steps=31 format=4 uid="uid://ch0qek2050aft"]
+[gd_scene load_steps=38 format=4 uid="uid://ch0qek2050aft"]
 
+[ext_resource type="Texture2D" uid="uid://bsw371407t022" path="res://assets/visuals/rainbow.tres" id="3_7nq8h"]
 [ext_resource type="Texture2D" uid="uid://c7wpyp1nlpdex" path="res://assets/visuals/up_arrow.png" id="3_snj71"]
 [ext_resource type="Script" uid="uid://dxhi777xljeit" path="res://scripts/Center.gd" id="4_snj71"]
 [ext_resource type="Texture2D" uid="uid://cdl42sid1fjfk" path="res://assets/visuals/down_arrow.png" id="4_u5e66"]
 [ext_resource type="Texture2D" uid="uid://dsf3tln07ls5c" path="res://assets/visuals/left_arrow.png" id="5_8071p"]
+[ext_resource type="Gradient" uid="uid://cya74uft1mvjy" path="res://assets/visuals/convergence_flash.tres" id="6_e8e77"]
 [ext_resource type="Texture2D" uid="uid://hq676apgucpj" path="res://assets/visuals/right_arrow.png" id="6_gdn2m"]
 [ext_resource type="Script" uid="uid://dlaj1nuxtfifj" path="res://scripts/TouchInput.gd" id="6_qpb1n"]
 [ext_resource type="Script" uid="uid://br5kqeak2ldot" path="res://scripts/GestureReceiver.gd" id="9_8071p"]
@@ -13,25 +15,22 @@
 [ext_resource type="Script" uid="uid://dosrp103jmi2y" path="res://scripts/ScoreManager.gd" id="11_gdn2m"]
 [ext_resource type="Script" uid="uid://bsbtkvv5s5fxw" path="res://scripts/UDPReceiver.gd" id="12_qpb1n"]
 
-[sub_resource type="Gradient" id="Gradient_8071p"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_gdn2m"]
-gradient = SubResource("Gradient_8071p")
-
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8071p"]
 particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(600, 600, 1)
+emission_shape = 1
+emission_sphere_radius = 30.0
 direction = Vector3(0, 0, 0)
-initial_velocity_min = 200.0
-initial_velocity_max = 400.0
+spread = 180.0
+initial_velocity_min = 500.0
+initial_velocity_max = 800.0
 angular_velocity_min = -360.0
 angular_velocity_max = 359.99997
-gravity = Vector3(0, 500, 0)
-scale_min = 3.0
-scale_max = 6.0
-color = Color(1, 0.39215687, 0.10980392, 1)
-color_ramp = SubResource("GradientTexture1D_gdn2m")
+gravity = Vector3(0, 0, 0)
+scale_min = 8.0
+scale_max = 15.0
+color_ramp = ExtResource("3_7nq8h")
+hue_variation_min = -1.0
+hue_variation_max = 0.99999994
 
 [sub_resource type="Gradient" id="Gradient_gdn2m"]
 
@@ -41,18 +40,20 @@ fill = 1
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gdn2m"]
 particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(600, 600, 1)
-direction = Vector3(0, 0, 0)
+emission_shape = 1
+emission_sphere_radius = 30.0
+direction = Vector3(0, -1, 0)
 spread = 180.0
-initial_velocity_min = 200.0
-initial_velocity_max = 400.0
+initial_velocity_min = 500.0
+initial_velocity_max = 800.0
 angular_velocity_min = -360.0
 angular_velocity_max = 359.99997
-gravity = Vector3(0, 500, 0)
-scale_min = 3.0
-scale_max = 6.0
-color = Color(1, 0.21960784, 1, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 8.0
+scale_max = 15.0
+color_ramp = ExtResource("3_7nq8h")
+hue_variation_min = -1.0
+hue_variation_max = 0.99999994
 
 [sub_resource type="Gradient" id="Gradient_e8e77"]
 
@@ -62,18 +63,20 @@ fill = 1
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qpb1n"]
 particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(600, 600, 1)
-direction = Vector3(0, 0, 0)
+emission_shape = 1
+emission_sphere_radius = 30.0
+direction = Vector3(0, -1, 0)
 spread = 180.0
-initial_velocity_min = 200.0
-initial_velocity_max = 400.0
+initial_velocity_min = 500.0
+initial_velocity_max = 800.0
 angular_velocity_min = -360.0
 angular_velocity_max = 359.99997
-gravity = Vector3(0, 500, 0)
-scale_min = 3.0
-scale_max = 6.0
-color = Color(0.07058824, 0.22745098, 1, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 8.0
+scale_max = 15.0
+color_ramp = ExtResource("3_7nq8h")
+hue_variation_min = -1.0
+hue_variation_max = 0.99999994
 
 [sub_resource type="Gradient" id="Gradient_2gh5c"]
 
@@ -83,24 +86,72 @@ fill = 1
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e8e77"]
 particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(600, 600, 1)
+emission_shape = 1
+emission_sphere_radius = 30.0
 direction = Vector3(1, -1, 0)
 spread = 180.0
-initial_velocity_min = 100.0
-initial_velocity_max = 200.0
+initial_velocity_min = 500.0
+initial_velocity_max = 800.0
 angular_velocity_min = -360.0
 angular_velocity_max = 359.99997
-gravity = Vector3(0, 500, 0)
-scale_min = 3.0
-scale_max = 6.0
-color = Color(0.02745098, 0.50980395, 0, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 8.0
+scale_max = 15.0
+color_ramp = ExtResource("3_7nq8h")
+hue_variation_min = -1.0
+hue_variation_max = 0.99999994
 
 [sub_resource type="Gradient" id="Gradient_3vjf6"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_s1pl0"]
 gradient = SubResource("Gradient_3vjf6")
 fill = 1
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3vjf6"]
+gradient = ExtResource("6_e8e77")
+fill = 1
+fill_from = Vector2(300, 300)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7nq8h"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 30.0
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 500.0
+initial_velocity_max = 800.0
+gravity = Vector3(0, 0, 0)
+scale_min = 8.0
+scale_max = 15.0
+color_ramp = ExtResource("3_7nq8h")
+hue_variation_min = -1.0
+hue_variation_max = 0.99999994
+
+[sub_resource type="Gradient" id="Gradient_7nq8h"]
+offsets = PackedFloat32Array(0, 0.54035085, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0.76862746, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2gh5c"]
+gradient = SubResource("Gradient_7nq8h")
+width = 600
+height = 600
+fill = 1
+fill_from = Vector2(300, 300)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f2ycq"]
+gradient = ExtResource("6_e8e77")
+fill = 1
+fill_from = Vector2(300, 300)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r7k6e"]
+gradient = ExtResource("6_e8e77")
+fill = 1
+fill_from = Vector2(300, 300)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8e22x"]
+gradient = ExtResource("6_e8e77")
+fill = 1
+fill_from = Vector2(300, 300)
 
 [sub_resource type="Image" id="Image_gdn2m"]
 data = {
@@ -1891,6 +1942,7 @@ bg_color = Color(0, 0, 0, 0.8)
 script = ExtResource("12_qpb1n")
 
 [node name="ArrowUp" type="TextureRect" parent="."]
+light_mask = 2
 offset_left = 1800.0
 offset_top = 270.0
 offset_right = 2400.0
@@ -1900,16 +1952,16 @@ texture = ExtResource("3_snj71")
 expand_mode = 1
 
 [node name="UpParticles" type="GPUParticles2D" parent="ArrowUp"]
+position = Vector2(300, 300)
 emitting = false
 amount = 150
-lifetime = 0.8
+lifetime = 0.6
 one_shot = true
 speed_scale = 1.5
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_8071p")
 
 [node name="UpPointLight" type="PointLight2D" parent="ArrowUp"]
-visible = false
 z_index = 10
 enabled = false
 color = Color(0, 0.8509804, 1, 1)
@@ -1918,6 +1970,7 @@ texture = SubResource("GradientTexture2D_qpb1n")
 texture_scale = 10.0
 
 [node name="ArrowDown" type="TextureRect" parent="."]
+light_mask = 2
 offset_left = 1800.0
 offset_top = 1754.0
 offset_right = 2400.0
@@ -1927,9 +1980,10 @@ texture = ExtResource("4_u5e66")
 expand_mode = 1
 
 [node name="DownParticles" type="GPUParticles2D" parent="ArrowDown"]
+position = Vector2(300, 300)
 emitting = false
 amount = 150
-lifetime = 0.8
+lifetime = 0.6
 one_shot = true
 speed_scale = 1.5
 explosiveness = 1.0
@@ -1944,6 +1998,7 @@ texture = SubResource("GradientTexture2D_7nq8h")
 texture_scale = 10.0
 
 [node name="ArrowLeft" type="TextureRect" parent="."]
+light_mask = 2
 offset_left = 1058.0
 offset_top = 1012.0
 offset_right = 1658.0
@@ -1953,9 +2008,10 @@ texture = ExtResource("5_8071p")
 expand_mode = 1
 
 [node name="LeftParticles" type="GPUParticles2D" parent="ArrowLeft"]
+position = Vector2(300, 300)
 emitting = false
 amount = 150
-lifetime = 0.8
+lifetime = 0.6
 one_shot = true
 speed_scale = 1.5
 explosiveness = 1.0
@@ -1970,6 +2026,7 @@ texture = SubResource("GradientTexture2D_10a8m")
 texture_scale = 10.0
 
 [node name="ArrowRight" type="TextureRect" parent="."]
+light_mask = 2
 offset_left = 2542.0
 offset_top = 1012.0
 offset_right = 3142.0
@@ -1979,9 +2036,10 @@ texture = ExtResource("6_gdn2m")
 expand_mode = 1
 
 [node name="RightParticles" type="GPUParticles2D" parent="ArrowRight"]
+position = Vector2(300, 300)
 emitting = false
 amount = 150
-lifetime = 0.8
+lifetime = 0.6
 one_shot = true
 speed_scale = 1.5
 explosiveness = 1.0
@@ -1995,7 +2053,107 @@ energy = 10.0
 texture = SubResource("GradientTexture2D_s1pl0")
 texture_scale = 10.0
 
-[node name="Center" type="TextureRect" parent="." node_paths=PackedStringArray("arrow_up", "arrow_down", "arrow_left", "arrow_right", "feedback_label", "score_label", "timer_label", "countdown_label", "combo_milestone_label", "music_player", "conductor", "up_particles", "down_particles", "left_particles", "right_particles", "up_light", "down_light", "left_light", "right_light")]
+[node name="CornerUpperLeft" type="TextureRect" parent="."]
+offset_left = 1058.0
+offset_top = 270.0
+offset_right = 1658.0
+offset_bottom = 870.0
+scale = Vector2(0.3, 0.3)
+texture = SubResource("GradientTexture2D_3vjf6")
+
+[node name="UpperLeftParticles" type="GPUParticles2D" parent="CornerUpperLeft"]
+position = Vector2(300, 300)
+emitting = false
+amount = 150
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_7nq8h")
+
+[node name="UpperLeftLight" type="PointLight2D" parent="CornerUpperLeft"]
+scale = Vector2(3, 3)
+enabled = false
+color = Color(0.5254902, 0.972549, 0.9607843, 1)
+energy = 10.0
+texture = SubResource("GradientTexture2D_2gh5c")
+texture_scale = 10.0
+
+[node name="CornerUpperRight" type="TextureRect" parent="."]
+offset_left = 2542.0
+offset_top = 270.0
+offset_right = 3142.0
+offset_bottom = 870.0
+scale = Vector2(0.3, 0.3)
+texture = SubResource("GradientTexture2D_f2ycq")
+
+[node name="UpperRightParticles" type="GPUParticles2D" parent="CornerUpperRight"]
+position = Vector2(300, 300)
+emitting = false
+amount = 150
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_7nq8h")
+
+[node name="UpperRightLight" type="PointLight2D" parent="CornerUpperRight"]
+scale = Vector2(3, 3)
+enabled = false
+color = Color(0.5254902, 0.972549, 0.9607843, 1)
+energy = 10.0
+texture = SubResource("GradientTexture2D_2gh5c")
+texture_scale = 10.0
+
+[node name="CornerLowerLeft" type="TextureRect" parent="."]
+offset_left = 1058.0
+offset_top = 1754.0
+offset_right = 1658.0
+offset_bottom = 2354.0
+scale = Vector2(0.3, 0.3)
+texture = SubResource("GradientTexture2D_r7k6e")
+
+[node name="LowerLeftParticles" type="GPUParticles2D" parent="CornerLowerLeft"]
+position = Vector2(300, 300)
+emitting = false
+amount = 150
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_7nq8h")
+
+[node name="LowerLeftLight" type="PointLight2D" parent="CornerLowerLeft"]
+scale = Vector2(3, 3)
+enabled = false
+color = Color(0.5254902, 0.972549, 0.9607843, 1)
+energy = 10.0
+texture = SubResource("GradientTexture2D_2gh5c")
+texture_scale = 10.0
+
+[node name="CornerLowerRight" type="TextureRect" parent="."]
+offset_left = 2542.0
+offset_top = 1754.0
+offset_right = 3142.0
+offset_bottom = 2354.0
+scale = Vector2(0.3, 0.3)
+texture = SubResource("GradientTexture2D_8e22x")
+
+[node name="LowerRightParticles" type="GPUParticles2D" parent="CornerLowerRight"]
+position = Vector2(300, 300)
+emitting = false
+amount = 150
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_7nq8h")
+
+[node name="LowerRightLight" type="PointLight2D" parent="CornerLowerRight"]
+scale = Vector2(3, 3)
+enabled = false
+color = Color(0.5254902, 0.972549, 0.9607843, 1)
+energy = 10.0
+texture = SubResource("GradientTexture2D_2gh5c")
+texture_scale = 10.0
+
+[node name="Center" type="TextureRect" parent="." node_paths=PackedStringArray("arrow_up", "arrow_down", "arrow_left", "arrow_right", "feedback_label", "score_label", "timer_label", "countdown_label", "combo_milestone_label", "music_player", "conductor", "up_particles", "down_particles", "left_particles", "right_particles", "up_light", "down_light", "left_light", "right_light", "corner_upper_left", "corner_upper_right", "corner_lower_left", "corner_lower_right", "upper_left_particles", "upper_right_particles", "lower_left_particles", "lower_right_particles", "upper_left_light", "upper_right_light", "lower_left_light", "lower_right_light")]
 visible = false
 offset_left = 1800.0
 offset_top = 1012.0
@@ -2023,6 +2181,18 @@ up_light = NodePath("../ArrowUp/UpPointLight")
 down_light = NodePath("../ArrowDown/DownPointLight")
 left_light = NodePath("../ArrowLeft/LeftPointLight")
 right_light = NodePath("../ArrowRight/RightPointLight")
+corner_upper_left = NodePath("../CornerUpperLeft")
+corner_upper_right = NodePath("../CornerUpperRight")
+corner_lower_left = NodePath("../CornerLowerLeft")
+corner_lower_right = NodePath("../CornerLowerRight")
+upper_left_particles = NodePath("../CornerUpperLeft/UpperLeftParticles")
+upper_right_particles = NodePath("../CornerUpperRight/UpperRightParticles")
+lower_left_particles = NodePath("../CornerLowerLeft/LowerLeftParticles")
+lower_right_particles = NodePath("../CornerLowerRight/LowerRightParticles")
+upper_left_light = NodePath("../CornerUpperLeft/UpperLeftLight")
+upper_right_light = NodePath("../CornerUpperRight/UpperRightLight")
+lower_left_light = NodePath("../CornerLowerLeft/LowerLeftLight")
+lower_right_light = NodePath("../CornerLowerRight/LowerRightLight")
 
 [node name="TouchInput" type="Node" parent="Center"]
 script = ExtResource("6_qpb1n")
@@ -2047,10 +2217,10 @@ script = ExtResource("10_8071p")
 script = ExtResource("11_gdn2m")
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_left = 650.0
-offset_top = 400.0
-offset_right = 1550.0
-offset_bottom = 625.0
+offset_left = 2800.0
+offset_top = 500.0
+offset_right = 3700.0
+offset_bottom = 725.0
 theme_override_fonts/font = SubResource("FontFile_qpb1n")
 theme_override_font_sizes/font_size = 70
 
@@ -2060,10 +2230,10 @@ theme_override_font_sizes/font_size = 70
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 2400.0
-offset_top = 400.0
-offset_right = 2792.0
-offset_bottom = 627.0
+offset_left = 500.0
+offset_top = 800.0
+offset_right = 892.0
+offset_bottom = 1027.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 100
 
@@ -2079,10 +2249,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ComboMilestoneLabel" type="Label" parent="."]
-offset_left = 2100.0
-offset_top = 1500.0
-offset_right = 2673.0
-offset_bottom = 1712.0
+offset_left = 950.0
+offset_top = 2000.0
+offset_right = 1523.0005
+offset_bottom = 2212.0
 theme_override_colors/font_color = Color(1, 0, 1, 1)
 theme_override_font_sizes/font_size = 100
 

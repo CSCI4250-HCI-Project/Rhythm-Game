@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cb4g61np2f1m"]
+[gd_scene load_steps=3 format=3 uid="uid://cb4g61np2f1m"]
 
 [ext_resource type="Script" uid="uid://bsdx37h64ko4m" path="res://scripts/SongSelection.gd" id="1_cvgp8"]
+
+[sub_resource type="FontVariation" id="FontVariation_cvgp8"]
+variation_embolden = 0.5
 
 [node name="SongSelection" type="Control"]
 layout_mode = 3
@@ -25,13 +28,14 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -51.0
-offset_top = 70.0
-offset_right = 51.0
-offset_bottom = 93.0
+offset_left = -500.0
+offset_top = 400.0
+offset_right = 500.0
+offset_bottom = 670.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(1, 0.58431375, 0, 1)
-theme_override_font_sizes/font_size = 60
+theme_override_colors/font_color = Color(0.14509805, 0, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_cvgp8")
+theme_override_font_sizes/font_size = 130
 text = "Select a Song"
 horizontal_alignment = 1
 
@@ -54,12 +58,6 @@ custom_minimum_size = Vector2(1500, 750)
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="I\'ll Follow The Sun by The Beatles" type="Button" parent="SongScrollContainer/SongList"]
-custom_minimum_size = Vector2(750, 120)
-layout_mode = 2
-theme_override_font_sizes/font_size = 70
-text = "I'll Follow The Sun by The Beatles"
-
 [node name="Celeste First Steps" type="Button" parent="SongScrollContainer/SongList"]
 custom_minimum_size = Vector2(750, 120)
 layout_mode = 2
@@ -72,29 +70,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 70
 text = "The Brink of Death from Chrono Cross"
 
-[node name="Chrono Trigger Peaceful Days SNES" type="Button" parent="SongScrollContainer/SongList"]
-custom_minimum_size = Vector2(750, 120)
-layout_mode = 2
-theme_override_font_sizes/font_size = 70
-text = "Peaceful Days from Chrono Trigger SNES"
-
 [node name="Chrono Trigger Title Screen SNES" type="Button" parent="SongScrollContainer/SongList"]
 custom_minimum_size = Vector2(750, 120)
 layout_mode = 2
 theme_override_font_sizes/font_size = 70
 text = "Title Screen from Chrono Trigger SNES"
-
-[node name="Gauntlet NES" type="Button" parent="SongScrollContainer/SongList"]
-custom_minimum_size = Vector2(750, 120)
-layout_mode = 2
-theme_override_font_sizes/font_size = 70
-text = "Gauntlet NES"
-
-[node name="Hollow Knight" type="Button" parent="SongScrollContainer/SongList"]
-custom_minimum_size = Vector2(750, 120)
-layout_mode = 2
-theme_override_font_sizes/font_size = 70
-text = "Hollow Knight"
 
 [node name="Hollow Knight Radiance" type="Button" parent="SongScrollContainer/SongList"]
 custom_minimum_size = Vector2(750, 120)
@@ -107,12 +87,6 @@ custom_minimum_size = Vector2(750, 120)
 layout_mode = 2
 theme_override_font_sizes/font_size = 70
 text = "Title Screen from Mega Man 3 NES"
-
-[node name="Persona 4 A Corner Of Memories" type="Button" parent="SongScrollContainer/SongList"]
-custom_minimum_size = Vector2(750, 120)
-layout_mode = 2
-theme_override_font_sizes/font_size = 70
-text = "A Corner of Memories from Persona 4"
 
 [node name="Persona 5" type="Button" parent="SongScrollContainer/SongList"]
 custom_minimum_size = Vector2(750, 120)
@@ -131,12 +105,6 @@ custom_minimum_size = Vector2(750, 120)
 layout_mode = 2
 theme_override_font_sizes/font_size = 70
 text = "Synthwave Burnout 2"
-
-[node name="The Legend Of Zelda Title Screen NES" type="Button" parent="SongScrollContainer/SongList"]
-custom_minimum_size = Vector2(750, 120)
-layout_mode = 2
-theme_override_font_sizes/font_size = 70
-text = "Title Screen from The Legend of Zelda NES"
 
 [node name="BackButton" type="Button" parent="."]
 custom_minimum_size = Vector2(150, 60)

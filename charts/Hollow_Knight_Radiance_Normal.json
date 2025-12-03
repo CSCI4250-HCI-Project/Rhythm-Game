@@ -6,224 +6,130 @@
   "bpm": 120.2,
   "timeSignature": "4/4",
   "notes": [
-    {
-      "time": 4040,
-      "direction": "left",
-      "type": "tap",
-      "speed": 350
-    },
-    {
-      "time": 12086,
-      "direction": "up",
-      "type": "tap",
-      "speed": 377
-    },
-    {
-      "time": 16091,
-      "direction": "down",
-      "type": "tap",
-      "speed": 367
-    },
-    {
-      "time": 18088,
-      "direction": "up",
-      "type": "tap",
-      "speed": 365
-    },
-    {
-      "time": 24590,
-      "direction": "right",
-      "type": "tap",
-      "speed": 372
-    },
-    {
-      "time": 25089,
-      "direction": "down",
-      "type": "tap",
-      "speed": 434
-    },
-    {
-      "time": 29095,
-      "direction": "left",
-      "type": "tap",
-      "speed": 416
-    },
-    {
-      "time": 31092,
-      "direction": [
-        "up",
-        "left"
-      ],
-      "type": "chord",
-      "speed": 372
-    },
-    {
-      "time": 31591,
-      "direction": [
-        "left",
-        "right"
-      ],
-      "type": "chord",
-      "speed": 381
-    },
-    {
-      "time": 32090,
-      "direction": "right",
-      "type": "tap",
-      "speed": 404
-    },
-    {
-      "time": 36955,
-      "direction": "left",
-      "type": "tap",
-      "speed": 426
-    },
-    {
-      "time": 37407,
-      "direction": "down",
-      "type": "tap",
-      "speed": 422
-    },
-    {
-      "time": 37744,
-      "direction": [
-        "up",
-        "left"
-      ],
-      "type": "chord",
-      "speed": 391
-    },
-    {
-      "time": 39091,
-      "direction": "left",
-      "type": "tap",
-      "speed": 393
-    },
-    {
-      "time": 40089,
-      "direction": "down",
-      "type": "tap",
-      "speed": 442
-    },
-    {
-      "time": 43096,
-      "direction": "right",
-      "type": "tap",
-      "speed": 364
-    },
-    {
-      "time": 47926,
-      "direction": "up",
-      "type": "tap",
-      "speed": 400
-    },
-    {
-      "time": 54021,
-      "direction": "right",
-      "type": "tap",
-      "speed": 381
-    },
-    {
-      "time": 59977,
-      "direction": "down",
-      "type": "tap",
-      "speed": 369
-    },
-    {
-      "time": 60465,
-      "direction": "up",
-      "type": "tap",
-      "speed": 413
-    },
-    {
-      "time": 63565,
-      "direction": "left",
-      "type": "tap",
-      "speed": 351
-    },
-    {
-      "time": 79076,
-      "direction": "down",
-      "type": "tap",
-      "speed": 441
-    },
-    {
-      "time": 80097,
-      "direction": "left",
-      "type": "tap",
-      "speed": 411
-    },
-    {
-      "time": 81096,
-      "direction": "right",
-      "type": "tap",
-      "speed": 369
-    },
-    {
-      "time": 86088,
-      "direction": "down",
-      "type": "tap",
-      "speed": 350
-    },
-    {
-      "time": 88097,
-      "direction": "left",
-      "type": "tap",
-      "speed": 440
-    },
-    {
-      "time": 89095,
-      "direction": "down",
-      "type": "tap",
-      "speed": 398
-    },
-    {
-      "time": 89455,
-      "direction": "right",
-      "type": "tap",
-      "speed": 434
-    },
-    {
-      "time": 91382,
-      "direction": "down",
-      "type": "tap",
-      "speed": 425
-    },
-    {
-      "time": 92578,
-      "direction": "left",
-      "type": "tap",
-      "speed": 380
-    },
-    {
-      "time": 96177,
-      "direction": "down",
-      "type": "tap",
-      "speed": 410
-    },
-    {
-      "time": 99741,
-      "direction": "left",
-      "type": "tap",
-      "speed": 437
-    },
-    {
-      "time": 106951,
-      "direction": "right",
-      "type": "tap",
-      "speed": 373
-    },
-    {
-      "time": 122706,
-      "direction": "down",
-      "type": "tap",
-      "speed": 386
-    },
-    {
-      "time": 124900,
-      "direction": "up",
-      "type": "tap",
-      "speed": 425
-    }
+    { "time": 2200, "direction": "left", "type": "tap", "speed": 350 },
+    { "time": 2700, "direction": "down", "type": "tap", "speed": 350 },
+    { "time": 3200, "direction": "right", "type": "tap", "speed": 350 },
+    { "time": 3700, "direction": "up", "type": "tap", "speed": 350 },
+    { "time": 4040, "direction": "left", "type": "tap", "speed": 350 },
+    { "time": 4500, "direction": ["down", "up"], "type": "chord", "speed": 350 },
+    { "time": 5000, "corner": "upper_right", "type": "convergence", "speed": 350 },
+    { "time": 5500, "direction": "left", "type": "tap", "speed": 350 },
+    { "time": 6000, "direction": ["up", "right"], "type": "chord", "speed": 350 },
+    { "time": 7000, "corner": ["lower_left", "upper_right"], "type": "convergence", "speed": 350 },
+    { "time": 7500, "direction": "up", "type": "tap", "speed": 350 },
+    { "time": 8000, "direction": ["left", "down"], "type": "chord", "speed": 350 },
+    { "time": 9000, "corner": "upper_left", "type": "convergence", "speed": 350 },
+    { "time": 9500, "direction": "down", "type": "tap", "speed": 350 },
+    { "time": 10000, "direction": ["up", "left"], "type": "chord", "speed": 350 },
+    { "time": 11000, "corner": ["lower_right", "upper_left"], "type": "convergence", "speed": 350 },
+    { "time": 12086, "direction": "up", "type": "tap", "speed": 350 },
+    { "time": 13000, "direction": ["left", "right"], "type": "chord", "speed": 350 },
+    { "time": 13500, "corner": "lower_left", "type": "convergence", "speed": 350 },
+    { "time": 14000, "direction": "right", "type": "tap", "speed": 350 },
+    { "time": 15000, "direction": ["up", "down"], "type": "chord", "speed": 350 },
+    { "time": 16091, "corner": ["upper_right", "lower_left"], "type": "convergence", "speed": 350 },
+    { "time": 17000, "direction": "left", "type": "tap", "speed": 350 },
+    { "time": 17500, "direction": ["right", "up"], "type": "chord", "speed": 350 },
+    { "time": 18088, "corner": "upper_left", "type": "convergence", "speed": 350 },
+    { "time": 19000, "direction": "right", "type": "tap", "speed": 350 },
+    { "time": 20000, "direction": ["down", "left"], "type": "chord", "speed": 350 },
+    { "time": 20500, "corner": ["lower_right", "upper_left"], "type": "convergence", "speed": 350 },
+    { "time": 21000, "direction": "left", "type": "tap", "speed": 350 },
+    { "time": 22000, "direction": ["up", "right"], "type": "chord", "speed": 350 },
+    { "time": 23000, "corner": "lower_left", "type": "convergence", "speed": 350 },
+    { "time": 24590, "direction": "right", "type": "tap", "speed": 350 },
+    { "time": 25089, "direction": ["down", "up"], "type": "chord", "speed": 350 },
+    { "time": 26000, "corner": ["upper_right", "lower_left"], "type": "convergence", "speed": 350 },
+    { "time": 27000, "direction": "left", "type": "tap", "speed": 350 },
+    { "time": 27500, "direction": ["down", "right"], "type": "chord", "speed": 350 },
+    { "time": 28000, "corner": "upper_left", "type": "convergence", "speed": 350 },
+    { "time": 29095, "direction": "left", "type": "tap", "speed": 350 },
+    { "time": 30000, "direction": ["right", "up"], "type": "chord", "speed": 350 },
+    { "time": 31092, "corner": ["lower_left", "upper_right"], "type": "convergence", "speed": 350 },
+    { "time": 31591, "direction": ["left", "right"], "type": "chord", "speed": 350 },
+    { "time": 32090, "corner": "lower_right", "type": "convergence", "speed": 350 },
+    { "time": 33000, "direction": "down", "type": "tap", "speed": 350 },
+    { "time": 34000, "direction": ["up", "left"], "type": "chord", "speed": 350 },
+    { "time": 35000, "corner": ["upper_right", "lower_left"], "type": "convergence", "speed": 350 },
+    { "time": 36000, "direction": "right", "type": "tap", "speed": 350 },
+    { "time": 36955, "direction": ["left", "down"], "type": "chord", "speed": 350 },
+    { "time": 37407, "corner": "upper_left", "type": "convergence", "speed": 350 },
+    { "time": 37744, "direction": ["up", "left"], "type": "chord", "speed": 350 },
+    { "time": 38500, "corner": ["lower_right", "upper_left"], "type": "convergence", "speed": 350 },
+    { "time": 39091, "direction": "left", "type": "tap", "speed": 350 },
+    { "time": 40089, "direction": ["down", "right"], "type": "chord", "speed": 350 },
+    { "time": 41000, "corner": "lower_left", "type": "convergence", "speed": 350 },
+    { "time": 42000, "direction": "left", "type": "tap", "speed": 350 },
+    { "time": 43096, "direction": ["right", "up"], "type": "chord", "speed": 350 },
+    { "time": 44000, "corner": ["upper_right", "lower_left"], "type": "convergence", "speed": 350 },
+    { "time": 45000, "direction": "down", "type": "tap", "speed": 350 },
+    { "time": 45500, "direction": ["right", "left"], "type": "chord", "speed": 350 },
+    { "time": 46000, "corner": "upper_left", "type": "convergence", "speed": 350 },
+    { "time": 47000, "direction": "right", "type": "tap", "speed": 350 },
+    { "time": 47926, "direction": ["up", "down"], "type": "chord", "speed": 350 },
+    { "time": 49000, "corner": ["lower_left", "upper_right"], "type": "convergence", "speed": 350 },
+    { "time": 50000, "direction": "right", "type": "tap", "speed": 350 },
+    { "time": 51000, "direction": ["left", "up"], "type": "chord", "speed": 350 },
+    { "time": 51500, "corner": "lower_right", "type": "convergence", "speed": 350 },
+    { "time": 52000, "direction": "up", "type": "tap", "speed": 350 },
+    { "time": 53000, "direction": ["down", "right"], "type": "chord", "speed": 350 },
+    { "time": 54021, "corner": ["upper_left", "lower_right"], "type": "convergence", "speed": 350 },
+    { "time": 55000, "direction": "left", "type": "tap", "speed": 350 },
+    { "time": 56000, "direction": ["up", "down"], "type": "chord", "speed": 350 },
+    { "time": 57000, "corner": "upper_right", "type": "convergence", "speed": 350 },
+    { "time": 58000, "direction": "right", "type": "tap", "speed": 350 },
+    { "time": 59977, "direction": ["down", "left"], "type": "chord", "speed": 350 },
+    { "time": 60465, "corner": ["lower_left", "upper_right"], "type": "convergence", "speed": 350 },
+    { "time": 61500, "direction": "right", "type": "tap", "speed": 350 },
+    { "time": 62500, "direction": ["down", "up"], "type": "chord", "speed": 350 },
+    { "time": 63565, "corner": "upper_left", "type": "convergence", "speed": 350 },
+    { "time": 65000, "direction": "up", "type": "tap", "speed": 350 },
+    { "time": 67000, "direction": ["right", "down"], "type": "chord", "speed": 350 },
+    { "time": 68000, "corner": ["lower_right", "upper_left"], "type": "convergence", "speed": 350 },
+    { "time": 69000, "direction": "down", "type": "tap", "speed": 350 },
+    { "time": 71000, "direction": ["left", "right"], "type": "chord", "speed": 350 },
+    { "time": 73000, "corner": "lower_left", "type": "convergence", "speed": 350 },
+    { "time": 75000, "direction": "up", "type": "tap", "speed": 350 },
+    { "time": 77000, "direction": ["right", "up"], "type": "chord", "speed": 350 },
+    { "time": 78000, "corner": ["upper_right", "lower_left"], "type": "convergence", "speed": 350 },
+    { "time": 79076, "direction": "down", "type": "tap", "speed": 350 },
+    { "time": 80097, "direction": ["left", "down"], "type": "chord", "speed": 350 },
+    { "time": 81096, "corner": "upper_left", "type": "convergence", "speed": 350 },
+    { "time": 82500, "direction": "up", "type": "tap", "speed": 350 },
+    { "time": 83250, "direction": ["down", "right"], "type": "chord", "speed": 350 },
+    { "time": 84000, "corner": ["lower_left", "upper_right"], "type": "convergence", "speed": 350 },
+    { "time": 86088, "direction": "down", "type": "tap", "speed": 350 },
+    { "time": 88097, "direction": ["left", "up"], "type": "chord", "speed": 350 },
+    { "time": 89095, "corner": "lower_right", "type": "convergence", "speed": 350 },
+    { "time": 89455, "direction": "right", "type": "tap", "speed": 350 },
+    { "time": 90500, "direction": ["up", "down"], "type": "chord", "speed": 350 },
+    { "time": 91382, "corner": ["upper_left", "lower_right"], "type": "convergence", "speed": 350 },
+    { "time": 92578, "direction": "left", "type": "tap", "speed": 350 },
+    { "time": 94000, "direction": ["right", "up"], "type": "chord", "speed": 350 },
+    { "time": 95000, "corner": "upper_right", "type": "convergence", "speed": 350 },
+    { "time": 96177, "direction": "down", "type": "tap", "speed": 350 },
+    { "time": 98000, "direction": ["right", "left"], "type": "chord", "speed": 350 },
+    { "time": 99741, "corner": ["lower_left", "upper_right"], "type": "convergence", "speed": 350 },
+    { "time": 101000, "direction": "right", "type": "tap", "speed": 350 },
+    { "time": 102000, "direction": ["up", "down"], "type": "chord", "speed": 350 },
+    { "time": 104000, "corner": "upper_left", "type": "convergence", "speed": 350 },
+    { "time": 106951, "direction": "right", "type": "tap", "speed": 350 },
+    { "time": 109000, "direction": ["left", "up"], "type": "chord", "speed": 350 },
+    { "time": 111000, "corner": ["lower_right", "upper_left"], "type": "convergence", "speed": 350 },
+    { "time": 113000, "direction": "down", "type": "tap", "speed": 350 },
+    { "time": 114000, "direction": ["left", "right"], "type": "chord", "speed": 350 },
+    { "time": 115000, "corner": "upper_right", "type": "convergence", "speed": 350 },
+    { "time": 117000, "direction": "left", "type": "tap", "speed": 350 },
+    { "time": 119000, "direction": ["up", "down"], "type": "chord", "speed": 350 },
+    { "time": 121000, "corner": ["lower_left", "upper_right"], "type": "convergence", "speed": 350 },
+    { "time": 122706, "direction": "down", "type": "tap", "speed": 350 },
+    { "time": 124900, "direction": ["up", "left"], "type": "chord", "speed": 350 },
+    { "time": 126500, "corner": "upper_left", "type": "convergence", "speed": 350 },
+    { "time": 128000, "direction": ["right", "down"], "type": "chord", "speed": 350 },
+    { "time": 129500, "corner": "lower_right", "type": "convergence", "speed": 350 },
+    { "time": 131000, "direction": ["up", "down"], "type": "chord", "speed": 350 },
+    { "time": 133000, "corner": ["lower_left", "upper_right"], "type": "convergence", "speed": 350 },
+    { "time": 135000, "direction": ["left", "right"], "type": "chord", "speed": 350 },
+    { "time": 136500, "corner": "upper_right", "type": "convergence", "speed": 350 }
   ]
 }

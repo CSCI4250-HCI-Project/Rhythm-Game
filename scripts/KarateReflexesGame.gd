@@ -20,29 +20,29 @@ var screen_center: Vector2
 
 # ADJUSTABLE POSITIONS - Change these values to position elements where you want them!
 # Center target (where limbs disappear) - adjust these percentages
-var center_x_percent = 0.5  # 0.5 = middle of screen, 0.4 = more left, 0.6 = more right
-var center_y_percent = 0.5  # 0.5 = middle of screen, 0.3 = higher up, 0.7 = lower down
+var center_x_percent = 0.48  # 0.5 = middle of screen, 0.4 = more left, 0.6 = more right
+var center_y_percent = 0.45  # 0.5 = middle of screen, 0.3 = higher up, 0.7 = lower down
 
 # Punch prompt positions - adjust these pixel values
-var punch_left_x = 100  # Distance from left edge
-var punch_right_x_offset = 250  # Distance from right edge
-var punch_y_percent = 0.5  # 0.5 = middle height
+var punch_left_x = 1350  # Distance from left edge
+var punch_right_x_offset = 1650  # Distance from right edge
+var punch_y_percent = 0.4  # 0.5 = middle height
 
 # Individual limb image settings - adjust each separately!
-var right_arm_size = 150  # Size for right arm (upper left)
-var right_arm_rotation = 45  # Rotation for right arm
+var right_arm_size = 200  # Size for right arm (upper left)
+var right_arm_rotation = -45  # Rotation for right arm
 
-var left_arm_size = 150  # Size for left arm (upper right)
-var left_arm_rotation = -45  # Rotation for left arm
+var left_arm_size = 200  # Size for left arm (upper right)
+var left_arm_rotation = 45  # Rotation for left arm
 
-var right_leg_size = 150  # Size for right leg (lower left)
-var right_leg_rotation = 30  # Rotation for right leg
+var right_leg_size = 200  # Size for right leg (lower left)
+var right_leg_rotation = -135  # Rotation for right leg
 
-var left_leg_size = 150  # Size for left leg (lower right)
-var left_leg_rotation = -30  # Rotation for left leg
+var left_leg_size = 200  # Size for left leg (lower right)
+var left_leg_rotation = 135  # Rotation for left leg
 
-var punch_left_size = 200  # Size for "PUNCH LEFT" circle
-var punch_right_size = 200  # Size for "PUNCH RIGHT" circle
+var punch_left_size = 300  # Size for "PUNCH LEFT" circle
+var punch_right_size = 300  # Size for "PUNCH RIGHT" circle
 
 # Preload images
 var fighter_face_texture = preload("res://assets/visuals/karate_reflexes/FighterFace.png")
@@ -82,8 +82,8 @@ var total_misses = 0
 var feedback_label = null
 
 # Game timer
-var game_time_limit = 30.0  # 30 seconds total
-var game_time_remaining = 30.0
+var game_time_limit = 10.0  # 30 seconds total
+var game_time_remaining = 10.0
 
 # Countdown at start
 var countdown_active = true
@@ -93,6 +93,9 @@ var countdown_label = null
 # Pause system
 var is_paused = false
 var pause_menu = null
+
+# Gesture Receiver
+var gesture_receiver = null
 
 # Attack types
 enum AttackType {
@@ -127,6 +130,15 @@ func _ready():
 	if combo_label:
 		combo_label.text = ""
 	timer_label.text = "Time: 30"  # Show game countdown timer
+	
+	# Initialize Gesture Receiver
+	var receiver_script = load("res://KarateGestureReceiver.gd") # Make sure path matches where you save it
+	if receiver_script:
+		gesture_receiver = receiver_script.new()
+		add_child(gesture_receiver)
+		# Connect the signal from the receiver to a new function in this script
+		gesture_receiver.move_received.connect(_on_phone_input_received)
+		print("Karate Gesture Receiver connected!")
 	
 	# Create feedback label for showing BLOCKED, PUNCH CONNECTED, etc.
 	_create_feedback_label()
@@ -217,45 +229,26 @@ func _input(event):
 	
 	# Keyboard input for testing (temporary until smartphone control is added)
 	if event is InputEventKey and event.pressed:
-		var blocked = false
-		var wrong_input = false
+		var move = ""
 		
-		match current_attack:
-			AttackType.RIGHT_ARM_PUNCH:  # Upper left - press Q or W
-				if event.keycode == KEY_Q or event.keycode == KEY_W:
-					blocked = true
-				elif event.keycode == KEY_E or event.keycode == KEY_R or event.keycode == KEY_A or event.keycode == KEY_S or event.keycode == KEY_D or event.keycode == KEY_F or event.keycode == KEY_H or event.keycode == KEY_K:
-					wrong_input = true
-			AttackType.LEFT_ARM_PUNCH:   # Upper right - press E or R
-				if event.keycode == KEY_E or event.keycode == KEY_R:
-					blocked = true
-				elif event.keycode == KEY_Q or event.keycode == KEY_W or event.keycode == KEY_A or event.keycode == KEY_S or event.keycode == KEY_D or event.keycode == KEY_F or event.keycode == KEY_H or event.keycode == KEY_K:
-					wrong_input = true
-			AttackType.RIGHT_LEG_KICK:   # Lower left - press A or S
-				if event.keycode == KEY_A or event.keycode == KEY_S:
-					blocked = true
-				elif event.keycode == KEY_Q or event.keycode == KEY_W or event.keycode == KEY_E or event.keycode == KEY_R or event.keycode == KEY_D or event.keycode == KEY_F or event.keycode == KEY_H or event.keycode == KEY_K:
-					wrong_input = true
-			AttackType.LEFT_LEG_KICK:    # Lower right - press D or F
-				if event.keycode == KEY_D or event.keycode == KEY_F:
-					blocked = true
-				elif event.keycode == KEY_Q or event.keycode == KEY_W or event.keycode == KEY_E or event.keycode == KEY_R or event.keycode == KEY_A or event.keycode == KEY_S or event.keycode == KEY_H or event.keycode == KEY_K:
-					wrong_input = true
-			AttackType.COUNTER_PUNCH_LEFT:   # H key for left punch
-				if event.keycode == KEY_H:
-					blocked = true
-				elif event.keycode == KEY_Q or event.keycode == KEY_W or event.keycode == KEY_E or event.keycode == KEY_R or event.keycode == KEY_A or event.keycode == KEY_S or event.keycode == KEY_D or event.keycode == KEY_F or event.keycode == KEY_K:
-					wrong_input = true
-			AttackType.COUNTER_PUNCH_RIGHT:  # K key for right punch
-				if event.keycode == KEY_K:
-					blocked = true
-				elif event.keycode == KEY_Q or event.keycode == KEY_W or event.keycode == KEY_E or event.keycode == KEY_R or event.keycode == KEY_A or event.keycode == KEY_S or event.keycode == KEY_D or event.keycode == KEY_F or event.keycode == KEY_H:
-					wrong_input = true
+		# Map Keys to Moves
+		if event.keycode == KEY_Q or event.keycode == KEY_W:
+			move = "upper_left"
+		elif event.keycode == KEY_E or event.keycode == KEY_R:
+			move = "upper_right"
+		elif event.keycode == KEY_A or event.keycode == KEY_S:
+			move = "lower_left"
+		elif event.keycode == KEY_D or event.keycode == KEY_F:
+			move = "lower_right"
+		elif event.keycode == KEY_H:
+			move = "counter_left"
+		elif event.keycode == KEY_K:
+			move = "counter_right"
 		
-		if blocked:
-			_successful_block()
-		elif wrong_input:
-			_miss_attack()
+		# Process it if a valid key was pressed
+		if move != "":
+			_process_attempt(move)
+
 
 func _spawn_random_attack():
 	# Pick a random attack type (70% limb attacks, 30% counter punches)
@@ -441,6 +434,54 @@ func _clear_attack():
 func _prepare_next_attack():
 	waiting_for_next_attack = true
 	wait_timer = 0.0
+	
+# New function to handle phone inputs
+func _on_phone_input_received(move_type: String):
+	if is_paused or countdown_active or not is_attack_active:
+		return
+		
+	# Pass the move string to the logic handler
+	_process_attempt(move_type)
+
+# This replaces the logic that was inside _input
+func _process_attempt(input_move: String):
+	if current_attack == null:
+		return
+
+	var blocked = false
+	var wrong_input = false
+	
+	# Match the input against the current attack requirement
+	match current_attack:
+		AttackType.RIGHT_ARM_PUNCH:  # Needs "upper_left"
+			if input_move == "upper_left": blocked = true
+			else: wrong_input = true
+			
+		AttackType.LEFT_ARM_PUNCH:   # Needs "upper_right"
+			if input_move == "upper_right": blocked = true
+			else: wrong_input = true
+			
+		AttackType.RIGHT_LEG_KICK:   # Needs "lower_left"
+			if input_move == "lower_left": blocked = true
+			else: wrong_input = true
+			
+		AttackType.LEFT_LEG_KICK:    # Needs "lower_right"
+			if input_move == "lower_right": blocked = true
+			else: wrong_input = true
+			
+		AttackType.COUNTER_PUNCH_LEFT: # Needs "counter_left"
+			if input_move == "counter_left": blocked = true
+			else: wrong_input = true
+			
+		AttackType.COUNTER_PUNCH_RIGHT: # Needs "counter_right"
+			if input_move == "counter_right": blocked = true
+			else: wrong_input = true
+
+	# Apply results
+	if blocked:
+		_successful_block()
+	elif wrong_input:
+		_miss_attack()
 
 func _game_over():
 	# Stop the game
@@ -510,7 +551,7 @@ func _create_pause_menu():
 	# Paused label
 	var paused_label = Label.new()
 	paused_label.text = "PAUSED"
-	paused_label.add_theme_font_size_override("font_size", 72)  # Increased from 48
+	paused_label.add_theme_font_size_override("font_size", 90)  # Increased from 48
 	paused_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vbox.add_child(paused_label)
 	
@@ -518,23 +559,23 @@ func _create_pause_menu():
 	var resume_btn = Button.new()
 	resume_btn.text = "Resume"
 	resume_btn.custom_minimum_size = Vector2(300, 80)  # Made bigger
-	resume_btn.add_theme_font_size_override("font_size", 32)  # Added font size
+	resume_btn.add_theme_font_size_override("font_size", 80)  # Added font size
 	resume_btn.pressed.connect(_resume_game)
 	vbox.add_child(resume_btn)
 	
 	# Restart button
 	var restart_btn = Button.new()
 	restart_btn.text = "Restart Game"
-	restart_btn.custom_minimum_size = Vector2(300, 80)  # Made bigger
-	restart_btn.add_theme_font_size_override("font_size", 32)  # Added font size
+	restart_btn.custom_minimum_size = Vector2(300, 90)  # Made bigger
+	restart_btn.add_theme_font_size_override("font_size", 80)  # Added font size
 	restart_btn.pressed.connect(_restart_game)
 	vbox.add_child(restart_btn)
 	
 	# Quit button
 	var quit_btn = Button.new()
 	quit_btn.text = "Quit to Menu"
-	quit_btn.custom_minimum_size = Vector2(300, 80)  # Made bigger
-	quit_btn.add_theme_font_size_override("font_size", 32)  # Added font size
+	quit_btn.custom_minimum_size = Vector2(300, 90)  # Made bigger
+	quit_btn.add_theme_font_size_override("font_size", 80)  # Added font size
 	quit_btn.pressed.connect(_quit_to_menu)
 	vbox.add_child(quit_btn)
 	
@@ -606,21 +647,22 @@ func _create_game_over_screen(is_new_high_score: bool, previous_high_score: int)
 	game_over_panel.anchor_bottom = 1.0
 	
 	var style = StyleBoxFlat.new()
-	style.bg_color = Color(0, 0, 0, 0.8)
+	style.bg_color = Color(0, 0, 0, 0.85) # Slightly darker background for better contrast
 	game_over_panel.add_theme_stylebox_override("panel", style)
 	
 	# Create vertical box for content
 	var vbox = VBoxContainer.new()
-	vbox.anchor_left = 0.25
-	vbox.anchor_top = 0.15
-	vbox.anchor_right = 0.75
-	vbox.anchor_bottom = 0.85
-	vbox.add_theme_constant_override("separation", 15)
+	# Adjusted margins to keep content centered but give it more room
+	vbox.anchor_left = 0.15
+	vbox.anchor_top = 0.1
+	vbox.anchor_right = 0.85
+	vbox.anchor_bottom = 0.9
+	vbox.add_theme_constant_override("separation", 25) # Increased separation
 	
 	# Game Over title
 	var title_label = Label.new()
 	title_label.text = "GAME OVER!"
-	title_label.add_theme_font_size_override("font_size", 72)
+	title_label.add_theme_font_size_override("font_size", 140) 
 	title_label.add_theme_color_override("font_color", Color.RED)
 	title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vbox.add_child(title_label)
@@ -629,7 +671,7 @@ func _create_game_over_screen(is_new_high_score: bool, previous_high_score: int)
 	if is_new_high_score:
 		var new_high_score_label = Label.new()
 		new_high_score_label.text = "★ NEW HIGH SCORE! ★"
-		new_high_score_label.add_theme_font_size_override("font_size", 48)
+		new_high_score_label.add_theme_font_size_override("font_size", 80)
 		new_high_score_label.add_theme_color_override("font_color", Color.GOLD)
 		new_high_score_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		vbox.add_child(new_high_score_label)
@@ -637,7 +679,7 @@ func _create_game_over_screen(is_new_high_score: bool, previous_high_score: int)
 	# Final Score
 	var score_label_final = Label.new()
 	score_label_final.text = "Final Score: %d" % score
-	score_label_final.add_theme_font_size_override("font_size", 48)
+	score_label_final.add_theme_font_size_override("font_size", 80)
 	score_label_final.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vbox.add_child(score_label_final)
 	
@@ -645,39 +687,40 @@ func _create_game_over_screen(is_new_high_score: bool, previous_high_score: int)
 	if not is_new_high_score and previous_high_score > 0:
 		var high_score_label = Label.new()
 		high_score_label.text = "High Score: %d" % previous_high_score
-		high_score_label.add_theme_font_size_override("font_size", 36)
+		high_score_label.add_theme_font_size_override("font_size", 75)
 		high_score_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		vbox.add_child(high_score_label)
 	
-	# Statistics
+	# Statistics Header
 	var stats_label = Label.new()
 	stats_label.text = "━━━━━━ STATISTICS ━━━━━━"
-	stats_label.add_theme_font_size_override("font_size", 36)
+	stats_label.add_theme_font_size_override("font_size", 75)
 	stats_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vbox.add_child(stats_label)
 	
+	# Stats Lines
 	var blocks_label = Label.new()
 	blocks_label.text = "Successful Blocks: %d" % total_blocks
-	blocks_label.add_theme_font_size_override("font_size", 32)
+	blocks_label.add_theme_font_size_override("font_size", 75)
 	blocks_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vbox.add_child(blocks_label)
 	
 	var punches_label = Label.new()
 	punches_label.text = "Successful Punches: %d" % total_punches
-	punches_label.add_theme_font_size_override("font_size", 32)
+	punches_label.add_theme_font_size_override("font_size", 75)
 	punches_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vbox.add_child(punches_label)
 	
 	var misses_label = Label.new()
 	misses_label.text = "Missed Attacks: %d" % total_misses
-	misses_label.add_theme_font_size_override("font_size", 32)
+	misses_label.add_theme_font_size_override("font_size", 75)
 	misses_label.add_theme_color_override("font_color", Color.ORANGE_RED)
 	misses_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vbox.add_child(misses_label)
 	
 	var total_label = Label.new()
 	total_label.text = "Total Actions: %d" % (total_blocks + total_punches + total_misses)
-	total_label.add_theme_font_size_override("font_size", 32)
+	total_label.add_theme_font_size_override("font_size", 75)
 	total_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vbox.add_child(total_label)
 	
@@ -689,31 +732,39 @@ func _create_game_over_screen(is_new_high_score: bool, previous_high_score: int)
 	
 	var accuracy_label = Label.new()
 	accuracy_label.text = "Accuracy: %.1f%%" % accuracy
-	accuracy_label.add_theme_font_size_override("font_size", 36)
+	accuracy_label.add_theme_font_size_override("font_size", 75)
 	accuracy_label.add_theme_color_override("font_color", Color.CYAN)
 	accuracy_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vbox.add_child(accuracy_label)
 	
 	# Spacer
 	var spacer = Control.new()
-	spacer.custom_minimum_size = Vector2(0, 20)
+	spacer.custom_minimum_size = Vector2(0, 40) # Increased space before buttons
 	vbox.add_child(spacer)
 	
 	# Play Again button
 	var play_again_btn = Button.new()
 	play_again_btn.text = "Play Again"
-	play_again_btn.custom_minimum_size = Vector2(300, 70)
-	play_again_btn.add_theme_font_size_override("font_size", 36)
+	play_again_btn.custom_minimum_size = Vector2(600, 160)
+	play_again_btn.add_theme_font_size_override("font_size", 90)
 	play_again_btn.pressed.connect(_restart_game)
-	vbox.add_child(play_again_btn)
+	
+	# Center the button in VBox
+	var btn_center_container = CenterContainer.new()
+	btn_center_container.add_child(play_again_btn)
+	vbox.add_child(btn_center_container)
 	
 	# Quit to Menu button
 	var quit_btn = Button.new()
 	quit_btn.text = "Quit to Menu"
-	quit_btn.custom_minimum_size = Vector2(300, 70)
-	quit_btn.add_theme_font_size_override("font_size", 36)
+	quit_btn.custom_minimum_size = Vector2(600, 160)
+	quit_btn.add_theme_font_size_override("font_size", 90)
 	quit_btn.pressed.connect(_quit_to_menu)
-	vbox.add_child(quit_btn)
+	
+	# Center the button in VBox
+	var quit_center_container = CenterContainer.new()
+	quit_center_container.add_child(quit_btn)
+	vbox.add_child(quit_center_container)
 	
 	game_over_panel.add_child(vbox)
 	add_child(game_over_panel)

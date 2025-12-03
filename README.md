@@ -29,13 +29,16 @@ A full-featured rhythm game built in Godot Engine 4.5 for CSCI 4250 - Human Comp
 #### 1. Desktop Play (Keyboard)
 - Arrow keys to hit directional notes
 - Supports chord notes (multiple simultaneous arrows)
+- "U" key for upper left convergence, "I" key for upper right convergence, "J' key for lower left convergence, and "K" key for lower right convergence 
 
-#### 2. Mobile Play (Smartphone as Controller)
-- **Phone Controller App** - Swipe on your phone to control the PC game
-- Swipe detection anywhere on screen (Up/Down/Left/Right)
-- Multi-touch support for chord notes
-- Low latency over local Wi-Fi (~10-30ms)
-- Real-time visual feedback on phone
+### Phone Controller
+**Launch the app and select your Game Mode from the Main Menu.**
+
+#### Rhythm Game Mode
+- **Swipe Up/Down/Left/Right:** Hit corresponding directional arrows.
+- **Multi-finger swipes:** Hit chord notes (e.g., swipe Up and Right simultaneously).
+- **3-Finger Tap in Corners:** Trigger "Convergence" notes (tap corresponding corner).
+- **Back Button:** Return to Mode Selection Menu.
 
 ## 🥋 Karate Reflexes Game
 
@@ -49,17 +52,15 @@ A reflex-based mini-game where players must block incoming attacks and counter-p
 - **Upper Right Block** - Press E or R
 - **Lower Left Block** - Press A or S
 - **Lower Right Block** - Press D or F
+- **LEFT PUNCH** - Press "H" key
+- **RIGHT PUNCH** - Press "K" key
 
-#### Phone Controller
-**Blocking:**
-- **Upper Left Block** - Swipe toward upper left
-- **Upper Right Block** - Swipe toward upper right
-- **Lower Left Block** - Swipe toward lower left
-- **Lower Right Block** - Swipe toward lower right
+#### Karate Reflexes Mode
+- **Swipe Diagonally (Toward Corners):** Block upper/lower attacks.
+- **2-Finger Tap (Left Side):** Left Counter Punch.
+- **2-Finger Tap (Right Side):** Right Counter Punch.
+- **Back Button:** Return to Mode Selection Menu.
 
-**Counter-Attacks:**
-- **Punch Left** - Tap with 2 fingers on the left side of the screen
-- **Punch Right** - Tap with 2 fingers on the right side of the screen
 
 ### Gameplay
 - Block incoming attacks by pressing the correct keys or swiping in the correct direction
@@ -77,6 +78,7 @@ A reflex-based mini-game where players must block incoming attacks and counter-p
 
 ### For Phone Controller Setup
 - All desktop requirements above
+- **OpenJDK 17 (Eclipse Temurin recommended):** Required for Godot to sign the APK.
 - **Android smartphone** (Android 11 or later)
 - **Android Studio** (for Android SDK and build tools)
 - PC and phone on the **same Wi-Fi network**
@@ -109,8 +111,6 @@ cd Rhythm-Game
 
 Want to use your smartphone as a wireless controller? Follow these steps:
 
-### Part 1: Setup Phone Controller App
-
 #### 1. Install Android Studio and SDK
 1. Download and install [Android Studio](https://developer.android.com/studio)
 2. During setup, install:
@@ -120,12 +120,24 @@ Want to use your smartphone as a wireless controller? Follow these steps:
 3. Note your SDK location (usually `C:\Users\YourName\AppData\Local\Android\Sdk`)
 
 #### 2. Configure Godot for Android Export
+1.  **Install Java:** Download and install [Eclipse Temurin JDK 17](https://adoptium.net/temurin/releases/?version=17).
+2.  **Generate a Debug Keystore:**
+    * Open Command Prompt.
+    * Run: `keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000`
+    * Save this `debug.keystore` file in a safe place.
+3.  **Link in Godot:**
+    * Go to **Editor → Editor Settings → Export → Android**.
+    * Set **Java SDK Path** to your Java installation (e.g., `C:\Program Files\Eclipse Adoptium\jdk-17...`).
+    * Set **Android SDK Path** to your Android Studio SDK location.
+    * Set **Debug Keystore** to the file you just generated.
+
+#### 3. Configure Godot for Android Export
 1. In Godot, go to **Editor → Editor Settings**
 2. Navigate to **Export → Android**
 3. Set **Android SDK Path** to your SDK location
 4. Download export templates: **Editor → Manage Export Templates → Download and Install**
 
-#### 3. Create Phone Controller Project
+#### 4. Create Phone Controller Project
 1. Open Godot and create a **new project** named "PhoneController"
 2. Copy `PhoneController.gd` from this repository into your new project folder
 3. In Godot, create a new scene:
@@ -134,7 +146,7 @@ Want to use your smartphone as a wireless controller? Follow these steps:
 4. Attach `PhoneController.gd` to the Control node
 5. Set as main scene: **Project → Project Settings → Application → Run → Main Scene** = `res://Controller.tscn`
 
-#### 4. Configure Your PC's IP Address
+#### 5. Configure Your PC's IP Address
 1. Find your PC's local IP address:
    - Open Command Prompt (Windows + R, type `cmd`, press Enter)
    - Type: `ipconfig`
@@ -146,14 +158,14 @@ Want to use your smartphone as a wireless controller? Follow these steps:
    ```
 4. Save the file
 
-#### 5. Setup Display Settings
+#### 6. Setup Display Settings
 1. **Project → Project Settings → Display → Window**
 2. Set these values:
    - **Stretch Mode**: canvas_items
    - **Stretch Aspect**: expand
 3. Close Project Settings
 
-#### 6. Setup Android Export
+#### 7. Setup Android Export
 1. **Project → Export → Add... → Android**
 2. Configure the preset:
    - **Min SDK**: 24
@@ -162,13 +174,14 @@ Want to use your smartphone as a wireless controller? Follow these steps:
    - **Permissions → INTERNET**: ✓ Checked
 3. Click **Close**
 
-#### 7. Export Phone Controller APK
+#### 8. Export Phone Controller APK
 1. **Project → Export**
 2. Select your Android preset
-3. Click **Export Project...**
-4. Name it `PhoneController.apk`
-5. Save it somewhere easy to find
-6. Transfer the APK to your phone and install it
+3. **IMPORTANT:** Ensure the **"Export With Debug"** checkbox is **CHECKED**. (Unchecking this without a release key will cause the export to fail).
+4. Click **Export Project...**
+5. Name it `PhoneController.apk`
+6. Save it somewhere easy to find
+7. Transfer the APK to your phone and install it
    - You may need to enable "Install from Unknown Sources" in Android settings
 
 ### Part 2: Setup PC Game to Receive Controller Input
@@ -319,7 +332,34 @@ Arrow speeds are controlled in the chart JSON files located in `res://charts/`.
 - Move closer to your Wi-Fi router
 - Try 5GHz Wi-Fi if available
 
-### Desktop Game Issues
+### TROUBLESHOOTING Game Issues
+
+### Godot Export Issues
+**Problem: "Export Project" button is grayed out**
+- **Cause:** Missing Export Templates or Java SDK Path.
+- **Solution:** Click **Editor → Manage Export Templates** and download the version matching your Godot engine.
+- **Solution:** Go to **Editor Settings** and ensure the **Java SDK Path** points to your JDK 17 folder.
+
+**Problem: Export fails with "Could not find release keystore"**
+- **Cause:** You are trying to export a Release build without a Release Key.
+- **Solution:** In the Export window, make sure the **Export With Debug** checkbox is **CHECKED**.
+
+### Connection Issues
+**Problem: Phone connects to wrong IP (e.g., trying to connect to old IP)**
+- **Cause:** The IP address is hardcoded in the `PhoneController.gd` script.
+- **Solution:**
+    1. Open Command Prompt on your PC and run `ipconfig` to find your current **IPv4 Address**.
+    2. Open `PhoneController.gd` in Godot.
+    3. Update the `PC_IP` constant.
+    4. **Re-export** the APK and install the new version on your phone.
+
+**Problem: App says "Connected" but Game doesn't react**
+- **Cause:** Windows Firewall is blocking the signal.
+- **Solution:**
+    1. Search Windows for "Allow an app through Windows Firewall".
+    2. Find **Godot** in the list.
+    3. Ensure **BOTH** "Private" and "Public" boxes are checked.
+    4. Restart Godot.
 
 **Problem: No sound**
 - Verify audio files are in `res://assets/audio/` folder
@@ -378,10 +418,12 @@ Rhythm-Game/
 │   ├── ScoreManager.gd     # Scoring system and combos
 │   ├── UDPReceiver.gd      # Phone controller UDP receiver
 │   ├── KarateGame.gd       # Karate Reflexes game logic
+│   ├── KarateGestureReceiver.gd # Karate receiver (Diagonals + 2-Finger Taps)
 │   ├── TitleScreen.gd      # Title screen functionality
 │   ├── DifficultySelection.gd
 │   ├── SongSelection.gd
-│   └── Results.gd          # Results screen logic
+│   ├── Results.gd          # Results screen logic
+│   └── UDPReceiver.gd      # Rhythm Game receiver (Cardinals + 3-Finger Taps)
 ├── PhoneController/        # Separate phone controller project
 │   ├── PhoneController.gd  # Phone controller UDP sender script
 │   ├── Controller.tscn     # Phone controller scene
